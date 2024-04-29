@@ -1,0 +1,210 @@
+﻿{
+  "print_state": null,
+  "id": 17144.0,
+  "create_date": "7/08/1441",
+  "current_step": 2395.0,
+  "previous_step": 2394.0,
+  "creator_id": 1972.0,
+  "status": 1.0,
+  "request_no": "7/1441",
+  "app_id": 19.0,
+  "next_step": null,
+  "submission_file_path": "/gisapi/subattachments/85592510-5c56-45c8-8d50-8ad16733c085/",
+  "CurrentStep": null,
+  "submission_owner": null,
+  "CreatorUser": {
+    "id": 1972.0,
+    "name": "الروشن للاستشارات الهندسية",
+    "engineering_companies": {
+      "id": 1948.0,
+      "name": "الروشن للاستشارات الهندسية",
+      "mobile": "966505828232",
+      "status": 1.0,
+      "users": null
+    },
+    "status": null,
+    "mobile": "0540265196",
+    "groups": null,
+    "positions": null,
+    "committees": null
+  },
+  "step_id": null,
+  "fees": null,
+  "is_approved": 1.0,
+  "committeeactors": [
+    {
+      "user": {
+        "id": 2749.0,
+        "name": "المهندس / ثائر بن عبداللطيف الدليجان",
+        "engineering_companies": null,
+        "status": null,
+        "mobile": "966555555555",
+        "groups": null,
+        "positions": {
+          "id": 1968.0,
+          "name": "مدير عام التخطيط العمراني ",
+          "users": null
+        },
+        "committees": null
+      },
+      "position": "مدير عام التخطيط العمراني "
+    },
+    {
+      "user": {
+        "id": 1897.0,
+        "name": "المهندس/ فواز بن فهد العتيبي",
+        "engineering_companies": null,
+        "status": null,
+        "mobile": "1",
+        "groups": null,
+        "positions": {
+          "id": 728.0,
+          "name": "مدير إدارة ضبط التنمية",
+          "users": null
+        },
+        "committees": null
+      },
+      "position": "مدير إدارة التخطيط "
+    },
+    {
+      "user": {
+        "id": 2788.0,
+        "name": "المهندس / عزيز بن مساعد الخريصي",
+        "engineering_companies": null,
+        "status": null,
+        "mobile": "1",
+        "groups": null,
+        "positions": {
+          "id": 728.0,
+          "name": "مدير إدارة ضبط التنمية",
+          "users": null
+        },
+        "committees": null
+      },
+      "position": "مدير إدارة ضبط التنمية"
+    },
+    {
+      "user": {
+        "id": 756.0,
+        "name": "احمد سعيد الشمراني",
+        "engineering_companies": null,
+        "status": null,
+        "mobile": "1",
+        "groups": null,
+        "positions": {
+          "id": 1970.0,
+          "name": "سكرتير وعضو اللجنة الفنية",
+          "users": null
+        },
+        "committees": null
+      },
+      "position": "سكرتير وعضو اللجنة الفنية"
+    }
+  ],
+  "committee_date": "7/08/1441",
+  "committee_report_no": "2/1441",
+  "workflows": {
+    "id": 2169.0,
+    "name": "طلب رخصة مرافق عامة",
+    "app_id": 19.0,
+    "print_state": "#/gis_services/print_service/",
+    "modules": null,
+    "committee_id": 2150.0,
+    "committees": null,
+    "check_land_contract": null,
+    "validate_identify_parcel": null,
+    "workflow1": null
+  },
+  "export_no": null,
+  "committees": {
+    "id": 2150.0,
+    "name": "اللجنة الفنية لتطبيقات الفرز الجديدة 08112018",
+    "committee_actors": [
+      {
+        "committee_id": 2150.0,
+        "users": {
+          "id": 756.0,
+          "name": "احمد سعيد الشمراني",
+          "engineering_companies": null,
+          "status": null,
+          "mobile": "1",
+          "groups": null,
+          "positions": {
+            "id": 1970.0,
+            "name": "سكرتير وعضو اللجنة الفنية",
+            "users": null
+          },
+          "committees": null
+        },
+        "committees": null
+      },
+      {
+        "committee_id": 2150.0,
+        "users": {
+          "id": 2788.0,
+          "name": "المهندس / عزيز بن مساعد الخريصي",
+          "engineering_companies": null,
+          "status": null,
+          "mobile": "1",
+          "groups": null,
+          "positions": {
+            "id": 728.0,
+            "name": "مدير إدارة ضبط التنمية",
+            "users": null
+          },
+          "committees": null
+        },
+        "committees": null
+      },
+      {
+        "committee_id": 2150.0,
+        "users": {
+          "id": 2749.0,
+          "name": "المهندس / ثائر بن عبداللطيف الدليجان",
+          "engineering_companies": null,
+          "status": null,
+          "mobile": "966555555555",
+          "groups": null,
+          "positions": {
+            "id": 1968.0,
+            "name": "مدير عام التخطيط العمراني ",
+            "users": null
+          },
+          "committees": null
+        },
+        "committees": null
+      },
+      {
+        "committee_id": 2150.0,
+        "users": {
+          "id": 1897.0,
+          "name": "المهندس/ فواز بن فهد العتيبي",
+          "engineering_companies": null,
+          "status": null,
+          "mobile": "1",
+          "groups": null,
+          "positions": {
+            "id": 728.0,
+            "name": "مدير إدارة ضبط التنمية",
+            "users": null
+          },
+          "committees": null
+        },
+        "committees": null
+      }
+    ],
+    "users": null
+  },
+  "committee_id": 2150.0,
+  "assign_to_group_id": 5509.0,
+  "assign_to_position_id": null,
+  "assign_to_user_id": null,
+  "actor": null,
+  "export_date": null,
+  "invoice_number": null,
+  "is_paid": null,
+  "submission_purpose": null,
+  "ownerUser": null,
+  "is_returned": null,
+  "users1": null
+}

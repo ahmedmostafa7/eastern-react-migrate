@@ -1,0 +1,61 @@
+import { host } from "imports/config";
+export default {
+  label: "المرفقات النهائية",
+  sections: {
+    final_approvals: {
+      label: "المرفقات النهائية",
+      fields: {
+        minister_approval_krar: {
+          label: "قرار موافقة الوزارة",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: "image/*,.pdf",
+          multiple: false,
+          required: true,
+          preRequest: (props) => {},
+          postRequest: (uploadedUrl, props) => {},
+        },
+        minister_merge_krar: {
+          label: "قرار الضم من الوزارة",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: "image/*,.pdf",
+          multiple: false,
+          required: true,
+          preRequest: (props) => {},
+          postRequest: (uploadedUrl, props) => {},
+        },
+        fees_letter: {
+          label: "خطاب إدارة الأراضي باستيفاء الرسوم والمعارضة",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: "image/*,.pdf",
+          multiple: false,
+          required: true,
+          preRequest: (props) => {},
+          postRequest: (uploadedUrl, props) => {},
+        },
+        tbleeg_letter: {
+          label: "خطاب التبليغ",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: "image/*,.pdf",
+          multiple: false,
+          required: true,
+          preRequest: (props) => {},
+          postRequest: (uploadedUrl, props) => {},
+        },
+        others: {
+          label: "أخرى",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: "image/*,.pdf",
+          multiple: false,
+          required: true,
+          preRequest: (props) => {},
+          postRequest: (uploadedUrl, props) => {},
+        },
+      },
+    },
+  },
+};

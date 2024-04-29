@@ -1,0 +1,43 @@
+.form_requestingReporting {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  padding: 10px;
+
+  height: 35vh;
+}
+.form_requestingReporting > div {
+  display: grid !important;
+  // grid-template-columns: 0 100px 75%;
+}
+.requestingReporting_data {
+  display: grid;
+  margin: 10px;
+  grid-gap: 10px;
+  background: transparent !important;
+}
+.requestingReporting_data td {
+  width: 30vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  border: none !important;
+}
+.requestingReporting_data td:nth-child(even) {
+  background: #dde2e2 !important;
+}
+
+.requestingReporting_data td > div {
+  font-weight: bold;
+  font-size: 16px;
+}
+.requestingReporting_print {
+  // display: grid;
+  grid-template-columns: 100px 100px 100px;
+  justify-content: flex-end;
+  grid-gap: 10px;
+}
+
+td:nth-child(even) {
+  background: #fff;
+}

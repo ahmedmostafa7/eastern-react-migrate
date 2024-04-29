@@ -1,0 +1,145 @@
+import { host } from "configFiles/config";
+export default {
+  number: 5,
+  label: "Attachments",
+  //description: 'this is the Second Step description',
+  sections: {
+    attachments: {
+      label: "Attachments",
+      type: "inputs",
+      fields: {
+        paper: {
+          label: "Conditional Paper",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        folder: {
+          label: "Project Folder",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        cad_files: {
+          label: "Project Files",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".dwg,.DWG",
+          required: true,
+        },
+        view_files: {
+          label: "Viewing Images",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        owner_approval: {
+          label: "Owner Represent Approval",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        code_approval: {
+          label: "Code Building Approval",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        others: {
+          label: "Others",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          // required: true
+        },
+      },
+    },
+    important: {
+      label: "Owner Approvals",
+      permission: {
+        stateFilter: {
+          key: "StateSelectorCompare",
+          path: "wizard.mainObject.submissionType.submission.sub_type",
+          compare: "imp_time",
+        },
+      },
+      fields: {
+        road_plan: {
+          label: "Road Planning",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        light_plan: {
+          label: "Light Planning",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        damage_plan: {
+          label: "Damage Planning",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        water_plan: {
+          label: "Water Planning",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        electric_plan: {
+          label: "Electric Planning",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        phone_plan: {
+          label: "Phone Planning",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        tabtir_plan: {
+          label: "Tabtir Planning",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        owner_office_approve: {
+          label: "Owner Office Approval",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        owner_super_approve: {
+          label: "Owner SuperVisse Approval",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+        owner_committment: {
+          label: "Owner Commitement",
+          field: "simpleUploader",
+          uploadUrl: `${host}/uploadMultifiles`,
+          fileType: ".pdf",
+          required: true,
+        },
+      },
+    },
+  },
+};

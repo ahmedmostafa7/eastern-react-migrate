@@ -1,0 +1,28 @@
+// export * from './Component/IdentifyComponnent'
+import {lazy} from 'react';
+export const Identify = lazy(() => import ('./Component/IdentifyComponnent'));
+export const addedParcelsIdentify = lazy(() => import ('./Component/addedParcelsIdentifyComponnent'));
+export const ServiceIdentify = lazy(() => import ('./Component/serviceIdentifyComponnent'));
+export const propertyIdentify = lazy(() => import ('./Component/propertyCheckIdentifyComponnent'));
+export const IdentifyKroki = lazy(() => import ('./Component/krokiIdentifyComponnent'));
+export const UpdateContractIdentify = lazy(() => import ('./Component/updateContractIdentifyComponnent'));
+export const IdentifyFarz = lazy(() => import ('./Component/farzIdentifyComponnent'));
+export const IdentifyPublicLocation = lazy(() => import ('./Component/IdentifyPublicLocationComponent'));
+export const IdentifyCoord = lazy(() => import ('./Component/IdentifyComponnentCoord'));
+export const IdentifySeriveRange = lazy(() => import ('./Component/IdentifyServiceRange'));
+export const SuggestParcel = lazy(() => import ('./Component/SuggestParcel'));
+export const updateMapFinal = lazy(() => import ('./Component/updatefinalMap'));
+export const msa7yData = lazy(() => import ('./Component/msa7yDataComponent/index'));
+export const cadData = lazy(() => import ('./Component/msa7yDataComponent/cadData'));
+export const plansData = lazy(() => import ('./Component/msa7yDataComponent/plansData'));
+export const plansData_new = lazy(() => import ('./Component/msa7yDataComponent/plansData_new'));
+export const submitCADSuggestedData = lazy(() => import ('./Component/msa7yDataComponent/submitCADSuggestedData'));
+export const cadSuggestedData = lazy(() => import ('./Component/msa7yDataComponent/cadSuggestedData'));
+export const annotationTable = lazy(() => import ('./Component/annotationTable'));
+export const editFeaturesTable = lazy(() => import ('./Component/editFeaturesTable'));
+export const editUpdateFilter = lazy(() => import ('./Component/editUpdateFilterComponent'));
+export const showMapEdits = lazy(() => import ('./Component/showMapEditComponent'));
+export const IdentifyInvest = lazy(() => import ('./Component/InvestIdentifyComponnent'));
+export const IdentifySurvey = lazy(() => import ('./Component/SurveyIdentifyComponnent'));
+export const propertyRemovalIdentify = lazy(() => import ('./Component/propertyRemovalIdentifyComponnent'));
+export const SuggestParcelPropertyRemovable = lazy(() => import ('./Component/SuggestParcelPropertyRemovable'));
