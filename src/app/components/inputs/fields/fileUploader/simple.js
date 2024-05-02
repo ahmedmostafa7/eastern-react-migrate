@@ -20,7 +20,7 @@ import { input } from "../list/table/row/types";
 import Img from "app/helpers/components/image";
 import { mapStateToProps, mapDispatchToProps } from "./mapping";
 import { connect } from "react-redux";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 const { confirm } = Modal;
 const config = {
   headers: {

@@ -3,7 +3,7 @@ import { Input } from "antd";
 import mainInput from "app/helpers/main/input";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../mapping";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { withTranslation } from "react-i18next";
 import { isFunction, isEqual } from "lodash";
 const { TextArea } = Input;

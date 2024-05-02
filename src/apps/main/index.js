@@ -3,7 +3,7 @@ import { Button } from "antd";
 import { withTranslation } from "react-i18next";
 import { mapDispatchToProps } from "./mapping";
 import { connect } from "react-redux";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 
 class Main extends Component {
   submissionClicked() {

@@ -4,7 +4,7 @@ import AddEditModal from "./addeditmodal";
 import { Modal, message } from "antd";
 import Box from "./box";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, withRouter, NavLink } from "react-router-dom";
+// import { Link, withRouter, NavLink } from "react-router-dom";
 import { faTimes, faWrench, faPlus } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const translate_step_actions = {

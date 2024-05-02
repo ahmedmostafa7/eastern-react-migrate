@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Menu, Dropdown, Icon } from "antd";
+import { Menu, Dropdown } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 import {
   Button,
   Form,
@@ -1188,7 +1189,7 @@ class editUpdateFilterComponent extends Component {
                             icon={faCloudDownloadAlt}
                             style={{ marginLeft: "5px" }}
                           />
-                          تنزيل البيانات <Icon type="down" />
+                          تنزيل البيانات <DownOutlined /> />
                         </a>
                       </Dropdown>
                     )}
@@ -1203,7 +1204,7 @@ class editUpdateFilterComponent extends Component {
                             icon={faCloudUploadAlt}
                             style={{ marginLeft: "5px" }}
                           />
-                          رفع البيانات <Icon type="down" />
+                          رفع البيانات <DownOutlined /> 
                         </a>
                       </Dropdown>
                     )}

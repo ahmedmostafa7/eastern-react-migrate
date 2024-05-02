@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Modal, Timeline, Icon, Row, Col } from "antd";
+import { Modal, Timeline, Row, Col } from "antd";
+import { Icon } from "@ant-design/compatible";
 import { connect } from "react-redux";
 import { withTranslation } from "react-i18next";
 import { split } from "lodash";

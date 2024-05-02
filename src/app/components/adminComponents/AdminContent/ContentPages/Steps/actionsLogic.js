@@ -13,7 +13,7 @@ import {
 } from "antd";
 import axios from "axios";
 import { ColorPicker, useColor } from "react-color-palette";
-import "react-color-palette/lib/css/styles.css";
+import "react-color-palette/css";
 const ActionsSteps = ({
   item,
   steps,

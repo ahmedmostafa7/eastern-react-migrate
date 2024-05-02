@@ -5,7 +5,7 @@ import { FormSection } from "redux-form";
 import { Collapse } from "antd";
 import { withTranslation } from "react-i18next";
 import { map, get, last, isEqual, keys } from "lodash";
-import { Icon } from "antd";
+// import { Icon } from "antd";
 const Panel = Collapse.Panel;
 import Collpasing from "./collapse";
 import mapDispatchToProps from "main_helpers/actions/main";

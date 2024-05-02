@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { mapStateToProps, mapDispatchToProps } from "./mapping";
-import { Steps, Icon } from "antd";
+import { Steps } from "antd";
+import { Icon } from "@ant-design/compatible";
 import { get, isEmpty } from "lodash";
 import { connect } from "react-redux";
 import { withTranslation } from "react-i18next";

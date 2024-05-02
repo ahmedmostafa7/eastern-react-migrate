@@ -7,7 +7,7 @@ import { buildColumns } from "./helperMethods";
 import { fetchData } from "app/helpers/apiMethods";
 import { handleErrorMessages } from "app/helpers/errors";
 import { withTranslation } from "react-i18next";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 
 class AdminTable extends Component {
   constructor(props) {

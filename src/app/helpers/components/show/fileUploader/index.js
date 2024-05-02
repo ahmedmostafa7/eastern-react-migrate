@@ -4,6 +4,7 @@ import { withTranslation } from "react-i18next";
 import { get, isEmpty, words, remove } from "lodash";
 import { host } from "configFiles/config";
 import ImagePreview from "./ImagePreview";
+import { PlusOutlined } from "@ant-design/icons";
 
 const { confirm } = Modal;
 
@@ -13,7 +14,7 @@ class fileUploaderComponent extends Component {
   uploadButton = (
     <div>
       <div className="ant-upload-text">{this.props.label}</div>
-      <Icon type="plus" />
+      <PlusOutlined />
     </div>
   );
 

@@ -1,7 +1,7 @@
 import { FloorFields, FlatFields } from "../fields";
 import { uuid } from "uuidv4";
 import { get, omit, isEmpty, filter, toArray, sumBy } from "lodash";
-import { Message } from "antd";
+import { message } from "antd";
 import { SubAttachementUrl } from "imports/config";
 import { host } from "imports/config";
 // import {map} from 'lodash'
@@ -44,7 +44,7 @@ export const collapseField = {
                 );
                 const types = filter(floors, { type: values.type });
                 if (values.type != "Repeated" && types.length) {
-                  Message.error(
+                  message.error(
                     props.t("Cannot Add This Floor Please Change Type")
                   );
                   return Promise.reject(false);
@@ -102,7 +102,7 @@ export const collapseField = {
                         d.type != values.type &&
                         types.length
                       ) {
-                        Message.error(
+                        message.error(
                           props.t("Cannot Add This Floor Please Change Type")
                         );
                         return Promise.reject(false);
@@ -340,7 +340,7 @@ export default {
         (d) => d.building_ratio * d.repeat
       );
       if (areas > 100) {
-        Message.error("نسبة البناء تخطت الحد المسموح");
+        message.error("نسبة البناء تخطت الحد المسموح");
         // throw "error in land selection"
         reject();
       } else {

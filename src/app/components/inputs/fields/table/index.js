@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Table, Alert, Popconfirm, Button, Icon } from "antd";
+import { Table, Alert, Popconfirm, Button } from "antd";
+import { Icon } from "@ant-design/compatible";
 import { mapStateToProps, mapDispatchToProps } from "./mapping";
 import { connect } from "react-redux";
 import { assign, map, isEqual, get } from "lodash";
 import * as tableActionFunctions from "./tableActionFunctions";
 import * as fieldValues from "app/helpers/fieldValues";
 import { withTranslation } from "react-i18next";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import axios from "axios";
 
 class tableComponent extends Component {

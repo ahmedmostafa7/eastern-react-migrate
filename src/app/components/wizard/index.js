@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "./mapping";
 import Steps from "./components/stepsComponent";
 import StepContent from "./components/stepContent";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { withTranslation } from "react-i18next";
 import { Modal } from "antd";
 // import PrintParcel from "./modulesObjects/split_merge/print/print_parcels";

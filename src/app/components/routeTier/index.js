@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { get, find, omit, includes } from "lodash";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "./mapping";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import Axios from "axios";
 import qs from "qs";
 import { withTranslation } from "react-i18next";

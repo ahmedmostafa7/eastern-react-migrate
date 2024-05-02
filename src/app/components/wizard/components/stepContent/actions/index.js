@@ -4,7 +4,7 @@ import { get, omit } from "lodash";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "./mapping";
 import * as actionFuncs from "./actionFunctions";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { withTranslation } from "react-i18next";
 import axios from "axios";
 import { workFlowUrl } from "imports/config";

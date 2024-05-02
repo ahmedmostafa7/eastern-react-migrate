@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Menu, Layout } from "antd";
 import { withTranslation } from "react-i18next";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { get, map, sortBy, reverse } from "lodash";
 import Icon from "app/components/icon";
 import memoize from "memoize-one";

@@ -1,8 +1,8 @@
 import { uuid } from "uuidv4";
 import { SakFields } from "./fields";
 // import {host} from 'configFiles/config'
-import { get } from "axios";
-import { omit, isEmpty } from "lodash";
+// import {  } from "axios";
+import { get, omit, isEmpty } from "lodash";
 import { message } from "antd";
 export default (props) => ({
   number: 4,

@@ -17,7 +17,7 @@ import applyFilters from "main_helpers/functions/filters";
 import label from "../../label";
 import { validate as isValidUUID } from "uuid";
 import { connect } from "react-redux";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { mapStateToProps, mapDispatchToProps } from "../mapping";
 import { esriRequest } from "../../identify/Component/common";
 const funs = {

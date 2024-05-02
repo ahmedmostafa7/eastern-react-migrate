@@ -3,7 +3,7 @@ import { Tabs, message } from "antd";
 const { TabPane } = Tabs;
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-import { post } from "axios";
+import axios from "axios";
 import {
   queryTask,
   getInfo,
@@ -30,7 +30,7 @@ import "antd/dist/reset.css";
 import MapComponent from "../MapComponent/MapComponent";
 import { mapDispatchToProps, mapStateToProps } from "../mapping";
 import { connect } from "react-redux";
-import axios from "axios";
+// import axios from "axios";
 import { get } from "lodash";
 import { querySetting } from "../IdentifyComponnentCoord/Helpers";
 import { timeout } from "d3";
@@ -1373,7 +1373,7 @@ class updateMapFiled extends Component {
             obj.file = reader.result;
             obj.type = "cad";
             obj.url = "split_merge/";
-            post(workFlowUrl + "/api/Upload", obj).then((response) => {
+            axios.post(workFlowUrl + "/api/Upload", obj).then((response) => {
               self.cadData = response.data;
 
               if (

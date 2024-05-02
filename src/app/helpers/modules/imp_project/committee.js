@@ -1,5 +1,5 @@
 import { filter } from "lodash";
-import { Message } from "antd";
+import { message } from "antd";
 import store from "app/reducers";
 import { get } from "lodash";
 export default (number) => ({
@@ -10,7 +10,7 @@ export default (number) => ({
     if (!number || members.length >= number) {
       return Promise.resolve(values);
     }
-    Message.error(props.t("Please Choose 3 members"));
+    message.error(props.t("Please Choose 3 members"));
     return Promise.reject();
   },
   //description: 'this is the Second Step description',

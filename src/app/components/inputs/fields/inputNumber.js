@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Select, Button, Form, message } from "antd";
 import { get, isEqual, omit, map, isFunction } from "lodash";
 import { mapStateToProps, mapDispatchToProps } from "../mapping";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import mainInput from "app/helpers/main/input";
 import { InputNumber } from "antd";
 

@@ -6,7 +6,7 @@ import { Inputs } from "../inputs";
 import { get } from "lodash";
 import { mapStateToProps } from "./mapping";
 import { connect } from "react-redux";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { apps } from "../../../../../app/components/inputs/fields/identify/Component/common/common_func";
 
 class cardsComponent extends Component {

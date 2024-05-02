@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Select, Divider, Icon, Button } from "antd";
+import { Select, Divider, Button } from "antd";
+import { Icon } from "@ant-design/compatible";
 import { withTranslation } from "react-i18next";
 import { get, isEqual, includes } from "lodash";
 

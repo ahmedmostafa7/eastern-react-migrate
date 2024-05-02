@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import style from "./style.less";
 import { view, print, followUp } from "../../tableActionFunctions/tableActions";
 import { withTranslation } from "react-i18next";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { get, isEmpty, pick, concat } from "lodash";
 import { fetchData, postItem } from "app/helpers/apiMethods";
 import { SearchForm } from "./searchForm";

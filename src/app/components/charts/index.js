@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { tabsTable } from "../../../apps/modules/tabs/contents";
 import * as fetchDataFunctions from "./apiFunctions";
 import { withTranslation } from "react-i18next";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { printHost } from "../../../imports/config";
 import { apps } from "../inputs/fields/identify/Component/common/common_func";
 export const appMapDispatchToProps = (dispatch) => {

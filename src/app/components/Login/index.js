@@ -9,7 +9,7 @@ import { serverFieldMapper } from "app/helpers/functions";
 import { withTranslation } from "react-i18next";
 import { postItem } from "app/helpers/apiMethods";
 import { handleErrorMessages } from "app/helpers/errors";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { workFlowUrl } from "imports/config";
 import { get, isEmpty } from "lodash";
 

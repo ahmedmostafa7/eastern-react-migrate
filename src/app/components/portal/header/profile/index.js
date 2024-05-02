@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { mapStateToProps, mapDispatchToProps } from "../mapping";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { withRouter } from "apps/routing/withRouter";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import RenderField from "app/components/inputs";

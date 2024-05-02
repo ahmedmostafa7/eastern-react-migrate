@@ -5,7 +5,7 @@ import { Layout, Icon, Button } from "antd";
 import { stepIcons } from "./stepIcons";
 import { withTranslation } from "react-i18next";
 import { omit } from "lodash";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 
 class stepComponent extends Component {
   constructor(props) {

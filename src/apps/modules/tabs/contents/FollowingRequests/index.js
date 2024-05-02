@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { mapStateToProps, mapDispatchToProps } from "./mapping";
 import { connect } from "react-redux";
 import { withTranslation } from "react-i18next";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { Pagination, Form, Button } from "antd";
 import renderField from "app/components/inputs";
 import { Field, reduxForm } from "redux-form";

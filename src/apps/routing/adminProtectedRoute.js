@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { mapStateToProps } from "./mapping";
 import { connect } from "react-redux";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Navigate } from "react-router-dom";
 
 class AdminProtectedRoute extends Component {
   render() {

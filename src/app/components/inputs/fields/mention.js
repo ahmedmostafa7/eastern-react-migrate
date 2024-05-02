@@ -1,9 +1,9 @@
 import React from "react";
-import { Mention } from "antd";
+import { Mentions } from "antd";
 import mainInput from "app/helpers/main/input";
 import { withTranslation } from "react-i18next";
 import { keys, get } from "lodash";
-const { toString, toContentState } = Mention;
+const { toString, toContentState } = Mentions;
 
 export class mentionsComponent extends mainInput {
   state = {

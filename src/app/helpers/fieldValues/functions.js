@@ -1,5 +1,6 @@
 import React from "react";
-import { Icon, List, Table } from "antd";
+import { List, Table } from "antd";
+import { Icon } from "@ant-design/compatible";
 import {
   get,
   split,

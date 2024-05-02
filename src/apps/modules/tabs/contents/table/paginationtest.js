@@ -10,7 +10,7 @@ import * as tableActionFunctions from "../../tableActionFunctions";
 import { workFlowUrl } from "imports/config";
 import * as fieldValues from "app/helpers/fieldValues";
 import { withTranslation } from "react-i18next";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 // import Filters from './filters'
 // import { set } from 'd3'
 class tabsTableComponent extends Component {

@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/compatible": "^5.1.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@gfx/zopfli": "^1.0.14",
     "@manaflair/redux-batch": "^1.0.0",
+    "@microsoft/signalr": "^8.0.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -106,6 +108,7 @@
     ]
   },
   "devDependencies": {
+    "@ant-design/icons": "^5.3.6",
     "@babel/core": "7.22.5",
     "@babel/eslint-parser": "7.22.5",
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
@@ -115,5 +118,8 @@
     "jsdom-quokka-plugin": "^1.0.15",
     "uniqid": "^5.2.0",
     "uuidv4": "^6.2.12"
+  },
+  "browser": {
+    "crypto": false
   }
 }

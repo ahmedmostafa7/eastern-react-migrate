@@ -3,7 +3,7 @@ import style from "./style.less";
 import { Button } from "antd";
 import axios from "axios";
 import { workFlowUrl } from "configFiles/config";
-import { withNamespaces } from "react-i18next";
+import { withTranslation } from "react-i18next";
 const statusApi = "engineercompany/SetStatus";
 import { Popconfirm } from "antd";
 
@@ -50,4 +50,4 @@ class engCompRow extends Component {
   }
 }
 
-export default withNamespaces("actions")(engCompRow);
+export default withTranslation("actions")(engCompRow);

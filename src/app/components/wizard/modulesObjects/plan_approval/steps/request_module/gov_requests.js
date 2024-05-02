@@ -4,7 +4,8 @@ import { host, workFlowUrl, backEndUrlforMap } from "imports/config";
 import { get, remove, values } from "lodash";
 import applyFilters from "main_helpers/functions/filters";
 import axios from "axios";
-import { Message } from "antd";
+import { message } from "antd";
+
 import { plan_approval_fields } from "./reqFields";
 // import main from "../../../../../inputs/fields/calculator/main";
 // import { tree } from "d3-hierarchy";
@@ -32,7 +33,7 @@ export default {
       if (dataAdded.includes(false)) {
         data
           .filter((x) => x.added == false)
-          .map((d) => Message.error(`من فضلك قم بادخال ${d.name}`));
+          .map((d) => message.error(`من فضلك قم بادخال ${d.name}`));
         // throw "error in land selection"
         reject();
         // } else if (Object.keys(fa7s).length == 0) {

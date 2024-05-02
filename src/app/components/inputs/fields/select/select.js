@@ -5,7 +5,7 @@ import { withTranslation } from "react-i18next";
 import mainInput from "app/helpers/main/input";
 import { fetchData } from "app/helpers/apiMethods";
 import { connect } from "react-redux";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { mapStateToProps, mapDispatchToProps } from "./mapping";
 import { get, isEqual, omit, map, isFunction, isEmpty } from "lodash";
 

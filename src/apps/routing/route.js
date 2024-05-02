@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch, Routes } from "react-router-dom";
 import ProtectedRoute from "./protectedRoute";
 import AdminProtectedRoute from "./adminProtectedRoute";
 import { Layout, message, Modal } from "antd";
@@ -290,7 +290,7 @@ class Routing extends Component {
                 <Route path="/admin" component={AdminMainPage} />
               )}
               <Content style={{ gridRow: 2 }}>
-                <Switch>
+                <Routes>
                   {/* <Route exact path="/" component={main} /> */}
                   <Route exact path="/" component={LoginForm} />
                   <Route path="/identify" component={ThirdIdentifier} />
@@ -314,7 +314,7 @@ class Routing extends Component {
                     path="/administration/work_flow/:app?/:step_num?"
                     component={AdminWorkFlow}
                   /> */}
-                </Switch>
+                </Routes>
               </Content>
               <Popups /> <Footerr />
             </div>

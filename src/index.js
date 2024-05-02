@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import interceptor from "./interceptors";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "antd/dist/reset.css";
+// import "@ant-design/compatible/assets/index.css";
 interceptor();
 if (!localStorage.esri_token && localStorage.user) {
   window.esriToken = JSON.parse(localStorage.getItem("user")).esriToken;

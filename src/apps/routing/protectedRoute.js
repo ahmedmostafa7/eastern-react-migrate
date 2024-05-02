@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { mapStateToProps } from "./mapping";
 import { connect } from "react-redux";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Navigate } from "react-router-dom";
 
 class ProtectedRoute extends Component {
-  
   render() {
     const { component: Component, user, path } = this.props;
     return (
@@ -15,7 +14,7 @@ class ProtectedRoute extends Component {
             <Component {...props} />
           ) : (
             // <Redirect to={`/login?redirect_to=${path}`} />
-            <Redirect to={`${path}`} />
+            <Navigate to={`${path}`} />
           )
         }
       />

@@ -1,17 +1,19 @@
 import React, { Component } from "react";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+// import NotificationsIcon from "@material-ui/icons/Notifications";
+import NotificationOutlined from "@ant-design/icons";
 import {
   HubConnectionBuilder,
   HubConnectionState,
   LogLevel,
 } from "@microsoft/signalr";
 import { withTranslation } from "react-i18next";
-import { Menu, Dropdown, Badge, Skeleton, Avatar, Modal, Comment } from "antd";
+import { Menu, Dropdown, Badge, Skeleton, Avatar, Modal } from "antd";
+import { Comment } from "@ant-design/compatible";
 import InfiniteScroll from "react-infinite-scroll-component";
 import moment from "moment-hijri";
 import PropTypes from "prop-types";
 import { mapStateToProps, mapDispatchToProps } from "apps/modules/tabs/mapping";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 // import { tableActions } from "../../common";
 import axios from "axios";
 import { workFlowUrl } from "imports/config";
@@ -384,7 +386,7 @@ class NotifyIcon extends Component {
               }
               visible={isDropDownOpen}
             >
-              <NotificationsIcon />
+              <NotificationOutlined />
             </Dropdown>
           </Avatar>
         </Badge>

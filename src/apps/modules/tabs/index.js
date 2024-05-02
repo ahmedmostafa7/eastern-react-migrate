@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { get, map, sortBy, head, isEmpty } from "lodash";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "./mapping";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import * as tabsObject from "./tabsObject";
 import axios from "axios";
 import * as contents from "./contents";

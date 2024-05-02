@@ -6,7 +6,7 @@ import mainInput from "app/helpers/main/input";
 import { fetchData } from "app/helpers/apiMethods";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "./mapping";
-import { withRouter } from "react-router";
+import { withRouter } from "apps/routing/withRouter";
 import { get, isEqual, omit, map, isFunction } from "lodash";
 import ActiveSelect from "./activeSelect";
 const Option = Select.Option;
