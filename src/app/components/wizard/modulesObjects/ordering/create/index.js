@@ -7,7 +7,7 @@ export const create_ordering = {
   },
 };
 
-export const summary = {
+export const summary_ordering = {
   name: "summary",
   module_id: 7,
   steps: {

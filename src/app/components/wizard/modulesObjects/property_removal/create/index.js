@@ -335,7 +335,7 @@ export const compensation_shake_propertyremoval = {
   },
 };
 
-export const _default = {
+export const _default_propertyRemoval = {
   name: "default",
   module_id: 2,
   steps: {
@@ -353,7 +353,7 @@ export const _default = {
   },
 };
 
-export const summary = {
+export const summary_propertyRemoval = {
   name: "summary",
   module_id: 7,
   steps: {

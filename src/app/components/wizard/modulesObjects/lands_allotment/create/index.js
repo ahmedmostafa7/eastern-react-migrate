@@ -145,7 +145,7 @@ export const print_landsallotment_adle = {
   },
 };
 
-export const _default = {
+export const _default_landsAll = {
   name: "default",
   module_id: 2,
   steps: {
@@ -163,7 +163,7 @@ export const _default = {
   },
 };
 
-export const summary = {
+export const summary_landAll = {
   name: "summary",
   module_id: 7,
   steps: {

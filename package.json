@@ -11,6 +11,7 @@
     "@gfx/zopfli": "^1.0.14",
     "@manaflair/redux-batch": "^1.0.0",
     "@microsoft/signalr": "^8.0.0",
+    "@react-aria/ssr": "^3.9.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -27,6 +28,7 @@
     "d3": "^5.15.0",
     "draftjs-to-html": "^0.9.1",
     "esri-loader": "^2.13.0",
+    "fs": "^0.0.1-security",
     "i18next": "^12.1.0",
     "lodash": "^4.17.11",
     "lz-string": "^1.5.0",
@@ -90,7 +92,7 @@
     "xlsx": "^0.18.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-app-rewired start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -109,17 +111,23 @@
   },
   "devDependencies": {
     "@ant-design/icons": "^5.3.6",
-    "@babel/core": "7.22.5",
-    "@babel/eslint-parser": "7.22.5",
-    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
-    "@babel/plugin-transform-private-property-in-object": "^7.24.5",
-    "@babel/preset-env": "7.22.5",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-export-namespace-from": "^7.24.1",
+    "@babel/plugin-transform-runtime": "^7.24.3",
+    "@babel/preset-env": "^7.22.6",
+    "@babel/preset-react": "^7.22.5",
+    "babel-plugin-styled-components": "^2.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "http-server": "^14.1.1",
     "jsdom-quokka-plugin": "^1.0.15",
     "uniqid": "^5.2.0",
     "uuidv4": "^6.2.12"
   },
   "browser": {
-    "crypto": false
+    "crypto": false,
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

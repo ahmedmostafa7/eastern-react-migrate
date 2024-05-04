@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import interceptor from "./interceptors";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "antd/dist/reset.css";
+import reportWebVitals from "./reportWebVitals";
 // import "@ant-design/compatible/assets/index.css";
 interceptor();
 if (!localStorage.esri_token && localStorage.user) {
@@ -16,16 +17,16 @@ if (!localStorage.esri_token && localStorage.user) {
 } else {
   window.esriToken = localStorage.esri_token;
 }
-
-render(
-  <Provider store={store}>
-    <I18nextProvider i18n={i18n}>
-      {/* <LocaleProvider locale={ar_EG} > */}
-      <>
-        <App />
-      </>
-      {/* </LocaleProvider> */}
-    </I18nextProvider>
-  </Provider>,
-  document.getElementById("app")
+const root = ReactDOM.createRoot(document.getElementById("app"));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <I18nextProvider i18n={i18n}>
+        <>
+          <App />
+        </>
+      </I18nextProvider>
+    </Provider>
+  </React.StrictMode>
 );
+reportWebVitals();

@@ -156,7 +156,7 @@ export const approve_landsmanager_investmentsites = {
   },
 };
 
-export const _default = {
+export const _default_investmentSites = {
   name: "default",
   module_id: 2,
   steps: {
@@ -174,7 +174,7 @@ export const _default = {
   },
 };
 
-export const summary = {
+export const summary_investmentSites = {
   name: "summary",
   module_id: 7,
   steps: {

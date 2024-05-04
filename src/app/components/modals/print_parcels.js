@@ -23,7 +23,7 @@ import { initializeSubmissionData } from "main_helpers/functions/prints";
 import { Row, Col, Button, Modal } from "antd";
 import QRCode from "react-qr-code";
 import ReactToPrint, { PrintContextConsumer } from "react-to-print";
-import QrReader from "app/components/BarCode";
+// import QrReader from "app/components/BarCode";
 import ZoomSlider from "app/components/editPrint/zoomEdit";
 import {
   selectMainObject,

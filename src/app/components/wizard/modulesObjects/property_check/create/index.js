@@ -170,7 +170,7 @@ export const review_gis_propertycheck = {
   },
 };
 
-export const _default = {
+export const _default_propertyCheck = {
   name: "default",
   module_id: 2,
   steps: {
@@ -188,7 +188,7 @@ export const _default = {
   },
 };
 
-export const summary = {
+export const summary_propertyCheck = {
   name: "summary",
   module_id: 7,
   steps: {

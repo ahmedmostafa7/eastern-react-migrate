@@ -1,6 +1,6 @@
 //
 
-export *  from "./exportCad";
+export * from "./exportCad";
 export * from "./imp_projects";
 export * from "./service";
 export * from "./akar";

@@ -214,7 +214,7 @@ export const eatmadattachment_mergestreets = {
   },
 };
 
-export const _default = {
+export const _default_meregeStreets = {
   name: "default",
   module_id: 2,
   steps: {
@@ -232,7 +232,7 @@ export const _default = {
   },
 };
 
-export const final_step_spm = {
+export const final_step_spm_mergeStreets = {
   name: "final_step_spm",
   module_id: 6,
   steps: {

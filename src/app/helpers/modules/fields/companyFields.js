@@ -4,7 +4,7 @@ import { get, omit, isEmpty } from "lodash";
 import { uuid } from "uuidv4";
 import applyFilters from "main_helpers/functions/filters";
 import axios from "axios";
-export const owner = {
+export const owner_companyFields = {
   name: {
     label: "Name",
     field: "text",

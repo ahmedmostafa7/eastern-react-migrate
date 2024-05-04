@@ -192,7 +192,7 @@ export const split_empty_request_duplix_engineer = {
   },
 };
 
-export const _default = {
+export const default_split_merge = {
   name: "default",
   module_id: 2,
   steps: {

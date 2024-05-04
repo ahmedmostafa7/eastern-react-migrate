@@ -76,7 +76,7 @@ export const split_empty_request_survey_engineer = {
   },
 };
 
-export const _default = {
+export const _default_survayReports = {
   name: "default",
   module_id: 2,
   steps: {
@@ -94,7 +94,7 @@ export const _default = {
   },
 };
 
-export const summary = {
+export const summary_survayReport = {
   name: "summary",
   module_id: 7,
   steps: {

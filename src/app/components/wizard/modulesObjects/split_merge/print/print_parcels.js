@@ -23,7 +23,7 @@ import {
 import { Row, Col } from "antd";
 import QRCode from "react-qr-code";
 import ReactToPrint, { PrintContextConsumer } from "react-to-print";
-import QrReader from "app/components/BarCode";
+// import QrReader from "app/components/BarCode";
 import {
   checkImportedMainObject,
   getFieldDomain,
