@@ -54,11 +54,11 @@ class tabs extends Component {
       currentApp,
       setCountTab,
       location,
-      match,
+      params,
       setWorkflows,
       setMo3yna,
     } = this.props;
-    let appName = match.params.app;
+    let appName = params.app;
     localStorage.removeItem("req_no");
     localStorage.removeItem("CurrentStep");
     localStorage.removeItem("workFlowName");
@@ -82,7 +82,7 @@ class tabs extends Component {
     // currentApp;
     let countUrl = `/submission/counts?appid=${appId}`;
     axios
-      .get(workFlowUrl + countUrl)
+      .get("http://77.30.168.84/GISAPIDEVV2/" + countUrl)
       .then(({ data }) => {
         this.setState({ count: data });
         setCountTab(data);
@@ -95,7 +95,7 @@ class tabs extends Component {
   //shouldComponentUpdate
   getGE(inboxUrl) {
     axios
-      .get(workFlowUrl + inboxUrl)
+      .get("http://77.30.168.84/GISAPIDEVV2/" + inboxUrl)
       .then(({ data }) => {
         this.setState({ count: data.count });
       })
@@ -231,6 +231,7 @@ class tabs extends Component {
       "arabicName",
       currentApp && currentApp.translate_ar_caption
     );
+    console.log("openeed");
 
     return (
       <Media query="(max-width: 1020px)">

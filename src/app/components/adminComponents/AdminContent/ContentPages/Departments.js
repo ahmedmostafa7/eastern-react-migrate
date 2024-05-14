@@ -227,4 +227,4 @@ function Departments(props) {
     </div>
   );
 }
-export default Form.create()(Departments);
+export default Departments;

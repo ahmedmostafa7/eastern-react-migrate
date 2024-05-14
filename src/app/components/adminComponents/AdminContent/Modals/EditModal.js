@@ -700,4 +700,4 @@ function EditModal(props) {
     </Modal>
   );
 }
-export default Form.create()(EditModal);
+export default EditModal;

@@ -6,19 +6,18 @@ import { Route, Navigate } from "react-router-dom";
 class ProtectedRoute extends Component {
   render() {
     const { component: Component, user, path } = this.props;
-    return (
-      <Route
-        {...{ ...path }}
-        render={(props) =>
-          user ? (
-            <Component {...props} />
-          ) : (
-            // <Redirect to={`/login?redirect_to=${path}`} />
-            <Navigate to={`${path}`} />
-          )
-        }
-      />
-    );
+    return "";
+    // <Route
+    //   {...{ ...path }}
+    //   render={(props) =>
+    //     user ? (
+    //       <Component {...props} />
+    //     ) : (
+    //       // <Redirect to={`/login?redirect_to=${path}`} />
+    //       <Navigate to={`${path}`} />
+    //     )
+    //   }
+    // />
   }
 }
 

@@ -5,16 +5,15 @@ import { get } from "lodash";
 export default () => {
   axios.interceptors.request.use(
     (config) => {
-      // Do something before request is sent
-      // if localstorage token
       const Token = localStorage.getItem("token");
 
       if (Token) {
-        config.headers.common.Authorization = `Bearer ${Token}`;
+        // config.headers.common.Authorization = `Bearer ${Token}`;
+        config.headers["Authorization"] = `Bearer ${Token}`;
       }
-      config.headers.common["Cache-Control"] = "no-cache";
+      config.headers["Cache-Control"] = "no-cache";
       const loading = get(store.getState(), "global.loading", 0);
-      // if(!get(store.getState(), ''))
+
       store.dispatch({
         type: "set_mainGlobal",
         data: { loading: loading + 1 },
@@ -22,9 +21,7 @@ export default () => {
       return config;
     },
     (error) => {
-      // Do something with request error
       const loading = get(store.getState(), "global.loading", 0);
-      // if(!get(store.getState(), ''))
       store.dispatch({
         type: "set_mainGlobal",
         data: { loading: loading - 1 },
@@ -38,8 +35,8 @@ export default () => {
     (response) => {
       // store.dispatch({type:'Show_Loading',loading:false})
       // Do something with response data
-      const loading = get(store.getState(), "global.loading", 0);
       // if(!get(store.getState(), ''))
+      const loading = get(store.getState(), "global.loading", 0);
       store.dispatch({
         type: "set_mainGlobal",
         data: { loading: loading - 1 },
@@ -49,8 +46,8 @@ export default () => {
     (error) => {
       // store.dispatch({type:'Show_Loading',loading:false})
       // Do something with response error
-      const loading = get(store.getState(), "global.loading", 0);
       // if(!get(store.getState(), ''))
+      const loading = get(store.getState(), "global.loading", 0);
       store.dispatch({
         type: "set_mainGlobal",
         data: { loading: loading - 1 },

@@ -4,6 +4,7 @@ import { host } from "imports/config";
 import store from "app/reducers";
 import { map, get, assign } from "lodash";
 import { message } from "antd";
+import { workFlowUrl } from "imports/config";
 import applyFilters from "main_helpers/functions/filters";
 import { convertToEnglish } from "../../../../../../components/inputs/fields/identify/Component/common/common_func";
 const _ = require("lodash");

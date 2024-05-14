@@ -519,4 +519,4 @@ function EditGroup(props) {
   );
 }
 
-export default Form.create()(EditGroup);
+export default EditGroup;

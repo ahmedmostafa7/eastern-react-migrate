@@ -120,4 +120,4 @@ function Apps(props) {
     </div>
   );
 }
-export default Form.create()(Apps);
+export default Apps;

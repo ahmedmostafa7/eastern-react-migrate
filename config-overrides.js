@@ -1,12 +1,19 @@
-module.exports = {
-  webpack5: true,
-  webpack: (config) => {
-    config.resolve.fallback = {
-      fs: false,
-      crypto: require.resolve("crypto-browserify"),
-      stream: require.resolve("stream-browserify"),
-    };
+const rewireCssModules = require("react-app-rewire-css-modules");
 
-    return config;
-  },
+module.exports = function override(config, env) {
+  // config.rules = [rewireCssModules];
+  config.resolve.fallback = {
+    fs: false,
+    tls: false,
+    net: false,
+    path: false,
+    zlib: false,
+    http: false,
+    https: false,
+    stream: false,
+    crypto: false,
+    "crypto-browserify": require.resolve("crypto-browserify"),
+    util: false,
+  };
+  return config;
 };

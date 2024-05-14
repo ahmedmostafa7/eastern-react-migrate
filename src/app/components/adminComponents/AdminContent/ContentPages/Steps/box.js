@@ -18,11 +18,11 @@ import {
 } from "antd";
 import axios from "axios";
 import { FaSignature, FaCog } from "react-icons/fa";
-import {
-  ReOrderableItem,
-  ReOrderableList,
-  ReOrderableListGroup,
-} from "react-reorderable-list";
+// import {
+//   ReOrderableItem,
+//   ReOrderableList,
+//   ReOrderableListGroup,
+// } from "react-reorderable-list";
 import ShowDetails from "./showDetalsModal";
 import { ListGroup } from "react-bootstrap";
 import ActionModal from "./actionsLogic";
@@ -572,4 +572,4 @@ function Box({
 }
 
 // export default Box;
-export default Form.create()(Box);
+export default Box;

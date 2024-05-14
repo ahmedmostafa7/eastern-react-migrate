@@ -5,6 +5,7 @@ import { map, get, assign } from "lodash";
 import { message } from "antd";
 import store from "app/reducers";
 import { withTranslation } from "react-i18next";
+import { workFlowUrl } from "imports/config";
 import {
   uploadGISFile,
   getInfo,

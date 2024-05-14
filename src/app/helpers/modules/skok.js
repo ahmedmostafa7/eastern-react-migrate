@@ -1,4 +1,4 @@
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 import { SakFields } from "./fields";
 // import {host} from 'configFiles/config'
 // import {  } from "axios";

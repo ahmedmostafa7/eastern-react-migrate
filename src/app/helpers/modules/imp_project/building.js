@@ -1,5 +1,5 @@
 import { FloorFields, FlatFields } from "../fields";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 import { get, omit, isEmpty, filter, toArray, sumBy } from "lodash";
 import { message } from "antd";
 import { SubAttachementUrl } from "imports/config";

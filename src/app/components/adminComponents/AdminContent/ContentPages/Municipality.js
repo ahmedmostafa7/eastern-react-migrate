@@ -166,7 +166,7 @@ function Municipality(props) {
       )
       .catch((err) => {
         message.error("حدث خطأ");
-      });;
+      });
 
     closeDelete();
   };
@@ -224,4 +224,4 @@ function Municipality(props) {
     </div>
   );
 }
-export default Form.create()(Municipality);
+export default Municipality;

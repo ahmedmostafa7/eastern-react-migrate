@@ -559,4 +559,4 @@ const ActionsSteps = ({
   );
 };
 
-export default Form.create()(ActionsSteps);
+export default ActionsSteps;

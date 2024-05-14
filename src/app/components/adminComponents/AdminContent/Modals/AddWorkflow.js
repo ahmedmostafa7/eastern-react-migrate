@@ -478,4 +478,4 @@ function AddWorkflow(props) {
     </Modal>
   );
 }
-export default Form.create()(AddWorkflow);
+export default AddWorkflow;

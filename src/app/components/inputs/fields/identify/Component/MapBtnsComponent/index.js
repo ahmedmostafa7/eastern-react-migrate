@@ -24,7 +24,6 @@ import {
 } from "../common/common_func";
 // import MoveOnMapSvg from "./move on map.svg";
 // import { ReactComponent as MoveOnMapSvg } from "./moveonmap.svg";
-import ReactDOM from "react-dom";
 import Draggable from "react-draggable";
 import { withTranslation } from "react-i18next";
 import mapDispatchToProps from "main_helpers/actions/main";

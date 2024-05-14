@@ -603,4 +603,4 @@ function AddModal(props) {
     </Modal>
   );
 }
-export default Form.create()(AddModal);
+export default AddModal;

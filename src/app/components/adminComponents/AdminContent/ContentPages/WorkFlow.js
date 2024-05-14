@@ -249,4 +249,4 @@ function AdminWorkflow(props) {
     </div>
   );
 }
-export default withRouter(Form.create()(AdminWorkflow));
+export default withRouter(AdminWorkflow);

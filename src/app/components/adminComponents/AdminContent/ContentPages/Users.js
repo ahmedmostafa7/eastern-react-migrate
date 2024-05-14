@@ -297,4 +297,4 @@ function Users(props) {
     </div>
   );
 }
-export default Form.create()(Users);
+export default Users;

@@ -274,4 +274,4 @@ function EditDepartment(props) {
     </Modal>
   );
 }
-export default Form.create()(EditDepartment);
+export default EditDepartment;

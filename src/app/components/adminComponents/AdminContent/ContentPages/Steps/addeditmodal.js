@@ -1194,4 +1194,4 @@ function AddEditStep(props) {
     </Container>
   );
 }
-export default Form.create()(withTranslation("admin")(AddEditStep));
+export default withTranslation("admin")(AddEditStep);

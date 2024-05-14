@@ -270,4 +270,4 @@ function AddDepartment(props) {
     </Modal>
   );
 }
-export default Form.create()(AddDepartment);
+export default AddDepartment;

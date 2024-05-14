@@ -6,6 +6,7 @@ import { map, get, assign } from "lodash";
 import { message } from "antd";
 import applyFilters from "main_helpers/functions/filters";
 import axios from "axios";
+import { workFlowUrl } from "imports/config";
 import { fetchAllData } from "../../../../../../helpers/functions";
 const _ = require("lodash");
 export default {

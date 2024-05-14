@@ -6,7 +6,7 @@ import { map, get, assign } from "lodash";
 import { message } from "antd";
 import applyFilters from "main_helpers/functions/filters";
 import axios from "axios";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 import { pricingFields } from "./pricing_Fields";
 const _ = require("lodash");
 // let onInputChange = (

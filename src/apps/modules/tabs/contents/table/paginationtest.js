@@ -131,7 +131,7 @@ class tabsTableComponent extends Component {
       if (recievedUrl || !results) {
         this.fetch = true;
         setLoading(true);
-        fetchData(workFlowUrl + url).then(
+        fetchData("http://77.30.168.84/GISAPIDEVV2" + url).then(
           (result) => {
             this.fetch = false;
             const recievedData = result.results.map((singleResult) =>

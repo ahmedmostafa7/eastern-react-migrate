@@ -171,7 +171,13 @@ function Nationalities(props) {
               name="searchText"
               onChange={handleUserInput}
               onPressEnter={(e) =>
-                queryStringSearch(e, props, columns, "nationalities","local_name")
+                queryStringSearch(
+                  e,
+                  props,
+                  columns,
+                  "nationalities",
+                  "local_name"
+                )
               }
               value={searchText}
               placeholder="ابحث..."
@@ -199,4 +205,4 @@ function Nationalities(props) {
     </div>
   );
 }
-export default Form.create()(Nationalities);
+export default Nationalities;

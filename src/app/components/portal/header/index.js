@@ -32,13 +32,13 @@ class Header extends Component {
     const { location } = this.props;
     let localAppName = localStorage.getItem("appname");
     // let appName;
-    let appName = location.pathname
+    let appName = location?.pathname
       .replace("/submissions/", "")
       .replace("/", "");
     if (
       // localAppName !== null ||
-      appName.includes("undefined") ||
-      appName.includes("wizardById")
+      appName?.includes("undefined") ||
+      appName?.includes("wizardById")
     ) {
       appName = localAppName.replace("splitandmerge.", "");
     }
@@ -132,36 +132,37 @@ class Header extends Component {
     //this.props.history.push('/testgis/#/home')
   }
 
-  static getDerivedStateFromProps(props, state) {
-    const {
-      history: {
-        location: { pathname },
-      },
-    } = props;
-    return {
-      active: pathname,
-    };
-  }
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    const { history, change } = nextProps;
-    if (history.location.pathname.includes("submissions")) {
-      change("ButtonsForm", "create", "");
-    }
-    return !isEqual(
-      { props: this.props, state: this.state },
-      { state: nextState, props: nextProps }
-    );
-  }
+  // static getDerivedStateFromProps(props, state) {
+  //   const {
+  //     history: {
+  //       location: { pathname },
+  //     },
+  //   } = props;
+  //   return {
+  //     active: pathname,
+  //   };
+  // }
+  // shouldComponentUpdate(nextProps, nextState, nextContext) {
+  //   const { history, change } = nextProps;
+  //   if (history.location.pathname.includes("submissions")) {
+  //     change("ButtonsForm", "create", "");
+  //   }
+  //   return !isEqual(
+  //     { props: this.props, state: this.state },
+  //     { state: nextState, props: nextProps }
+  //   );
+  // }
 
   render() {
     console.log("اللون", this.state, this.props);
     const { user, currentApp, countTabsCount, setCountTab, history } =
       this.props;
     const { appIdState, appsArabicNames, englishName } = this.state;
-    let isAdminPage = englishName?.toLowerCase().includes("admin");
+    let isAdminPage = englishName?.toLowerCase()?.includes("admin");
     // console.log("co", currentApp, this.props);
     let request_no = localStorage.getItem("req_no");
-    let home = history.location.pathname.includes("submissions") ? true : false;
+    let home = "";
+    // let home = history.location.pathname.includes("submissions") ? true : false;
     let CurrentStep = localStorage.getItem("CurrentStep");
     let workflowName = localStorage.getItem("workFlowName");
     // let appId = localStorage.getItem("appId");

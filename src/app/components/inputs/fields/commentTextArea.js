@@ -56,8 +56,5 @@ class textAreaComp extends mainInput {
 
 // export default withTranslation('labels')(textAreaComp)
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(withTranslation("labels")(textAreaComp))
+  connect(mapStateToProps, mapDispatchToProps)(textAreaComp)
 );

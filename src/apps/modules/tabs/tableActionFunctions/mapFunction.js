@@ -1,5 +1,5 @@
 import { forEach, isEmpty, isBoolean, isNumber } from "lodash";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 function isNumeric(num) {
   return !isNaN(num);
 }
@@ -391,22 +391,24 @@ export const mapOldMainObject = (oldMain, emptyMain, objectPaths) => {
                           (isObject(record) &&
                             ((path.copyAllFields && { ...record }) || {})) ||
                           "";
-                        
+
                         Object.keys(path.fields).forEach((field, index) => {
-                          if (typeof field == 'string' && isEmpty(field)) {
+                          if (typeof field == "string" && isEmpty(field)) {
                             //obj = !Array.isArray(obj) && [] || obj;
-                            r[y].push(!isBoolean(path.fields[field]) &&
-                            !isNumber(path.fields[field])
-                              ? (path.fields[field].toString().split(".")
-                                  .length > 1 &&
-                                  path.fields[field]
-                                    .split(".")
-                                    .reduce((u, h) => u && u[h], record)) ||
-                                (path.fields[field] != "$index"
-                                  ? record[path.fields[field]]
-                                  : r[y].length + 1)
-                              : path.fields[field]);
-                              isSet = true;
+                            r[y].push(
+                              !isBoolean(path.fields[field]) &&
+                                !isNumber(path.fields[field])
+                                ? (path.fields[field].toString().split(".")
+                                    .length > 1 &&
+                                    path.fields[field]
+                                      .split(".")
+                                      .reduce((u, h) => u && u[h], record)) ||
+                                    (path.fields[field] != "$index"
+                                      ? record[path.fields[field]]
+                                      : r[y].length + 1)
+                                : path.fields[field]
+                            );
+                            isSet = true;
                           } else if (field.split(".").length == 1) {
                             if (isObject(obj)) {
                               obj[field] =
@@ -463,7 +465,11 @@ export const mapOldMainObject = (oldMain, emptyMain, objectPaths) => {
                                   else e[f] = mappedValue;
                                 }
                               } else {
-                                if (typeof e == 'object' && ((e && Object.values(e).length == 0) || e[f] == undefined)) {
+                                if (
+                                  typeof e == "object" &&
+                                  ((e && Object.values(e).length == 0) ||
+                                    e[f] == undefined)
+                                ) {
                                   e[f] = {};
                                 }
                               }
@@ -472,9 +478,8 @@ export const mapOldMainObject = (oldMain, emptyMain, objectPaths) => {
                             }, obj);
                           }
                         });
-                        
-                        if (!isSet)
-                          r[y].push(obj);
+
+                        if (!isSet) r[y].push(obj);
                       });
                     } else {
                       var index =
@@ -559,7 +564,11 @@ export const mapOldMainObject = (oldMain, emptyMain, objectPaths) => {
                                 else e[f] = mappedValue;
                               }
                             } else {
-                              if (typeof e == 'object' && ((e && Object.values(e).length == 0) || e[f] == undefined)) {
+                              if (
+                                typeof e == "object" &&
+                                ((e && Object.values(e).length == 0) ||
+                                  e[f] == undefined)
+                              ) {
                                 e[f] = {};
                               }
                             }
@@ -647,7 +656,11 @@ export const mapOldMainObject = (oldMain, emptyMain, objectPaths) => {
                               else e[f] = mappedValue;
                             }
                           } else {
-                            if (typeof e == 'object' && ((e && Object.values(e).length == 0) || e[f] == undefined)) {
+                            if (
+                              typeof e == "object" &&
+                              ((e && Object.values(e).length == 0) ||
+                                e[f] == undefined)
+                            ) {
                               e[f] = {};
                             }
                           }
@@ -719,9 +732,7 @@ export const mapOldMainObject = (oldMain, emptyMain, objectPaths) => {
                                     ]
                                   : r[y].length + 1)
                               : path.fields[field];
-                          
                         } else {
-                          
                           field.split(".").reduce((e, f, fIndx) => {
                             if (fIndx == field.split(".").length - 1) {
                               var mappedValue =
@@ -749,7 +760,11 @@ export const mapOldMainObject = (oldMain, emptyMain, objectPaths) => {
                                 else e[f] = mappedValue;
                               }
                             } else {
-                              if (typeof e == 'object' && ((e && Object.values(e).length == 0) || e[f] == undefined)) {
+                              if (
+                                typeof e == "object" &&
+                                ((e && Object.values(e).length == 0) ||
+                                  e[f] == undefined)
+                              ) {
                                 e[f] = {};
                               }
                             }
@@ -828,8 +843,11 @@ export const mapOldMainObject = (oldMain, emptyMain, objectPaths) => {
                             );
                           }, oldMain);
                         } else {
-                          if (typeof e == 'object' && ((e && Object.values(e).length == 0) || e[f] == undefined)) {
-                            
+                          if (
+                            typeof e == "object" &&
+                            ((e && Object.values(e).length == 0) ||
+                              e[f] == undefined)
+                          ) {
                             e[f] = {};
                           }
                         }

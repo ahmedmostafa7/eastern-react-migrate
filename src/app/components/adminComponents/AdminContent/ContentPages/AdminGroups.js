@@ -189,4 +189,4 @@ function AdminGroups(props) {
     </div>
   );
 }
-export default Form.create()(AdminGroups);
+export default AdminGroups;

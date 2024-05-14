@@ -5,6 +5,7 @@ import store from "app/reducers";
 import { map, get, assign, isEmpty } from "lodash";
 import { message } from "antd";
 import applyFilters from "main_helpers/functions/filters";
+import { workFlowUrl } from "imports/config";
 const _ = require("lodash");
 import { mapUrl } from "../../../../../../components/inputs/fields/identify/Component/mapviewer/config/map";
 import { esriRequest } from "../../../../../../components/inputs/fields/identify/Component/common/esri_request";

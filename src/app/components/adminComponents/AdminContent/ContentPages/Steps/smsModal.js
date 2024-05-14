@@ -356,4 +356,4 @@ function SMS({ smsModalVisible, setSmsModalVisible, item, form }) {
 }
 
 // export default SmS;
-export default Form.create()(SMS);
+export default SMS;

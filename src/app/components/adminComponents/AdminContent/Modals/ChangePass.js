@@ -174,4 +174,4 @@ function ChangePass(props) {
     </>
   );
 }
-export default Form.create()(ChangePass);
+export default ChangePass;

@@ -4,7 +4,7 @@ import applyFilters from "main_helpers/functions/filters";
 import { ownerFields } from "./fields";
 import { host } from "imports/config";
 import { message } from "antd";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { convertToArabic } from "../../../app/components/inputs/fields/identify/Component/common/common_func";
 // import { ownerData } from "../../components/wizard/components/stepContent/sections/sectionTypes/wizardSummery/modules/apps/owner";

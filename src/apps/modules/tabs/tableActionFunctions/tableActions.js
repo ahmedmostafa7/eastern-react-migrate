@@ -828,7 +828,7 @@ export const reloadURI = (url, props, appId) => {
   } = props;
 
   //if (next) {
-  fetchData(workFlowUrl + url).then(
+  fetchData("http://77.30.168.84/GISAPIDEVV2/" + url).then(
     (result) => {
       const newResults = result.results;
       console.log("res", newResults);

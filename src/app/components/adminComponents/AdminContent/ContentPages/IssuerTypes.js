@@ -242,4 +242,4 @@ function IssuerTypes(props) {
     </div>
   );
 }
-export default Form.create()(IssuerTypes);
+export default IssuerTypes;

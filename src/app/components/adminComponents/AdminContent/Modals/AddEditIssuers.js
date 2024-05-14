@@ -488,4 +488,4 @@ function AddEditIssuers(props) {
   );
 }
 // export default AddEditIssuers;
-export default Form.create()(AddEditIssuers);
+export default AddEditIssuers;

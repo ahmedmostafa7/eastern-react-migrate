@@ -1,10 +1,21 @@
-import React, { Component } from "react";
-import { HashRouter as Router, Route, Switch, Routes } from "react-router-dom";
+import React, { Component, useEffect } from "react";
+import {
+  // HashRouter as Router,
+  Route,
+  useParams,
+  Switch,
+  Routes,
+  useLocation,
+  BrowserRouter,
+  RouterProvider,
+  createBrowserRouter,
+  // Navigate,
+} from "react-router-dom";
 import ProtectedRoute from "./protectedRoute";
 import AdminProtectedRoute from "./adminProtectedRoute";
 import { Layout, message, Modal } from "antd";
 import ThirdIdentifier from "../../app/components/inputs/fields/identify/Component/ThirdIdentifier";
-import tabs from "../modules/tabs";
+import Tabs from "../modules/tabs";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "app/components/portal/header";
 import Footerr from "app/components/portal/header/Footerr";
@@ -12,7 +23,7 @@ import ContactUs from "app/components/contactUs";
 import UserApps from "app/components/userApps";
 // import Admin from "app/components/admin";
 import LoginForm from "app/components/Login/LoginForm";
-import wizardWorkFlow from "app/components/wizard";
+import WizardWorkFlow from "app/components/wizard";
 import PrintReportMa7dar from "app/components/print_report/print_report_ma7dar";
 import Popups from "imports/popups";
 //import AdminWorkFlow from '../admin/workFlow/workFlow'
@@ -39,7 +50,7 @@ import ServiceKroky from "app/components/wizard/modulesObjects/service/print/kro
 import Temp4 from "app/components/wizard/modulesObjects/newPro/templates/lagna_faneh";
 import Temp5 from "app/components/wizard/modulesObjects/newPro/templates/kroky_parcel";
 import Temp6 from "app/components/wizard/modulesObjects/newPro/templates/buy_zayda";
-import addedparcels_requestsReport from "app/components/wizard/modulesObjects/newPro/templates/requestsReport_print";
+import Addedparcels_requestsReport from "app/components/wizard/modulesObjects/newPro/templates/requestsReport_print";
 import KararLagnaPrint from "app/components/wizard/modulesObjects/plan_approval/print/karar_lagna_print";
 import Tawze3 from "app/components/wizard/modulesObjects/plan_approval/print/tawze3";
 import Primary_approval_print from "app/components/wizard/modulesObjects/plan_approval/print/primary_approval_print";
@@ -72,26 +83,253 @@ import qs from "qs";
 import IdentifyExportCad from "../../app/components/inputs/fields/identify/Component/exportCad";
 import wizardById from "../../app/components/routeTier";
 import axios from "axios";
+import Home from "./home";
 import AdminMainPage from "../../app/components/adminComponents/AdminMainPage";
-class Routing extends Component {
-  state = { superAdmin: null };
-  constructor(props) {
-    super(props);
-    const { addUser } = props;
-    // console.log(props);
+import NotFoundPage from "./errorFile";
+
+// class Routing extends Component {
+//   state = { superAdmin: null };
+//   constructor(props) {
+//     super(props);
+//     const { addUser } = props;
+//     // console.log(props);
+//     const urlParams = get(window.location.href.split("?"), "1");
+//     const params = qs.parse(urlParams, { ignoreQueryPrefix: true });
+//     const Token = get(params, "tk");
+//     if (Token) {
+//       // get user from token
+//       localStorage.setItem("token", Token);
+
+//       const url = "http://77.30.168.84/GISAPIDEVV2" + "/authenticate";
+//       let urlCheck =
+//         "http://77.30.168.84/GISAPIDEVV2" + "/checkEngCompCirculars";
+//       postItem(url)
+//         .then((res) => {
+//           addUser(res);
+//           // this.setState({ superAdmin: res.is_super_admin });
+//           let noTokenUser = Object.assign({}, res);
+//           noTokenUser["token"] = null;
+//           noTokenUser["esri_token"] = null;
+//           noTokenUser["esriToken"] = null;
+//           localStorage.setItem("user", JSON.stringify(noTokenUser));
+//           localStorage.setItem("token", res.token);
+//           localStorage.setItem("esri_token", res.esriToken);
+//           axios.get(urlCheck).then((res) => {
+//             if (res.data) {
+//               Modal.error({
+//                 title: "تنبيه",
+//                 content:
+//                   "عذرا، يرجي قراءة وإنهاء التعميمات المرسلة لديكم حتي يتثني لكم التعامل على التطبيق",
+//               });
+//               Modal.closable = false;
+//               Modal.footer = null;
+//               Modal.okText = "تم";
+//               Modal.wrapClassName = "ss";
+//               Modal.onOk = () => {};
+//             }
+//           });
+//         })
+//         .catch((err = {}) => {
+//           console.log(err);
+//           if (get(err.response, "status") == 403) {
+//             message.error(err.response.data);
+//           } else {
+//             message.error("حدث خطأ");
+//           }
+//         });
+//     } else {
+//       const user = localStorage.getItem("user");
+//       if (user) {
+//         addUser(JSON.parse(user));
+//         // this.setState({ superAdmin: JSON.parse(user).is_super_admin });
+//       }
+//     }
+//   }
+
+//   render() {
+//     // let isSuperAdmin = JSON.parse(localStorage.getItem("user"));
+//     return (
+//       <Navigate>
+//         <Routes>
+//           <Route
+//             path="/print_description_card/:id"
+//             element={<PrintDescriptionCardComponent />}
+//           />
+//           <Route
+//             path="/investmentsites_lagnh_print/:id"
+//             element={<investmentsites_lagnh_print />}
+//           />
+//           <Route path="/print_chart" element={<PrintChart />} />
+//           <Route path="/print_box" element={<PrintBox />} />
+//           <Route path="/print_report" element={<PrintReport />} />
+//           <Route path="/addedparcel_temp1/:id" element={<Temp1 />} />
+//           <Route path="/addedparcel_temp2/:id" element={<Temp2 />} />
+//           <Route path="/addedparcel_temp3/:id" element={<Temp3 />} />
+//           <Route path="/addedparcel_temp4/:id" element={<Temp4 />} />
+//           <Route path="/addedparcel_temp5/:id" element={<Temp5 />} />
+//           <Route path="/addedparcel_temp6/:id" element={<Temp6 />} />
+//           <Route
+//             path="/addedparcels_requestsReport"
+//             element={<Addedparcels_requestsReport />}
+//           />
+//           <Route path="/test_print" element={<Test />} />
+//           <Route
+//             path="/plan_approval/a0_plan_approval/:id"
+//             element={<TempA0 />}
+//           />
+//           <Route
+//             path="/plan_approval/a0_gov_plan_approval/:id"
+//             element={<Gov_TempA0 />}
+//           />
+//           <Route
+//             path="/split_merge/print_duplixs/:id"
+//             element={<printDuplixs />}
+//           />
+//           <Route
+//             path="/survey_report/print_survay/:id"
+//             element={<GlobalPrintRoute />}
+//           />
+//           <Route
+//             path="/contract_update/print_sak/:id"
+//             element={<GlobalPrintRoute />}
+//           />
+//           <Route path="/lagnaA4/:id" element={<lagnaA4 />} />
+//           <Route path="/addstreets/addstreets/:id" element={<addstreets />} />
+//           <Route path="/parcels_invoice/:id" element={<GlobalPrintRoute />} />
+//           <Route
+//             path="/pri_price_lagna_takdeer/:id"
+//             element={<PropertyRemovalPrintRoute />}
+//           />
+//           <Route
+//             path="/init_procedure_print/:id"
+//             element={<PropertyRemovalPrintRoute />}
+//           />
+//           <Route
+//             path="/a3_property_removal/:id"
+//             element={<PropertyRemovalPrintRoute />}
+//           />
+//           <Route
+//             path="/building_limitation_report/:id"
+//             element={<PropertyRemovalPrintRoute />}
+//           />
+//           <Route
+//             path="/descripe_limitation_building_report/:id"
+//             element={<PropertyRemovalPrintRoute />}
+//           />
+//           <Route
+//             path="/final_price_lagna_takdeer/:id"
+//             element={<PropertyRemovalPrintRoute />}
+//           />
+//           <Route
+//             path="/approve_paying_report/:id"
+//             element={<PropertyRemovalPrintRoute />}
+//           />
+//           <Route
+//             path="/split_merge/print_appartments/:id"
+//             element={<printApartments />}
+//           />
+//           <Route
+//             path="/split_merge/print_parcel/:id"
+//             element={<printParcels />}
+//           />
+//           {/* <Route
+//                 path="/plan_approval/a2_plan_approval/:id"
+//                element={<TempA2}
+//               /> */}
+//           <Route path="/tawze3/:id" element={<Tawze3 />} />
+//           <Route
+//             path="/primary_approval_print/:id"
+//             element={<Primary_approval_print />}
+//           />
+//           <Route
+//             path="/takrer_supervision_print/:id"
+//             element={<takrer_supervision_print />}
+//           />
+//           <Route
+//             path="/takrer_primary_approval/:id"
+//             element={<Takreer_primary_approval_print />}
+//           />
+//           <Route
+//             path="/adle_report_letter/:id"
+//             element={<adle_report_letter />}
+//           />
+//           <Route
+//             path="/ministry_report_letter/:id"
+//             element={<ministry_report_letter />}
+//           />
+//           <Route
+//             path="/landsallotment_print/:id"
+//             element={<landsallotment_print />}
+//           />
+//           <Route
+//             path="/landsallotment_beneficiary_print/:id"
+//             element={<landsallotment_beneficiary_print />}
+//           />
+//           <Route
+//             path="/landsallotment_adle/:id"
+//             element={<landsallotment_adle />}
+//           />
+//           <Route
+//             path="/sakPropertycheck_letter/:id"
+//             element={<sakPropertycheck_letter />}
+//           />
+//           <Route
+//             path="/sakPropertycheck_letter_return/:id"
+//             element={<sakPropertycheck_letter_return />}
+//           />
+//           <Route path="/karar_lagna_print/:id" element={<KararLagnaPrint />} />
+//           <Route path="/akar_print/:id" element={<AkarPrint />} />
+//           <Route path="/print_report_ma7dar" element={<PrintReportMa7dar />} />
+//           <Route path="/print_technical/:id" element={<Ma7dar />} />
+//           <Route path="/print_report_ma7dar" element={<PrintReportMa7dar />} />
+//           <Route path="/service_condition/:id" element={<ServiceCondition />} />
+//           <Route path="/service_kroky/:id" element={<ServiceKroky />} />
+//           <Route path="/print_lic/:id" element={<PrintReport2 />} />
+//           {/* {isSuperAdmin?.is_super_admin && (
+//           <Route path="/admin"element={<AdminMainPage/>} />
+//         )} */}
+//           <Route exact path="/" element={<LoginForm />} />
+//           <Route path="/identify" element={<ThirdIdentifier />} />
+//           <Route path="/exportCad/:id" element={<IdentifyExportCad />} />
+//           <Route path="/contactus" element={<ContactUs />} />
+//           {/* <ProtectedRoute path="/apps"element={<UserApps/>} />
+//         <ProtectedRoute path="/steps"element={<WorkflowSteps/>} />
+//         <ProtectedRoute path="/profile"element={<Profile/>} /> */}
+//           <Route exact path="/submissions/:app?" element={<Tabs />} />
+//           {/* <Route exact path="/dynamicPrint"element={<DynamicPrint/>} /> */}
+//           <Route path="/wizard" element={<WizardWorkFlow />} />
+//           <Route path="/wizardById/:id" element={<wizardById />} />
+//           {/* <Popups /> <Footerr /> */}
+//         </Routes>
+//       </Navigate>
+//     );
+//   }
+// }
+
+// import React from "react";
+
+function Routing({ addUser }) {
+  const { app } = useParams();
+
+  console.log(app);
+  useEffect(() => {
+    // const { location } = useLocation();
+    // console.log(location);
     const urlParams = get(window.location.href.split("?"), "1");
     const params = qs.parse(urlParams, { ignoreQueryPrefix: true });
+    console.log(params);
     const Token = get(params, "tk");
     if (Token) {
       // get user from token
       localStorage.setItem("token", Token);
 
-      const url = workFlowUrl + "/authenticate";
-      let urlCheck = workFlowUrl + "/checkEngCompCirculars";
+      const url = "http://77.30.168.84/GISAPIDEVV2" + "/authenticate";
+      let urlCheck =
+        "http://77.30.168.84/GISAPIDEVV2" + "/checkEngCompCirculars";
       postItem(url)
         .then((res) => {
           addUser(res);
-          this.setState({ superAdmin: res.is_super_admin });
+          // this.setState({ superAdmin: res.is_super_admin });
           let noTokenUser = Object.assign({}, res);
           noTokenUser["token"] = null;
           noTokenUser["esri_token"] = null;
@@ -126,203 +364,60 @@ class Routing extends Component {
       const user = localStorage.getItem("user");
       if (user) {
         addUser(JSON.parse(user));
-        this.setState({ superAdmin: JSON.parse(user).is_super_admin });
+        // this.setState({ superAdmin: JSON.parse(user).is_super_admin });
       }
     }
-  }
+  }, []);
+  // console.log(handle);
+  // const router = createBrowserRouter([
+  //   {
+  //     path: `#/submissions/:app?`,
+  //     element: <Tabs />,
+  //     errorElement: <ErrorPage />,
+  //   },
+  //   // {
+  //   //   path: `/`,
+  //   //   element: <Header />,
+  //   // },
+  //   {
+  //     path: "/contactus",
+  //     element: <ContactUs />,
+  //   },
+  // ]);
+  const router = createBrowserRouter([
+    {
+      path: "/submissions/:app",
+      element: <Tabs />,
+    },
+    {
+      path: "*",
+      element: <NotFoundPage />,
+    },
+    {
+      path: "/contactus",
+      element: <ContactUs />,
+    },
+  ]);
 
-  render() {
-    let isSuperAdmin = JSON.parse(localStorage.getItem("user"));
-    return (
-      <div>
-        <Layout>
-          <Router>
-            <div className="main-layout">
-              <Header />
-              <Route
-                path="/print_description_card/:id"
-                component={PrintDescriptionCardComponent}
-              />
-              <Route
-                path="/investmentsites_lagnh_print/:id"
-                component={investmentsites_lagnh_print}
-              />
-              <Route path="/print_chart" component={PrintChart} />
-              <Route path="/print_box" component={PrintBox} />
-              <Route path="/print_report" component={PrintReport} />
-              <Route path="/addedparcel_temp1/:id" component={Temp1} />
-              <Route path="/addedparcel_temp2/:id" component={Temp2} />
-              <Route path="/addedparcel_temp3/:id" component={Temp3} />
-              <Route path="/addedparcel_temp4/:id" component={Temp4} />
-              <Route path="/addedparcel_temp5/:id" component={Temp5} />
-              <Route path="/addedparcel_temp6/:id" component={Temp6} />
-              <Route
-                path="/addedparcels_requestsReport"
-                component={addedparcels_requestsReport}
-              />
-              <Route path="/test_print" component={Test} />
-              <Route
-                path="/plan_approval/a0_plan_approval/:id"
-                component={TempA0}
-              />
-              <Route
-                path="/plan_approval/a0_gov_plan_approval/:id"
-                component={Gov_TempA0}
-              />
-              <Route
-                path="/split_merge/print_duplixs/:id"
-                component={printDuplixs}
-              />
-              <Route
-                path="/survey_report/print_survay/:id"
-                component={GlobalPrintRoute}
-              />
-              <Route
-                path="/contract_update/print_sak/:id"
-                component={GlobalPrintRoute}
-              />
-              <Route path="/lagnaA4/:id" component={lagnaA4} />
-              <Route path="/addstreets/addstreets/:id" component={addstreets} />
-              <Route path="/parcels_invoice/:id" component={GlobalPrintRoute} />
-              <Route
-                path="/pri_price_lagna_takdeer/:id"
-                component={PropertyRemovalPrintRoute}
-              />
-              <Route
-                path="/init_procedure_print/:id"
-                component={PropertyRemovalPrintRoute}
-              />
-              <Route
-                path="/a3_property_removal/:id"
-                component={PropertyRemovalPrintRoute}
-              />
-              <Route
-                path="/building_limitation_report/:id"
-                component={PropertyRemovalPrintRoute}
-              />
-              <Route
-                path="/descripe_limitation_building_report/:id"
-                component={PropertyRemovalPrintRoute}
-              />
-              <Route
-                path="/final_price_lagna_takdeer/:id"
-                component={PropertyRemovalPrintRoute}
-              />
-              <Route
-                path="/approve_paying_report/:id"
-                component={PropertyRemovalPrintRoute}
-              />
-              <Route
-                path="/split_merge/print_appartments/:id"
-                component={printApartments}
-              />
-              <Route
-                path="/split_merge/print_parcel/:id"
-                component={printParcels}
-              />
-              {/* <Route
-                path="/plan_approval/a2_plan_approval/:id"
-                component={TempA2}
-              /> */}
-              <Route path="/tawze3/:id" component={Tawze3} />
-              <Route
-                path="/primary_approval_print/:id"
-                component={Primary_approval_print}
-              />
-              <Route
-                path="/takrer_supervision_print/:id"
-                component={takrer_supervision_print}
-              />
-              <Route
-                path="/takrer_primary_approval/:id"
-                component={Takreer_primary_approval_print}
-              />
-              <Route
-                path="/adle_report_letter/:id"
-                component={adle_report_letter}
-              />
-              <Route
-                path="/ministry_report_letter/:id"
-                component={ministry_report_letter}
-              />
-              <Route
-                path="/landsallotment_print/:id"
-                component={landsallotment_print}
-              />
-              <Route
-                path="/landsallotment_beneficiary_print/:id"
-                component={landsallotment_beneficiary_print}
-              />
-              <Route
-                path="/landsallotment_adle/:id"
-                component={landsallotment_adle}
-              />
-              <Route
-                path="/sakPropertycheck_letter/:id"
-                component={sakPropertycheck_letter}
-              />
-              <Route
-                path="/sakPropertycheck_letter_return/:id"
-                component={sakPropertycheck_letter_return}
-              />
-              <Route
-                path="/karar_lagna_print/:id"
-                component={KararLagnaPrint}
-              />
-              <Route path="/akar_print/:id" component={AkarPrint} />
-              <Route
-                path="/print_report_ma7dar"
-                component={PrintReportMa7dar}
-              />
-              <Route path="/print_technical/:id" component={Ma7dar} />
-              <Route
-                path="/print_report_ma7dar"
-                component={PrintReportMa7dar}
-              />
-              <Route
-                path="/service_condition/:id"
-                component={ServiceCondition}
-              />
-              <Route path="/service_kroky/:id" component={ServiceKroky} />
-              <Route path="/print_lic/:id" component={PrintReport2} />
-              {/* {this.state.superAdmin ? ( */}
-              {isSuperAdmin.is_super_admin && (
-                <Route path="/admin" component={AdminMainPage} />
-              )}
-              <Content style={{ gridRow: 2 }}>
-                <Routes>
-                  {/* <Route exact path="/" component={main} /> */}
-                  <Route exact path="/" component={LoginForm} />
-                  <Route path="/identify" component={ThirdIdentifier} />
-                  <Route path="/exportCad/:id" component={IdentifyExportCad} />
-                  <Route path="/contactus" component={ContactUs} />
-                  <ProtectedRoute path="/apps" component={UserApps} />
-                  <ProtectedRoute path="/steps" component={WorkflowSteps} />
-                  <ProtectedRoute path="/profile" component={Profile} />
-                  {/* <ProtectedRoute path="/wizardPdf" component={WizardPdf} /> */}
-                  {/* <ProtectedRoute
-                    exact
-                    path="/administration"
-                    component={Admin}
-                  /> */}
-                  <Route exact path="/submissions/:app?" component={tabs} />
-                  {/* <Route exact path="/dynamicPrint" component={DynamicPrint} /> */}
-                  <Route path="/wizard" component={wizardWorkFlow} />
-                  <Route path="/wizardById/:id" component={wizardById} />
-                  {/* <Route path="/work_flow" component={AdminWorkFlow} /> */}
-                  {/* <Route
-                    path="/administration/work_flow/:app?/:step_num?"
-                    component={AdminWorkFlow}
-                  /> */}
-                </Routes>
-              </Content>
-              <Popups /> <Footerr />
-            </div>
-          </Router>
-        </Layout>
-      </div>
-    );
-  }
+  // function PrivateRoute({ children }) {
+  //   const isAuthenticated = checkUserAuthentication();
+  //   return isAuthenticated ? children : <Navigate to="/login" />;
+  // }
+
+  // function App() {
+  // const { location, pathname } = useLocation();
+  return <RouterProvider router={router} />;
+  // // }
+  // console.log(location);
+  // return (
+  //   <div>
+  //     <Routes>
+  //       <Route path="/">
+  //         <Route index element={<Tabs />} />;
+  //         <Route path="/submissions/:app?" element={<Tabs />} />;
+  //       </Route>
+  //     </Routes>
+  //   </div>
+  // );
 }
-
 export default connect(null, mapDispatchToProps)(Routing);

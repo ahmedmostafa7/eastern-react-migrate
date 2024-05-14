@@ -128,7 +128,7 @@ class tabsTableComponent extends Component {
               <span className="grid-3">
                 {map(actions, (action, key) => (
                   <span key={action.name}>
-                    {this.props.location.pathname !== "/print_chart" && (
+                    {window.location.href !== "/print_chart" && (
                       <button
                         className={
                           ["print", "sakupdate"].indexOf(
@@ -181,7 +181,7 @@ class tabsTableComponent extends Component {
     } = this.props;
 
     if (next) {
-      fetchData(workFlowUrl + url).then(
+      fetchData("http://77.30.168.84/GISAPIDEVV2/" + url).then(
         (result) => {
           this.fetch = false;
           const newResults = result.results;
@@ -203,7 +203,7 @@ class tabsTableComponent extends Component {
     const { setLoading } = this.props;
 
     if (this.state["DataCount"] == 0) {
-      fetchData(workFlowUrl + url).then(
+      fetchData("http://77.30.168.84/GISAPIDEVV2/" + url).then(
         (result) => {
           setLoading(false);
           this.setState({ DataCount: result });
@@ -274,7 +274,7 @@ class tabsTableComponent extends Component {
         });
       }
 
-      fetchData(workFlowUrl + newUrl).then((result) => {
+      fetchData("http://77.30.168.84/GISAPIDEVV2/" + newUrl).then((result) => {
         this.fetch = false;
         let newResults = result.results;
 

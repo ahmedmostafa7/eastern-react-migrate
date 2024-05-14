@@ -226,4 +226,4 @@ function Issuer(props) {
     </div>
   );
 }
-export default Form.create()(Issuer);
+export default Issuer;

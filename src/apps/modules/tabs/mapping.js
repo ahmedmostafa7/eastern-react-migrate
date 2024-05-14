@@ -5,7 +5,8 @@ export const mapStateToProps = (
   ownProps,
   modules
 ) => {
-  const name = ownProps.match.params.app.replace("-", "") || ownProps;
+  const name = ownProps.params.app.replace("-", "") || ownProps;
+  console.log(ownProps);
   const {
     currentApp = `splitandmerge.${find(
       keys(get(mainApp, "apps.splitandmerge", {})),

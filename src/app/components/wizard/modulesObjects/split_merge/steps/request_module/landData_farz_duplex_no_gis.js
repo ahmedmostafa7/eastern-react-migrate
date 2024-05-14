@@ -6,6 +6,7 @@ import { map, get, assign, isEmpty } from "lodash";
 import { message } from "antd";
 import applyFilters from "main_helpers/functions/filters";
 const _ = require("lodash");
+import { workFlowUrl } from "imports/config";
 import { mapUrl } from "../../../../../../components/inputs/fields/identify/Component/mapviewer/config/map";
 import { esriRequest } from "../../../../../../components/inputs/fields/identify/Component/common/esri_request";
 import {

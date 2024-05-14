@@ -486,4 +486,4 @@ function AddGroup(props) {
     </Modal>
   );
 }
-export default Form.create()(AddGroup);
+export default AddGroup;

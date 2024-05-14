@@ -1,4 +1,5 @@
 import { map, get, assign, isEmpty } from "lodash";
+import { workFlowUrl, host } from "imports/config";
 export default {
   label: "اعتماد حالة الأرض",
   // preSubmit(values, currentStep, props) {
@@ -7,7 +8,7 @@ export default {
   //     console.log("mun_remark props", props);
   //     console.log("mun_remark currentStep", currentStep);
   //     return resolve(values);
-      
+
   //   })
   // },
   sections: {

@@ -1,5 +1,5 @@
 import { omit, isEmpty, sumBy, toArray } from "lodash";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 import { message } from "antd";
 export const FloorFields = {
   type: {

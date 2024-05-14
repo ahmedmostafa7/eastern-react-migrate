@@ -1172,4 +1172,4 @@ function AddUser(props) {
     </Modal>
   );
 }
-export default Form.create()(AddUser);
+export default AddUser;

@@ -1,6 +1,6 @@
 import { get } from "lodash";
 import moment from "moment-hijri";
-
+import { workFlowUrl } from "imports/config";
 export default {
   // search_with: {
   //   name: "search_with",

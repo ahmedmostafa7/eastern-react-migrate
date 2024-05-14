@@ -1,7 +1,7 @@
 import { workFlowUrl, SubAttachementUrl } from "imports/config";
 import { host, host2 } from "imports/config";
 import { get, omit, isEmpty } from "lodash";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 import applyFilters from "main_helpers/functions/filters";
 import axios from "axios";
 export const owner_companyFields = {
@@ -166,5 +166,5 @@ export const owner_companyFields = {
 };
 
 export const ownerGela = {
-  1: owner,
+  1: owner_companyFields,
 };
