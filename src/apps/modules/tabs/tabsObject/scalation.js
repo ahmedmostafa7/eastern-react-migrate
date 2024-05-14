@@ -141,5 +141,5 @@ export const SCALATION = ({ id: appId }) => ({
     actions: "common",
     fields: [...checkTabFieldsByAppId(appId)],
   },
-  icon: "images/late.svg",
+  icon: "../images/late.svg",
 });

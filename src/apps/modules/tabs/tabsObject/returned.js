@@ -73,5 +73,5 @@ export const RETURNED_SUBMISSION = ({ id: appId }) => ({
       },
     ],
   },
-  icon: "images/returned.svg",
+  icon: "../images/returned.svg",
 });

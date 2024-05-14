@@ -34,7 +34,7 @@ function AdminWorkflow(props) {
   const [searchText, setSearchText] = useState("");
   const { Search } = Input;
   const handleSteps = (steps, record) => {
-    props.history.push({
+    props.history({
       pathname: "/steps",
       state: { name: record?.name, data: steps },
     });

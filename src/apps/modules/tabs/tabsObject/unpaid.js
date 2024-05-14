@@ -6,7 +6,7 @@ export const UNPAYED_SUBMISSIONS = ({ id: appId }) => ({
   label: "Unpaid",
   name: "unpaid",
   moduleName: "UNPAYED_SUBMISSIONS",
-  icon: "images/stopwatch.svg",
+  icon: "../images/stopwatch.svg",
   apiUrl: `/submission/GetRunningSubmissions/unpaid/${appId}`,
   content: {
     type: "tabsTable",

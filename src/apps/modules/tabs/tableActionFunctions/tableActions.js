@@ -9,12 +9,13 @@ import {
   get,
   find,
   assign,
+  Alert,
   pick,
   isEmpty,
 } from "lodash";
 // import { goToInboxScreen } from "../../../../app/components/wizard/components/stepContent/actions/actionFunctions/apiActions";
 import axios from "axios";
-import { workFlowUrl, host, backEndUrlforMap, printHost } from "imports/config";
+// import { workFlowUrl, host, backEndUrlforMap, printHost } from "imports/config";
 import { postItem, fetchData } from "app/helpers/apiMethods";
 import { applyMapping } from "main_helpers/functions/app_mappings";
 import { initializeSubmissionData } from "main_helpers/functions/prints";
@@ -568,7 +569,7 @@ export function view(record, index, action) {
           });
       })
       .catch((error) => {
-        message.error("عذرا، لا تملك صلاحية لعرض هذة المعاملة");
+        Alert("عذرا، لا تملك صلاحية لعرض هذة المعاملة");
       });
   }
 }
@@ -661,7 +662,7 @@ function applyCurrentModule1(record, action, actions, props, response_status) {
     });
     localStorage.setItem("req_no", request_no);
     localStorage.setItem("CurrentStep", CurrentStep.name);
-    history.push("/wizard");
+    history("/wizard");
   } else if (includes(["Unsigned"], name) || includes(["signed"], name)) {
     setCurrentModule({
       record,
@@ -671,7 +672,7 @@ function applyCurrentModule1(record, action, actions, props, response_status) {
     });
     localStorage.setItem("req_no", request_no);
     localStorage.setItem("CurrentStep", CurrentStep.name);
-    history.push("/wizard");
+    history("/wizard");
   } else if (
     includes(["inbox"], name) ||
     includes(["Inbox_Ordering"], name) ||
@@ -733,7 +734,7 @@ function applyCurrentModule1(record, action, actions, props, response_status) {
   localStorage.setItem("req_no", request_no);
   localStorage.setItem("CurrentStep", CurrentStep.name);
   localStorage.setItem("workFlowName", workflows.name);
-  history.push("/wizard");
+  history("/wizard");
 
   /*window.open( window.location.pathname +"#/wizardById/"+id
     +"?tk=" + localStorage.token+
@@ -828,7 +829,7 @@ export const reloadURI = (url, props, appId) => {
   } = props;
 
   //if (next) {
-  fetchData("http://77.30.168.84/GISAPIDEVV2/" + url).then(
+  fetchData(workFlowUrl + url).then(
     (result) => {
       const newResults = result.results;
       console.log("res", newResults);
@@ -970,7 +971,7 @@ function applyCurrentModule2(record, props) {
   //}
   localStorage.setItem("req_no", request_no);
   localStorage.setItem("CurrentStep", CurrentStep.name);
-  history.push("/wizard");
+  history("/wizard");
 }
 
 export function continueSubmission(record) {
@@ -1072,7 +1073,7 @@ function applyCurrentModule3(record, submission, props, is_redirect = true) {
 
   if (is_redirect) {
     success(t);
-    history.push("/wizard");
+    history("/wizard");
   }
 }
 

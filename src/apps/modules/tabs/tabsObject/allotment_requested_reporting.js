@@ -7,5 +7,5 @@ export const LANDSALLOTMENT_REQUESTED_REPORTING = ({ id: appId }) => ({
   moduleName: "LANDSALLOTMENT_REQUESTED_REPORTING",
   apiUrl: `${workFlowUrl}/search-json/`,
   content: { type: "allotmentRequestingReporting" },
-  icon: "images/addedparcels_reports.svg",
+  icon: "../images/addedparcels_reports.svg",
 });

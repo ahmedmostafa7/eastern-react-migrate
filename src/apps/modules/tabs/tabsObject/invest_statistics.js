@@ -23,7 +23,6 @@ const commonContent = {
 };
 
 const getEngCompanyRequestsInvestStatistics = (appId, props) => {
-  
   return (
     (appId != 26 && [
       {
@@ -137,7 +136,7 @@ export const INVESTMENT_STATISTICS = (props) => {
   let charts = {
     number: 9,
     label: "investment_Statistics",
-    icon: "images/statistics.svg",
+    icon: "../images/statistics.svg",
     name: "investment_Statistics",
     moduleName: "INVESTMENT_STATISTICS",
     content: {
@@ -244,7 +243,6 @@ export const INVESTMENT_STATISTICS = (props) => {
     },
   };
 
-  
   let additionalCharts = getEngCompanyRequestsInvestStatistics(props.id, props);
   additionalCharts.forEach((chart, index) => {
     charts.content.sections.splice(2, 0, chart);

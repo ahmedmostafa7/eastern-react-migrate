@@ -42,5 +42,5 @@ export const REQUESTED_ORDERING = ({ id: appId }) => ({
       },
     ],
   },
-  icon: "images/sent.svg",
+  icon: "../images/sent.svg",
 });

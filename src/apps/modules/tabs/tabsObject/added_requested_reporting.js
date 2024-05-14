@@ -7,6 +7,6 @@ export const ADDEDPARCELS_REQUESTED_REPORTING = ({ id: appId }) => ({
   moduleName: "ADDEDPARCELS_REQUESTED_REPORTING",
   apiUrl: `${workFlowUrl}/search-json/`,
   content: { type: "RequestingReporting" },
-  icon: "images/addedparcels_reports.svg",
+  icon: "../images/addedparcels_reports.svg",
   className: "reportIconColor",
 });

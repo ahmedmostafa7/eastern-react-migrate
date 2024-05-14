@@ -90,7 +90,7 @@ class renderChart extends Component {
     //   }
     this.props.setChartResultToPrint({ chartImage: chartImage, data: dimo });
     setTimeout(() => {
-      this.props.history.push("/print_chart");
+      this.props.history("/print_chart");
     }, 1500);
     //window.open(printHost + "/#/print_chart", "_blank");
     // }, 200);

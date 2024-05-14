@@ -7,6 +7,6 @@ export const FOLLOWING_REQUESTS = ({ id: appId }) => ({
   moduleName: "FOLLOWING_REQUESTS",
   apiUrl: `/submission/statistics/app/16/classificationStats`, //`/submission/GetAllRunningSubmissions/${appId}/`,
   content: { type: "FollowingRequests" },
-  icon: "images/infoLabel.svg",
+  icon: "../images/infoLabel.svg",
   pageSize: 12,
 });

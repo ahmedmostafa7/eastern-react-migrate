@@ -15,7 +15,7 @@ export const WORKFLOW_TITLE = {
   onRowClicked: (record, props) => {
     const { fillSteps, history } = props;
     fillSteps(record.steps);
-    history.push(`/administration/work_flow/${record.id}`);
+    history(`/administration/work_flow/${record.id}`);
   },
   preSubmit: {
     new: {

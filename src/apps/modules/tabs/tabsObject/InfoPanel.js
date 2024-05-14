@@ -7,6 +7,6 @@ export const INFORMATION_PANEL = ({ id: appId }) => ({
   moduleName: "INFORMATION_PANEL",
   apiUrl: `${workFlowUrl}/search`, //`/submission/GetAllRunningSubmissions/${appId}/`,
   content: { type: "InfoPanel" },
-  icon: "images/infoLabel.svg",
+  icon: "../images/infoLabel.svg",
   pageSize: 12,
 });

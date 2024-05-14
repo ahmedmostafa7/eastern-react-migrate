@@ -38,5 +38,5 @@ export const INVESTMENT_INDICATORS = ({ id: appId }) => ({
   //     }
   //   ]
   // },
-  icon: "images/statistics.svg"
+  icon: "../images/statistics.svg",
 });

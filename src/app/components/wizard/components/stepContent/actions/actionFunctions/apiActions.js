@@ -1338,7 +1338,7 @@ export const goToInboxScreen = (history) => {
   let appname = localStorage["appname"].split(".");
   appname = appname[1] || localStorage["appname"];
 
-  history.push(
+  history(
     "/submissions/" + appname.toLowerCase() + "?tk=" + localStorage["token"]
   );
 };

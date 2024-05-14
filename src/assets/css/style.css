@@ -481,10 +481,11 @@ body {
   height: 100%;
   font-family: "Droid Arabic Kufi" !important;
   overflow-x: hidden;
-  background: url("../images/00.png");
+  /* background: url(../images/00.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 100%;
+  direction: rtl;
 }
 
 .fontDroid {
@@ -894,7 +895,7 @@ li.NotifiedTreeItem>.ant-tree-node-content-wrapper::before {
 
 li.EditedTreeItem>.ant-tree-node-content-wrapper::before {
   background-color: #838383 !important;
-  background-image: url(../images/edit.svg) !important;
+  background-image: url(/public/images/edit.svg) !important;
   background-position: left;
   background-repeat: no-repeat;
   background-size: 16px 16px;
@@ -930,7 +931,7 @@ li.EditedTreeItem>.ant-tree-node-content-wrapper {
 }
 
 .wizard-container-steps {
-  background-image: url("../images/goalsBG.png");
+  background-image: url("/public/images/goalsBG.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3270,7 +3271,7 @@ thead {
   height: 80vh;
   box-shadow: -1px 0 0 0 #e8e8ed !important;
   /* background-color: #fbfcfe !important; */
-  position: fixed;
+  /* position: fixed; */
   z-index: 1;
   top: 0;
   overflow-x: hidden;
@@ -4337,7 +4338,7 @@ input[type="radio"]::after {
   }
 
   .watermark {
-    background: url("../images/watermark.png") !important;
+    background: url("/public/images/watermark.png") !important;
     background-position: center;
     background-blend-mode: initial;
   }
@@ -4902,7 +4903,7 @@ button.spinBin:after {
 }
 
 .watermark {
-  background: url("../images/watermark.png") !important;
+  background: url("/public/images/watermark.png") !important;
   background-position: center;
   background-blend-mode: initial;
 }
@@ -5868,7 +5869,7 @@ ul.dashed>li:before {
 
 .freezeBtn {
   border-radius: 4px;
-  background-image: url("../images/freezeImg.png") !important;
+  background-image: url("/public/images/freezeImg.png") !important;
   background-color: transparent !important;
   color: #000 !important;
   cursor: pointer !important;

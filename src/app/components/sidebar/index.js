@@ -46,7 +46,7 @@ class Sidebar extends Component {
   navigateTo(url) {
     const { history, baseUrl = "", items } = this.props;
     if (get(items, [this.currentItem, "url"]) != url) {
-      history.push(`${baseUrl}/${url}`);
+      history(`${baseUrl}/${url}`);
       this.setState({ ...this.state, url }); //just to force rerender
     }
   }

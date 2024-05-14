@@ -173,7 +173,7 @@ export const STATISTICS = (props) => {
   let charts = {
     number: 9,
     label: "Statistics",
-    icon: "images/statistics.svg",
+    icon: "../images/statistics.svg",
     name: "statistics",
     moduleName: "STATISTICS",
     content: {
@@ -430,7 +430,6 @@ export const STATISTICS = (props) => {
     },
   };
 
-  
   let additionalCharts = getEngCompanyRequestsStatistics(props.id, props);
   additionalCharts.forEach((chart, index) => {
     charts.content.sections.splice(2, 0, chart);

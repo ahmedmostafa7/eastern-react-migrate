@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { withRouter } from "apps/routing/withRouter";
 import { Button, Menu, Dropdown, notification, Tooltip } from "antd";
 import { Icon } from "@ant-design/compatible";
+import { Outlet } from "react-router-dom";
 import Media from "react-media";
 import * as contents from "../../../../apps/modules/tabs/contents";
 import { isEmpty, isEqual } from "lodash";
@@ -31,17 +32,12 @@ class Header extends Component {
     // console.log("popp", this.props);
     const { location } = this.props;
     let localAppName = localStorage.getItem("appname");
-    // let appName;
-    let appName = location?.pathname
-      .replace("/submissions/", "")
-      .replace("/", "");
-    if (
-      // localAppName !== null ||
-      appName?.includes("undefined") ||
-      appName?.includes("wizardById")
-    ) {
-      appName = localAppName.replace("splitandmerge.", "");
-    }
+    let appName;
+    // let appName = location?.pathname
+    //   .replace("/submissions/", "")
+    //   .replace("/", "");
+
+    appName = localAppName.replace("splitandmerge.", "");
 
     console.log("appn", appName);
     let SplitappName = "splitandmerge." + appName;
@@ -120,7 +116,7 @@ class Header extends Component {
   }
   navigate(url) {
     const { history } = this.props;
-    history.push(url);
+    history(url);
   }
   signOut() {
     this.props.removeUser();
@@ -207,124 +203,125 @@ class Header extends Component {
     );
 
     return (
-      <section className="hidd ">
-        <link rel="stylesheet" href="../css/main.css" />
-        <header id="header">
-          <div className="top-bar">
-            <div className="big-logo portalNavbar1">
-              <ul className="rightUl">
-                <li>
+      <div>
+        <section className="hidd ">
+          {/* <link rel="stylesheet" href="../css/main.css" /> */}
+          <header id="header">
+            <div className="top-bar">
+              <div className="big-logo portalNavbar1">
+                <ul className="rightUl">
+                  <li>
+                    <a
+                      className="iconLink"
+                      href="https://www.youtube.com/channel/UC5k-pTxG2WTlj0Bbzcmk6RA"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="fab fa-youtube youtubeIcon"></i>
+                    </a>
+                  </li>
+                  <span className="navitemBorder"></span>
+                  <li className="centerLi">
+                    <a
+                      className="iconLink"
+                      href="https://twitter.com/easterneamana/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="fab fa-twitter twitterIcon"></i>
+                    </a>
+                  </li>
+                  <span className="navitemBorder "></span>
                   <a
-                    className="iconLink"
-                    href="https://www.youtube.com/channel/UC5k-pTxG2WTlj0Bbzcmk6RA"
-                    target="_blank"
-                    rel="noreferrer"
+                    href={`${window.hostUpload + "/home/ContactUs"}`}
+                    className="portalnavitem "
                   >
-                    <i className="fab fa-youtube youtubeIcon"></i>
+                    تواصـل معنا
                   </a>
-                </li>
-                <span className="navitemBorder"></span>
-                <li className="centerLi">
-                  <a
-                    className="iconLink"
-                    href="https://twitter.com/easterneamana/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <i className="fab fa-twitter twitterIcon"></i>
-                  </a>
-                </li>
-                <span className="navitemBorder "></span>
-                <a
-                  href={`${window.hostUpload + "/home/ContactUs"}`}
-                  className="portalnavitem "
-                >
-                  تواصـل معنا
+                  <span className="navitemBorder"></span>
+                </ul>
+              </div>
+              <div className="middleHeader">
+                <a href="/home">
+                  <img
+                    src="../images/logo2.png"
+                    style={{ width: "45px", float: "right" }}
+                    alt=""
+                    className="ml-3 mr-1"
+                  />
                 </a>
-                <span className="navitemBorder"></span>
-              </ul>
-            </div>
-            <div className="middleHeader">
-              <a href="/home">
-                <img
-                  src="images/logo2.png"
-                  style={{ width: "45px", float: "right" }}
-                  alt=""
-                  className="ml-3 mr-1"
-                />
-              </a>
-              <span className="noMobile">
-                الـبــوابــة الـجـغـرافـيـة لأمـانة المنطـقة الشـرقـيـة
-              </span>
-            </div>
-            {/* <div className="middleHeaderTitle"> </div> */}
-            <div
-              style={{
-                justifySelf: "flex-end",
-                display: "flex",
-              }}
-            >
-              <Dropdown
-                className="serviceNavItem"
-                getPopupContainer={(trigger) => trigger.parentNode}
-                trigger={["click"]}
-                overlay={
-                  <Menu>
-                    <Menu.Item>
-                      {user ? (
+                <span className="noMobile">
+                  الـبــوابــة الـجـغـرافـيـة لأمـانة المنطـقة الشـرقـيـة
+                </span>
+              </div>
+              {/* <div className="middleHeaderTitle"> </div> */}
+              <div
+                style={{
+                  justifySelf: "flex-end",
+                  display: "flex",
+                }}
+              >
+                <Dropdown
+                  className="serviceNavItem"
+                  getPopupContainer={(trigger) => trigger.parentNode}
+                  trigger={["click"]}
+                  overlay={
+                    <Menu>
+                      <Menu.Item>
+                        {user ? (
+                          <a
+                            href={`${window.hostURL + "/mahamy/tickets/add"}`}
+                            target="_blank"
+                          >
+                            <img
+                              className=""
+                              alt="ticketIcon"
+                              onClick={this.openAddTaskModal}
+                              src={addTicketIcon}
+                            />
+                            <span>تذكرة جديدة</span>
+                          </a>
+                        ) : (
+                          <a href={`${window.hostURL + "/home/Login"}`}>
+                            <img
+                              className=""
+                              alt="ticketIcon"
+                              src={addTicketIcon}
+                            />{" "}
+                            <span>تذكرة جديدة</span>
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <hr />
+                      <Menu.Item>
                         <a
-                          href={`${window.hostURL + "/mahamy/tickets/add"}`}
+                          href={`${window.hostURL}/mahamy/tickets`}
                           target="_blank"
                         >
                           <img
                             className=""
                             alt="ticketIcon"
-                            onClick={this.openAddTaskModal}
-                            src={addTicketIcon}
+                            src={ticketsInboxIcon}
                           />
-                          <span>تذكرة جديدة</span>
+                          <span>التذاكر الجارية</span>
                         </a>
-                      ) : (
-                        <a href={`${window.hostURL + "/home/Login"}`}>
-                          <img
-                            className=""
-                            alt="ticketIcon"
-                            src={addTicketIcon}
-                          />{" "}
-                          <span>تذكرة جديدة</span>
-                        </a>
-                      )}
-                    </Menu.Item>
-                    <hr />
-                    <Menu.Item>
-                      <a
-                        href={`${window.hostURL}/mahamy/tickets`}
-                        target="_blank"
-                      >
-                        <img
-                          className=""
-                          alt="ticketIcon"
-                          src={ticketsInboxIcon}
-                        />
-                        <span>التذاكر الجارية</span>
-                      </a>
-                    </Menu.Item>
-                  </Menu>
-                }
-                placement="bottomLeft"
-                arrow
-              >
-                <Tooltip placement="right" title="الدعم الفني">
-                  <img
-                    className=""
-                    alt="ticketIcon"
-                    src={ticketGroupIcon}
-                    style={{ cursor: "pointer" }}
-                  />
-                  <span className="navitemBorder"></span>
-                </Tooltip>
-              </Dropdown>
-              {user ? (
+                      </Menu.Item>
+                    </Menu>
+                  }
+                  placement="bottomLeft"
+                  arrow
+                >
+                  <Tooltip placement="right" title="الدعم الفني">
+                    <img
+                      className=""
+                      alt="ticketIcon"
+                      src={ticketGroupIcon}
+                      style={{ cursor: "pointer" }}
+                    />
+                    <span className="navitemBorder"></span>
+                  </Tooltip>
+                </Dropdown>
+                {/* {user ? (
                 <NotifyIcon
                   //appsIds={[appIdState && appIdState]}
                   appsIds={[1, 5, 8, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]}
@@ -337,119 +334,123 @@ class Header extends Component {
                   }
                   baseUrl={window.workFlowUrl}
                 />
-              ) : null}
-              <Media query="(max-width: 768px)">
-                {(matches) =>
-                  matches ? null : (
-                    <>
-                      <a
-                        href={`${window.hostUpload + "/home/Apps"}`}
-                        className="portalnavitem mr-4 noMobile"
-                      >
-                        تطبيقاتي
-                      </a>
-                      <span className="navitemBorder noMobile"></span>
-                    </>
-                  )
-                }
-              </Media>
-              {user ? (
-                <Dropdown
-                  overlay={menu}
-                  getPopupContainer={(trigger) => trigger.parentNode}
-                  trigger={["click"]}
-                >
-                  <Button
-                    className="profile"
-                    style={{ padding: "0", boxShadow: "none" }}
+              ) : null} */}
+                <Media query="(max-width: 768px)">
+                  {(matches) =>
+                    matches ? null : (
+                      <>
+                        <a
+                          href={`${window.hostUpload + "/home/Apps"}`}
+                          className="portalnavitem mr-4 noMobile"
+                        >
+                          تطبيقاتي
+                        </a>
+                        <span className="navitemBorder noMobile"></span>
+                      </>
+                    )
+                  }
+                </Media>
+                {user ? (
+                  <Dropdown
+                    overlay={menu}
+                    getPopupContainer={(trigger) => trigger.parentNode}
+                    trigger={["click"]}
                   >
-                    <img
-                      style={{ width: "auto", height: "30px" }}
-                      src="images/avatarImg.png"
-                      className="img-fluid pl-3"
-                      alt="userPhoto"
-                    />
-                    <Media query="(max-width: 768px)">
-                      {(matches) =>
-                        matches ? (
-                          <>
-                            {user && String(user.name).slice(0, 11)}
-                            <span>..</span>{" "}
-                          </>
-                        ) : (
-                          user && user.name
-                        )
-                      }
-                    </Media>
-                    <Icon type="down" />
-                  </Button>
-                </Dropdown>
-              ) : (
-                false
-              )}
-            </div>
-          </div>
-        </header>
-        {/* {console.log("currentApp", currentApp)} */}
-        <header
-          className={home ? "appNameHeader_flex" : "appNameHeader_grid"}
-          style={{
-            background: this.state.AppColor ? `#${this.state.AppColor}` : "",
-          }}
-        >
-          {/* <span className="headerNameSpan"></span> */}
-          <p className="">
-            <span>
-              <span>
-                <i className="fa fa-home" aria-hidden="true"></i>
-              </span>
-              <span>
-                {" "}
-                {!isEmpty(this.state.arabicName) ? this.state.arabicName : ""}
-              </span>
-            </span>
-
-            {!home && (
-              <div style={{ display: "flex" }} className="noMobile">
-                {!isEmpty(workflowName) ? (
-                  <span>
-                    <i className="fa fa-arrow-left" aria-hidden="true"></i>
-                    <span>{workflowName}</span>
-                  </span>
+                    <Button
+                      className="profile"
+                      style={{ padding: "0", boxShadow: "none" }}
+                    >
+                      <img
+                        style={{ width: "auto", height: "30px" }}
+                        src="../images/avatarImg.png"
+                        className="img-fluid pl-3"
+                        alt="userPhoto"
+                      />
+                      <Media query="(max-width: 768px)">
+                        {(matches) =>
+                          matches ? (
+                            <>
+                              {user && String(user.name).slice(0, 11)}
+                              <span>..</span>{" "}
+                            </>
+                          ) : (
+                            user && user.name
+                          )
+                        }
+                      </Media>
+                      <Icon type="down" />
+                    </Button>
+                  </Dropdown>
                 ) : (
-                  <span></span>
-                )}
-
-                {!isEmpty(request_no) ? (
-                  <span>
-                    <i className="fa fa-arrow-left" aria-hidden="true"></i>
-                    <span>{convertToArabic(request_no)}</span>
-                  </span>
-                ) : (
-                  <span></span>
-                )}
-
-                {CurrentStep && (
-                  <div>
-                    <span>
-                      {" "}
-                      <i className="fa fa-arrow-left" aria-hidden="true"></i>
-                    </span>
-                    <span>{convertToArabic(CurrentStep)}</span>
-                  </div>
+                  false
                 )}
               </div>
-            )}
-            {home && (
-              <contents.TabButtons
-                {...{ currentApp }}
-                home={home}
-                style={{ margin: "20px", textAlign: "center" }}
-              />
-            )}
-          </p>{" "}
-        </header>
-      </section>
+            </div>
+          </header>
+          {/* {console.log("currentApp", currentApp)} */}
+          <header
+            className={home ? "appNameHeader_flex" : "appNameHeader_grid"}
+            style={{
+              background: this.state.AppColor ? `#${this.state.AppColor}` : "",
+            }}
+          >
+            {/* <span className="headerNameSpan"></span> */}
+            <p className="">
+              <span>
+                <span>
+                  <i className="fa fa-home" aria-hidden="true"></i>
+                </span>
+                <span>
+                  {" "}
+                  {!isEmpty(this.state.arabicName) ? this.state.arabicName : ""}
+                </span>
+              </span>
+
+              {!home && (
+                <div style={{ display: "flex" }} className="noMobile">
+                  {!isEmpty(workflowName) ? (
+                    <span>
+                      <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                      <span>{workflowName}</span>
+                    </span>
+                  ) : (
+                    <span></span>
+                  )}
+
+                  {!isEmpty(request_no) ? (
+                    <span>
+                      <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                      <span>{convertToArabic(request_no)}</span>
+                    </span>
+                  ) : (
+                    <span></span>
+                  )}
+
+                  {CurrentStep && (
+                    <div>
+                      <span>
+                        {" "}
+                        <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                      </span>
+                      <span>{convertToArabic(CurrentStep)}</span>
+                    </div>
+                  )}
+                </div>
+              )}
+              {home && (
+                <contents.TabButtons
+                  {...{ currentApp }}
+                  home={home}
+                  style={{ margin: "20px", textAlign: "center" }}
+                />
+              )}
+            </p>{" "}
+          </header>
+        </section>
+        <section>
+          <Outlet />
+        </section>
+      </div>
     );
   }
 }

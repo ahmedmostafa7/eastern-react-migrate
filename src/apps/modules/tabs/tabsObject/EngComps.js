@@ -44,5 +44,5 @@ export const ENG_COMP_FREEZE = ({ id: appId }) => ({
       },
     ],
   },
-  icon: "images/returned.svg",
+  icon: "../images/returned.svg",
 });

@@ -26,7 +26,7 @@ export const SURVEYCHECK_INDICATORS_TEAMWORK = (props) => {
   let charts = {
     number: 9,
     label: "team_indicators",
-    icon: "images/statistics.svg",
+    icon: "../images/statistics.svg",
     name: "team_indicators",
     moduleName: "SURVEYCHECK_INDICATORS_TEAMWORK",
     content: {

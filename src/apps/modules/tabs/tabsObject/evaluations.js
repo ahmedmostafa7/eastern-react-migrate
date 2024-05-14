@@ -3,7 +3,7 @@ export const RATING = ({ id: appId }) => ({
   label: "Evaluations",
   name: "evaluations",
   moduleName: "RATING",
-  icon: "images/evaluation.svg",
+  icon: "../images/evaluation.svg",
   content: {
     type: "cards",
     sections: [

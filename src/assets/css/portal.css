@@ -56,7 +56,7 @@ h6,
 }
 
 .links ul li {
-    list-style-image: url('/images/link-bullet.png');
+    /* list-style-image: url('../images/link-bullet.png'); */
     list-style-position: inside;
 }
 
@@ -86,7 +86,7 @@ h6,
 }
 
 .vl {
-    background: url(/images/separetor.png) center no-repeat;
+    /* background: url("..../images/separetor.png") center no-repeat; */
     background-size: 1px 70%;
     height: 200px;
 
@@ -95,7 +95,7 @@ h6,
 
 @font-face {
     font-family: 'Droid Arabic Kufi';
-    src: url('/fonts/DroidKufi-Regular.ttf');
+    src: url('../fonts/DroidKufi-Regular.ttf');
 }
 
 body {
@@ -157,14 +157,7 @@ hr {
 
 /* 
 
-.btn-primary {
-    /* padding: 8px 20px; */
-background: #7dc898;
-color: #fff;
-border-radius: 4px;
-border: none;
-/* margin-top: 10px; */
-}
+
 
 */
 /* .btn-primary:hover,
@@ -756,7 +749,7 @@ input.search-form:hover {
     padding-bottom: 70px;
     margin: 0px;
     clear: both;
-    background: url("/images/aboutbg.jpg") center top no-repeat;
+    /* background: url("../images/aboutbg.jpg") center top no-repeat; */
     position: relative;
 }
 
@@ -846,7 +839,7 @@ input.search-form:hover {
 }
 
 #services {
-    background: #345467 url(/images/services/bg_services.png);
+    /* background: #345467 url(../images/services/bg_services.png); */
     background-size: cover;
 }
 
@@ -1148,7 +1141,7 @@ a.accordion-toggle i {
 }
 
 #partner {
-    background: url(/images/partners/partner_bg.png) 50% 50% no-repeat;
+    /* background: url(../images/partners/partner_bg.png) 50% 50% no-repeat; */
     background-size: cover;
 }
 
@@ -1175,7 +1168,7 @@ a.accordion-toggle i {
 }
 
 #conatcat-info {
-    background: #fff url(/images/contact.png) no-repeat 90% 0;
+    /* background: #fff url(../images/contact.png) no-repeat 90% 0; */
     padding: 30px 0;
 }
 
@@ -1711,7 +1704,7 @@ ul.social_icons li a i {
 }
 
 .clients-comments {
-    background-image: url("/images/image_bg.png");
+    /* background-image: url("../images/image_bg.png"); */
     background-position: center 118px;
     background-repeat: no-repeat;
     margin-bottom: 100px;
@@ -2116,7 +2109,7 @@ ul.social_icons li a i {
 **************************/
 
 .gmap-area {
-    background-image: url("/images/map.jpg");
+    /* background-image: url("../images/map.jpg"); */
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: cover;
@@ -2152,7 +2145,7 @@ ul.social_icons li a i {
 #contact-page {
     padding: 0;
     margin: 0px;
-    background: url("/images/contact1.jpg") center top no-repeat;
+    /* background: url("../images/contact1.jpg") center top no-repeat; */
 }
 
 #contact-page .contact-form .form-group label {
@@ -2430,7 +2423,7 @@ ul.pagination>li:hover>a {
 }
 
 .search_box {
-    background-image: url("/images/search_icon.png");
+    /* background-image: url("../images/search_icon.png"); */
     background-position: 314px 15px;
     background-repeat: no-repeat;
     border-color: #DEDEDE;
@@ -2816,7 +2809,7 @@ shortcodes page css
     bottom: 0;
     left: 0;
     z-index: 80;
-    background: url(/images/script-curv.png) no-repeat center bottom;
+    /* background: url(../images/script-curv.png) no-repeat center bottom; */
     background-size: 100% 100%;
 }
 
@@ -2924,7 +2917,7 @@ shortcodes page css
 }
 
 .calendar-icon {
-    background: url("/images/calendar-dp.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    /* background: url("../images/calendar-dp.png") no-repeat scroll center center rgba(0, 0, 0, 0); */
     float: left;
     height: 30px;
     padding: 0 5px;
@@ -3414,7 +3407,7 @@ li {
     height: 32px;
     border: none;
     text-indent: 100%;
-    background: url("/images/move-up.png") no-repeat 0px 0px;
+    /* background: url("../images/move-up.png") no-repeat 0px 0px; */
 }
 
 #toTopHover {
@@ -3515,7 +3508,7 @@ li {
 }
 
 .about-banner {
-    background: url(/images/plane.jpg) no-repeat 0px -245px;
+    /* background: url(../images/plane.jpg) no-repeat 0px -245px; */
     min-height: 400px;
     position: relative;
     background-size: 100%;
@@ -3656,7 +3649,7 @@ li {
     }
 
     .about-banner {
-        background: url(/images/plane.jpg) no-repeat 0px 0px;
+        /* background: url(../images/plane.jpg) no-repeat 0px 0px; */
         min-height: 329px;
         background-size: cover;
     }
@@ -3703,7 +3696,7 @@ li {
     }
 
     .about-banner {
-        background: url(/images/plane.jpg) no-repeat 0px 0px;
+        /* background: url(../images/plane.jpg) no-repeat 0px 0px; */
         min-height: 329px;
         background-size: cover;
     }
@@ -3767,7 +3760,7 @@ li {
     }
 
     .about-banner {
-        background: url(/images/plane.jpg) no-repeat 0px -58px;
+        /* background: url(../images/plane.jpg) no-repeat 0px -58px; */
         min-height: 240px;
         background-size: 100%;
     }
@@ -3880,7 +3873,7 @@ li {
     padding: 0;
     margin: 0 !important;
     background-size: cover !important;
-    background: url(/images/vision.jpg);
+    /* background: url(../images/vision.jpg); */
     height: 500px;
 }
 
@@ -3913,7 +3906,7 @@ li {
 }
 
 .work {
-    background: url(/images/message.png) no-repeat center;
+    /* background: url(../images/message.png) no-repeat center; */
     background-size: 100% 100%;
     width: 100%;
     min-height: 448px;
@@ -3944,7 +3937,7 @@ li {
 
 
 .footer-arrow {
-    background: url(/images/footer-arrow.png) no-repeat center bottom #fff;
+    /* background: url(../images/footer-arrow.png) no-repeat center bottom #fff; */
     display: block;
     padding: 45px 0;
     background-size: 100% 100%;
@@ -4022,15 +4015,15 @@ li {
 }
 
 .item1 {
-    background-image: url(/images/slider/bg1.jpg)
+    /* background-image: url(../images/slider/bg1.jpg) */
 }
 
 .item2 {
-    background-image: url(/images/slider/bg2.jpg)
+    /* background-image: url(../images/slider/bg2.jpg) */
 }
 
 .item3 {
-    background-image: url(/images/slider/bg3.jpg)
+    /* background-image: url(../images/slider/bg3.jpg) */
 }
 
 .middle-title {

@@ -9,6 +9,7 @@ import {
   BrowserRouter,
   RouterProvider,
   createBrowserRouter,
+  createRoutesFromElements,
   // Navigate,
 } from "react-router-dom";
 import ProtectedRoute from "./protectedRoute";
@@ -16,7 +17,7 @@ import AdminProtectedRoute from "./adminProtectedRoute";
 import { Layout, message, Modal } from "antd";
 import ThirdIdentifier from "../../app/components/inputs/fields/identify/Component/ThirdIdentifier";
 import Tabs from "../modules/tabs";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "app/components/portal/header";
 import Footerr from "app/components/portal/header/Footerr";
 import ContactUs from "app/components/contactUs";
@@ -24,66 +25,23 @@ import UserApps from "app/components/userApps";
 // import Admin from "app/components/admin";
 import LoginForm from "app/components/Login/LoginForm";
 import WizardWorkFlow from "app/components/wizard";
-import PrintReportMa7dar from "app/components/print_report/print_report_ma7dar";
 import Popups from "imports/popups";
 //import AdminWorkFlow from '../admin/workFlow/workFlow'
 // import AdminWorkFlow from "app/components/admin/components/workFlow";
 import WorkflowSteps from "../../app/components/adminComponents/AdminContent/ContentPages/WorkflowSteps";
 import { connect } from "react-redux";
 import Profile from "app/components/portal/header/profile";
-import PrintChart from "app/components/print";
 
-import PrintBox from "app/components/print_box";
-// import WizardPdf from 'app/components/wizard_pdf'
-import PrintReport from "app/components/print_report";
-// import PrintReportMa7dar from "app/components/print_report/print_report_ma7dar";
-import PrintReport2 from "app/components/print_report/print_report_two";
+
 import { mapDispatchToProps } from "./mapping";
-import Test from "app/components/editPrint/test";
-import Ma7dar from "app/components/print_ma7dar";
+
 import { get } from "lodash";
-import Temp1 from "app/components/wizard/modulesObjects/newPro/templates/karar_amin";
-import Temp2 from "app/components/wizard/modulesObjects/newPro/templates/ma7dar_3adl";
-import Temp3 from "app/components/wizard/modulesObjects/newPro/templates/lagna_takdeer";
-import ServiceCondition from "app/components/wizard/modulesObjects/service/print/conditions";
-import ServiceKroky from "app/components/wizard/modulesObjects/service/print/kroky";
-import Temp4 from "app/components/wizard/modulesObjects/newPro/templates/lagna_faneh";
-import Temp5 from "app/components/wizard/modulesObjects/newPro/templates/kroky_parcel";
-import Temp6 from "app/components/wizard/modulesObjects/newPro/templates/buy_zayda";
-import Addedparcels_requestsReport from "app/components/wizard/modulesObjects/newPro/templates/requestsReport_print";
-import KararLagnaPrint from "app/components/wizard/modulesObjects/plan_approval/print/karar_lagna_print";
-import Tawze3 from "app/components/wizard/modulesObjects/plan_approval/print/tawze3";
-import Primary_approval_print from "app/components/wizard/modulesObjects/plan_approval/print/primary_approval_print";
-import takrer_supervision_print from "app/components/wizard/modulesObjects/plan_approval/print/takrer_supervision_print";
-import Takreer_primary_approval_print from "app/components/wizard/modulesObjects/plan_approval/print/takreer_primary_approval_print";
-import TempA0 from "app/components/wizard/modulesObjects/plan_approval/print/tempA0";
-import Gov_TempA0 from "app/components/wizard/modulesObjects/plan_approval/print/tempA0_gov";
-import printDuplixs from "app/components/wizard/modulesObjects/split_merge/print/print_duplixs";
-import printApartments from "app/components/wizard/modulesObjects/split_merge/print/print_appartments";
-import printParcels from "app/components/wizard/modulesObjects/split_merge/print/print_parcels";
-import GlobalPrintRoute from "app/components/editPrint/global_print_route";
-import PropertyRemovalPrintRoute from "app/components/wizard/modulesObjects/property_removal/PropertyRemovalPrintRoute";
-import lagnaA4 from "app/components/wizard/modulesObjects/mergestreets/print/lagnaA4";
-import addstreets from "app/components/wizard/modulesObjects/mergestreets/print/mergeA2";
-import AkarPrint from "app/components/wizard/modulesObjects/akar/print";
-import landsallotment_print from "app/components/wizard/modulesObjects/lands_allotment/print/landsallotment_print";
-import landsallotment_beneficiary_print from "app/components/wizard/modulesObjects/lands_allotment/print/landsallotment_beneficiary_print";
-import landsallotment_adle from "app/components/wizard/modulesObjects/lands_allotment/print/landsallotment_adle";
-import PrintDescriptionCardComponent from "../../app/components/wizard/modulesObjects/investment_sites/printDescriptionCardComponent";
-import investmentsites_lagnh_print from "../../app/components/wizard/modulesObjects/investment_sites/print/investmentsites_lagnh_print";
-import sakPropertycheck_letter from "app/components/wizard/modulesObjects/property_check/print/sakPropertycheck_letter";
-import sakPropertycheck_letter_return from "app/components/wizard/modulesObjects/property_check/print/sakPropertycheck_letter_return";
-import adle_report_letter from "app/components/wizard/modulesObjects/plan_approval/print/adle_report_letter";
-import ministry_report_letter from "app/components/wizard/modulesObjects/plan_approval/print/ministry_report_letter";
-const { Content } = Layout;
-import { workFlowUrl } from "imports/config";
+
 import { postItem } from "app/helpers/apiMethods";
 import qs from "qs";
-// import DynamicPrint from "app/components/DynamicPrint";
 import IdentifyExportCad from "../../app/components/inputs/fields/identify/Component/exportCad";
 import wizardById from "../../app/components/routeTier";
 import axios from "axios";
-import Home from "./home";
 import AdminMainPage from "../../app/components/adminComponents/AdminMainPage";
 import NotFoundPage from "./errorFile";
 
@@ -285,16 +243,14 @@ import NotFoundPage from "./errorFile";
 //           <Route path="/service_condition/:id" element={<ServiceCondition />} />
 //           <Route path="/service_kroky/:id" element={<ServiceKroky />} />
 //           <Route path="/print_lic/:id" element={<PrintReport2 />} />
-//           {/* {isSuperAdmin?.is_super_admin && (
-//           <Route path="/admin"element={<AdminMainPage/>} />
-//         )} */}
+//
 //           <Route exact path="/" element={<LoginForm />} />
 //           <Route path="/identify" element={<ThirdIdentifier />} />
-//           <Route path="/exportCad/:id" element={<IdentifyExportCad />} />
 //           <Route path="/contactus" element={<ContactUs />} />
+//           <Route path="/exportCad/:id" element={<IdentifyExportCad />} />
 //           {/* <ProtectedRoute path="/apps"element={<UserApps/>} />
 //         <ProtectedRoute path="/steps"element={<WorkflowSteps/>} />
-//         <ProtectedRoute path="/profile"element={<Profile/>} /> */}
+//
 //           <Route exact path="/submissions/:app?" element={<Tabs />} />
 //           {/* <Route exact path="/dynamicPrint"element={<DynamicPrint/>} /> */}
 //           <Route path="/wizard" element={<WizardWorkFlow />} />
@@ -306,26 +262,19 @@ import NotFoundPage from "./errorFile";
 //   }
 // }
 
-// import React from "react";
-
 function Routing({ addUser }) {
   const { app } = useParams();
 
   console.log(app);
   useEffect(() => {
-    // const { location } = useLocation();
-    // console.log(location);
     const urlParams = get(window.location.href.split("?"), "1");
     const params = qs.parse(urlParams, { ignoreQueryPrefix: true });
-    console.log(params);
+
     const Token = get(params, "tk");
     if (Token) {
-      // get user from token
       localStorage.setItem("token", Token);
-
-      const url = "http://77.30.168.84/GISAPIDEVV2" + "/authenticate";
-      let urlCheck =
-        "http://77.30.168.84/GISAPIDEVV2" + "/checkEngCompCirculars";
+      const url = workFlowUrl + "/authenticate";
+      let urlCheck = workFlowUrl + "/checkEngCompCirculars";
       postItem(url)
         .then((res) => {
           addUser(res);
@@ -368,56 +317,29 @@ function Routing({ addUser }) {
       }
     }
   }, []);
-  // console.log(handle);
-  // const router = createBrowserRouter([
-  //   {
-  //     path: `#/submissions/:app?`,
-  //     element: <Tabs />,
-  //     errorElement: <ErrorPage />,
-  //   },
-  //   // {
-  //   //   path: `/`,
-  //   //   element: <Header />,
-  //   // },
-  //   {
-  //     path: "/contactus",
-  //     element: <ContactUs />,
-  //   },
-  // ]);
-  const router = createBrowserRouter([
-    {
-      path: "/submissions/:app",
-      element: <Tabs />,
-    },
-    {
-      path: "*",
-      element: <NotFoundPage />,
-    },
-    {
-      path: "/contactus",
-      element: <ContactUs />,
-    },
-  ]);
 
-  // function PrivateRoute({ children }) {
-  //   const isAuthenticated = checkUserAuthentication();
-  //   return isAuthenticated ? children : <Navigate to="/login" />;
-  // }
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Header />}>
+        <Route index path="/submissions/:app?" element={<Tabs />} />
+        <Route path="/wizardById/:id" element={<wizardById />} />
+        <Route path="/exportCad/:id" element={<IdentifyExportCad />} />
+        <Route path="/apps" element={<UserApps />} />
+        <Route path="/wizard" element={<WizardWorkFlow />} />
+        <Route path="/steps" element={<WorkflowSteps />} />
+        <Route path="*" element={<NotFoundPage />} />
+        {/* {isSuperAdmin?.is_super_admin && (
+//           <Route path="/admin"element={<AdminMainPage/>} />
+//         )} */}
+        {/* <ProtectedRoute path="/profile" element={<Profile />} />  */}
+      </Route>
+    )
+  );
 
-  // function App() {
-  // const { location, pathname } = useLocation();
-  return <RouterProvider router={router} />;
-  // // }
-  // console.log(location);
-  // return (
-  //   <div>
-  //     <Routes>
-  //       <Route path="/">
-  //         <Route index element={<Tabs />} />;
-  //         <Route path="/submissions/:app?" element={<Tabs />} />;
-  //       </Route>
-  //     </Routes>
-  //   </div>
-  // );
+  return (
+    <div>
+      <RouterProvider router={router} />;
+    </div>
+  );
 }
 export default connect(null, mapDispatchToProps)(Routing);

@@ -10,7 +10,7 @@ import * as contents from "./contents";
 import * as Modals from "app/components/modals";
 import { withTranslation } from "react-i18next";
 import Media from "react-media";
-import { workFlowUrl, filesHost } from "../../../imports/config";
+// import { workFlowUrl, filesHost } from "../../../imports/config";
 import {
   localizeNumber,
   convertToEnglish,
@@ -82,7 +82,7 @@ class tabs extends Component {
     // currentApp;
     let countUrl = `/submission/counts?appid=${appId}`;
     axios
-      .get("http://77.30.168.84/GISAPIDEVV2/" + countUrl)
+      .get(workFlowUrl + countUrl)
       .then(({ data }) => {
         this.setState({ count: data });
         setCountTab(data);
@@ -95,7 +95,7 @@ class tabs extends Component {
   //shouldComponentUpdate
   getGE(inboxUrl) {
     axios
-      .get("http://77.30.168.84/GISAPIDEVV2/" + inboxUrl)
+      .get(workFlowUrl + inboxUrl)
       .then(({ data }) => {
         this.setState({ count: data.count });
       })
@@ -231,7 +231,6 @@ class tabs extends Component {
       "arabicName",
       currentApp && currentApp.translate_ar_caption
     );
-    console.log("openeed");
 
     return (
       <Media query="(max-width: 1020px)">
@@ -291,6 +290,7 @@ class tabs extends Component {
                   // className="pr-4"
                   xl={{ span: this.state.sideOpened ? 20 : 23 }}
                   md={{ span: this.state.sideOpened ? 18 : 23 }}
+                  style={{ order: "2" }}
                 >
                   {!this.state.sideOpened ? null : (
                     <i

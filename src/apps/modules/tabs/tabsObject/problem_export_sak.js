@@ -83,5 +83,5 @@ export const PROBLEM_EXPORT_SAK = ({ id: appId }) => ({
       },
     ]),
   },
-  icon: "images/realEstate.svg",
+  icon: "../images/realEstate.svg",
 });

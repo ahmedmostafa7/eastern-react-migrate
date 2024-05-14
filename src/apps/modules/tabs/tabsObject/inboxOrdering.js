@@ -42,5 +42,5 @@ export const RUNNING_ORDERING = ({ id: appId }) => ({
       },
     ],
   },
-  icon: "images/inbox.svg",
+  icon: "../images/inbox.svg",
 });

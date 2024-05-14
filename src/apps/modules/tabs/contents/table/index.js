@@ -18,7 +18,7 @@ import {
 import { fetchData } from "app/helpers/apiMethods";
 import { tableActions } from "../../common";
 import * as tableActionFunctions from "../../tableActionFunctions";
-import { workFlowUrl } from "imports/config";
+// import { workFlowUrl } from "imports/config";
 import * as fieldValues from "app/helpers/fieldValues";
 import { withTranslation } from "react-i18next";
 import { withRouter } from "apps/routing/withRouter";
@@ -122,7 +122,7 @@ class tabsTableComponent extends Component {
                     ? action.visible(record)
                     : true;
                 });
-            console.log("actions", tableActions);
+            // console.log("actions", tableActions);
 
             return (
               <span className="grid-3">
@@ -181,7 +181,7 @@ class tabsTableComponent extends Component {
     } = this.props;
 
     if (next) {
-      fetchData("http://77.30.168.84/GISAPIDEVV2/" + url).then(
+      fetchData(workFlowUrl + url).then(
         (result) => {
           this.fetch = false;
           const newResults = result.results;
@@ -203,7 +203,7 @@ class tabsTableComponent extends Component {
     const { setLoading } = this.props;
 
     if (this.state["DataCount"] == 0) {
-      fetchData("http://77.30.168.84/GISAPIDEVV2/" + url).then(
+      fetchData(workFlowUrl + url).then(
         (result) => {
           setLoading(false);
           this.setState({ DataCount: result });
@@ -274,7 +274,7 @@ class tabsTableComponent extends Component {
         });
       }
 
-      fetchData("http://77.30.168.84/GISAPIDEVV2/" + newUrl).then((result) => {
+      fetchData(workFlowUrl + newUrl).then((result) => {
         this.fetch = false;
         let newResults = result.results;
 

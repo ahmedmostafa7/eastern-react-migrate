@@ -44,5 +44,5 @@ export const TRANSFERED_SUBMISSIONS = ({ id: appId }) => ({
       },
     ],
   },
-  icon: "images/returned.svg",
+  icon: "../images/returned.svg",
 });

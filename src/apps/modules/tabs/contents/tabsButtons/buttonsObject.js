@@ -94,7 +94,7 @@ export const tabsButtons = ({
               ],
             });
             removeMainObject();
-            history.push("/wizard");
+            history("/wizard");
           } else {
             let fields = {
               print_state: {
@@ -137,7 +137,7 @@ export const tabsButtons = ({
                       ],
                     });
                     removeMainObject();
-                    history.push("/wizard");
+                    history("/wizard");
                     return Promise.resolve(values);
                   },
                 },
@@ -178,7 +178,7 @@ export const tabsButtons = ({
               actions: [...actions],
             });
             removeMainObject();
-            history.push("/wizard");
+            history("/wizard");
           } else {
             let fields = {
               print_state: {
@@ -212,7 +212,7 @@ export const tabsButtons = ({
                       actions: [...actions],
                     });
                     removeMainObject();
-                    history.push("/wizard");
+                    history("/wizard");
                     return Promise.resolve(values);
                   },
                 },

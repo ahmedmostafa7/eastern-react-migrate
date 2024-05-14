@@ -7,6 +7,6 @@ export const FINISH_SUBMISSION = ({ id: appId }) => ({
   moduleName: "FINISH_SUBMISSION",
   apiUrl: `/submission/GetRunningSubmissions/finished/${appId}`,
   content: { type: "Finished" },
-  icon: "images/finished-work.svg",
+  icon: "../images/finished-work.svg",
   pageSize: 12,
 });

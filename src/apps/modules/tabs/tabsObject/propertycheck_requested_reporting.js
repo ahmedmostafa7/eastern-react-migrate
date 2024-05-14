@@ -7,5 +7,5 @@ export const PROPERTYCHECK_REQUESTED_REPORTING = ({ id: appId }) => ({
   moduleName: "PROPERTYCHECK_REQUESTED_REPORTING",
   apiUrl: `${workFlowUrl}/search-json/`,
   content: { type: "propertycheckRequestingReporting" },
-  icon: "images/addedparcels_reports.svg",
+  icon: "../images/addedparcels_reports.svg",
 });

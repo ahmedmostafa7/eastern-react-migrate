@@ -100,5 +100,5 @@ export const UPDATING_SUBMISSIONS = ({ id: appId }) => ({
       },
     ]),
   },
-  icon: "images/inbox.svg",
+  icon: "../images/inbox.svg",
 });

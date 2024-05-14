@@ -73,5 +73,5 @@ export const REQUESTED_SUBMISSION = ({ id: appId }) => ({
       },
     ]),
   },
-  icon: "images/sent.svg",
+  icon: "../images/sent.svg",
 });

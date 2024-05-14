@@ -7,5 +7,5 @@ export const SPLITEMARGE_REQUESTED_REPORTING = ({ id: appId }) => ({
   moduleName: "SPLITEMARGE_REQUESTED_REPORTING",
   apiUrl: `${workFlowUrl}/search-json/`,
   content: { type: "splitmergeRequestingReporting" },
-  icon: "images/addedparcels_reports.svg",
+  icon: "../images/addedparcels_reports.svg",
 });

@@ -24,7 +24,7 @@
       "style": true
     }],
     ["module-resolver", {
-          "root": ["./src/app", "./src/imports/", "./src/","./src/components/"]
+          "root": ["./src/app", "./src/imports/", "./src/","./src/components/","./src/assets"]
     }]
   ]
 }

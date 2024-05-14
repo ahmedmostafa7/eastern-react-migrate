@@ -45,5 +45,5 @@ export const REJECTED_SUBMISSION = ({ id: appId }) => ({
       },
     ],
   },
-  icon: "images/rejected.svg",
+  icon: "../images/rejected.svg",
 });

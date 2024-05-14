@@ -7,5 +7,5 @@ export const PLANAPPROVAL_REQUESTED_REPORTING = ({ id: appId }) => ({
   moduleName: "PLANAPPROVAL_REQUESTED_REPORTING",
   apiUrl: `${workFlowUrl}/search-json/`,
   content: { type: "e3tmadRequestingReporting" },
-  icon: "images/addedparcels_reports.svg",
+  icon: "../images/addedparcels_reports.svg",
 });

@@ -9,24 +9,33 @@ import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
 import interceptor from "./interceptors";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "antd/dist/reset.css";
 import reportWebVitals from "./reportWebVitals";
+import { ConfigProvider } from "antd";
+
+import "./assets/css/portal.css";
+// import "./assets/css/main.css";
+import "antd/dist/reset.css";
+// import "./assets/css/font-awesome.css";
+// import "./assets/css/esri.css";
 import "./assets/css/style.css";
-// import "@ant-design/compatible/assets/index.css";
+import "imports/config";
+import "imports/config-link";
+// import "antd/dist/antd.css";
 interceptor();
 if (!localStorage.esri_token && localStorage.user) {
   window.esriToken = JSON.parse(localStorage.getItem("user")).esriToken;
 } else {
   window.esriToken = localStorage.esri_token;
+  console.log(i18n);
 }
 const root = createRoot(document.getElementById("app"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <I18nextProvider i18n={i18n}>
-        <>
+        <ConfigProvider theme={{ hashed: false }}>
           <App />
-        </>
+        </ConfigProvider>
       </I18nextProvider>
     </Provider>
   </React.StrictMode>

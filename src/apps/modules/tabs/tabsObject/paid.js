@@ -3,7 +3,7 @@ import { get, isNumber } from "lodash";
 
 export const PAYED_SUBMISSIONS = ({ id: appId }) => ({
   number: 3,
-  icon: "images/paid.svg",
+  icon: "../images/paid.svg",
   label: "Paid",
   name: "Paid",
   moduleName: "PAYED_SUBMISSIONS",

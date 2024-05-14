@@ -51,7 +51,7 @@ class Login extends Component {
             : "/";
         }
 
-        history.push(redirect);
+        history(redirect);
         message.success("تم تسجيل الدخول بنجاح");
 
         // postItem('/authenticate')

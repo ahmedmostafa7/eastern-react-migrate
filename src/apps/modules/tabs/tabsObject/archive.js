@@ -7,5 +7,5 @@ export const ARCHIVED_SUBMISSION = ({ id: appId }) => ({
   moduleName: "ARCHIVED_SUBMISSION",
   apiUrl: `${workFlowUrl}/search/`,
   content: { type: "Archive" },
-  icon: "images/archive.svg",
+  icon: "../images/archive.svg",
 });

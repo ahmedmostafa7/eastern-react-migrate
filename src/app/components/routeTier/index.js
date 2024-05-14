@@ -78,7 +78,7 @@ export class WizardById extends Component {
       });
       localStorage.setItem("req_no", request_no);
       localStorage.setItem("CurrentStep", CurrentStep.name);
-      history.push("/wizard");
+      history("/wizard");
       //window.open("/wizard", "_blank")
       return;
     }
@@ -144,7 +144,7 @@ export class WizardById extends Component {
     localStorage.setItem("req_no", request_no);
     localStorage.setItem("CurrentStep", CurrentStep.name);
     localStorage.setItem("workFlowName", workflows.name);
-    history.push("/wizard");
+    history("/wizard");
   }
 
   view(record, response_status) {
@@ -223,7 +223,7 @@ export class WizardById extends Component {
     //}
     localStorage.setItem("req_no", request_no);
     localStorage.setItem("CurrentStep", CurrentStep.name);
-    history.push("/wizard");
+    history("/wizard");
   }
   //function to req the action buttons of the wizard for the current step
   getButtons(id, is_delayed) {

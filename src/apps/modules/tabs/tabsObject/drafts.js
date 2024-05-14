@@ -38,5 +38,5 @@ export const DRAFT_SUBMISSIONS = ({ id: appId }) => ({
       }
     ]
   },
-  icon: "images/draft.svg"
+  icon: "../images/draft.svg"
 });

@@ -97,5 +97,5 @@ export const SIGNED_SUBMISSIONS = ({ id: appId }) => ({
       },
     ],
   },
-  icon: "images/inbox.svg",
+  icon: "../images/inbox.svg",
 });

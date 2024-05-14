@@ -207,5 +207,5 @@ export const RUNNING_SUBMISSIONS = ({ id: appId }) => ({
         : [...fieldsWithoutCounts(appId)]
     ),
   },
-  icon: "images/inbox.svg",
+  icon: "../images/inbox.svg",
 });

@@ -98,5 +98,5 @@ export const UNSIGNED_SUBMISSIONS = ({ id: appId }) => ({
       },
     ],
   },
-  icon: "images/inbox.svg",
+  icon: "../images/inbox.svg",
 });

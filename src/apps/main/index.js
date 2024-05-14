@@ -8,7 +8,7 @@ import { withRouter } from "apps/routing/withRouter";
 class Main extends Component {
   submissionClicked() {
     const { setCurrentApp, history } = this.props;
-    history.push("submissions");
+    history("submissions");
     setCurrentApp("submissions");
   }
 

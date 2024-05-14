@@ -82,5 +82,5 @@ export const ENGCOMP_ALERTS = ({ id: appId, user: CreatorUser }) => ({
       // },
     ],
   },
-  icon: "images/inbox.svg",
+  icon: "../images/inbox.svg",
 });
