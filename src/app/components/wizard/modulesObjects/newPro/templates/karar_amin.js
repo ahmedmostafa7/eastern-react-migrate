@@ -16,7 +16,7 @@ export default class kararAmin extends Component {
   state = { data: [] };
   componentDidMount() {
     let self = this;
-    initializeSubmissionData(this.props.match.params.id).then((response) => {
+    initializeSubmissionData(this.props.params.id).then((response) => {
       var mainObject = response.mainObject;
       let ceator_user_name = response.ceator_user_name;
       let submission = response.submission;

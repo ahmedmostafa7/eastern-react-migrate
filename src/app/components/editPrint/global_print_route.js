@@ -10,8 +10,8 @@ import { useDispatch } from "react-redux";
 const GlobalRoute = (props) => {
   let [DynamicComp, setDynamicComp] = useState(null);
   let [name, setName] = useState("survey_html");
-  let id = props.match.params.id;
-  let appName = props?.match?.url.split("/")[1];
+  let id = props.params.id;
+  let appName = props?.url.split("/")[1];
   console.log("appName", appName);
   const SetPrintId = (id) => {
     return {
