@@ -1,5 +1,5 @@
 import { APPLICATIONS, COMMITTEES, GROUPS } from "../";
-import { workFlowUrl } from "configFiles/config";
+import { workFlowUrl } from "imports/config";
 
 export const WORKFLOW_TITLE = {
   primaryKey: "id",

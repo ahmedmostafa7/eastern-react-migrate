@@ -13,7 +13,7 @@ import { StickyContainer, Sticky } from "react-sticky";
 
 import {
   geometryServiceUrl,
-  mapUrl,
+  // mapUrl,
   Municipality_Boundary,
   UrbanAreaBoundary,
 } from "../mapviewer/config/map";

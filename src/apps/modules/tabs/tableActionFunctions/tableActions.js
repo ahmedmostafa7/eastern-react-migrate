@@ -443,7 +443,7 @@ export function view(record, index, action) {
   ) {
     window.open(
       window.location.pathname +
-        "#/wizardById/" +
+        "/wizardById/" +
         record.id +
         "?tk=" +
         localStorage.token +

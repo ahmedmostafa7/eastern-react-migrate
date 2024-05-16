@@ -41,11 +41,9 @@ export class WizardById extends Component {
 
     setCurrentApp(app_name);
 
-    if (this.props.match.params && this.props.match.params.id) {
+    if (this.props.params && this.props.params.id) {
       Axios.get(
-        workFlowUrl +
-          "/api/Submission/GetByIdForWizard/" +
-          this.props.match.params.id
+        workFlowUrl + "/api/Submission/GetByIdForWizard/" + this.props.params.id
       )
         .then((response) => {
           this.view(response.data, response.status);

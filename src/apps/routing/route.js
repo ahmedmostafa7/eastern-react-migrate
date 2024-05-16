@@ -29,22 +29,23 @@ import WizardWorkFlow from "app/components/wizard";
 import Popups from "imports/popups";
 //import AdminWorkFlow from '../admin/workFlow/workFlow'
 // import AdminWorkFlow from "app/components/admin/components/workFlow";
+// import { workFlowUrl } from "imports/config";
 import WorkflowSteps from "../../app/components/adminComponents/AdminContent/ContentPages/WorkflowSteps";
 import { connect } from "react-redux";
+import { mapDispatchToProps } from "./mapping";
 import Profile from "app/components/portal/header/profile";
 import PrintRoutes from "./printRoutes";
-
-import { mapDispatchToProps } from "./mapping";
 
 import { get } from "lodash";
 
 import { postItem } from "app/helpers/apiMethods";
 import qs from "qs";
 import IdentifyExportCad from "../../app/components/inputs/fields/identify/Component/exportCad";
-import wizardById from "../../app/components/routeTier";
+import WizardById from "app/components/routeTier";
 import axios from "axios";
 import AdminMainPage from "../../app/components/adminComponents/AdminMainPage";
 import NotFoundPage from "./errorFile";
+import { workFlowUrl } from "imports/config";
 
 function Routing({ addUser }) {
   const { app } = useParams();
@@ -106,13 +107,13 @@ function Routing({ addUser }) {
     createRoutesFromElements(
       <Route path="/" element={<Home />}>
         <Route index path="/submissions/:app?" element={<Tabs />} />
-        <Route path="/wizardById/:id" element={<wizardById />} />
+        <Route path="/wizardById/:id" element={<WizardById />} />
         <Route path="/exportCad/:id" element={<IdentifyExportCad />} />
         <Route path="/apps" element={<UserApps />} />
         <Route path="/wizard" element={<WizardWorkFlow />} />
         <Route path="/steps" element={<WorkflowSteps />} />
         <Route path="*" element={<NotFoundPage />} />
-        <Route path="/prints/*" element={<PrintRoutes />} />
+        {/* <Route path="/prints/*" element={<PrintRoutes />} /> */}
         {/* {isSuperAdmin?.is_super_admin && (
 //           <Route path="/admin"element={<AdminMainPage/>} />
 //         )} */}

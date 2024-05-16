@@ -34,7 +34,7 @@ export default {
     permission: { show_match_value: { search_with: "entity_id" } },
   },
   entity_type_id: {
-    name: 'entity_type_id',
+    name: "entity_type_id",
     moduleName: "entity_type_id",
     label: "نوع الجهة",
     className: "radio_allotment",
@@ -93,7 +93,7 @@ export default {
       },
       {
         value: 3,
-        
+
         name: "labels:rejectedProcesses",
       },
     ],

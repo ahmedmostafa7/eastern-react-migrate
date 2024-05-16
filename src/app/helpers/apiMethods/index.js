@@ -1,5 +1,5 @@
 import axios from "axios";
-// import { workFlowUrl, hostUpload } from "imports/config";
+import { workFlowUrl, hostUpload } from "imports/config";
 import { omitBy, isNull, isObject, isArray } from "lodash";
 
 export function fetchData(api_url, config) {

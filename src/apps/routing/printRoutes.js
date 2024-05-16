@@ -40,7 +40,9 @@ import Ma7dar from "app/components/print_ma7dar";
 import PrintChart from "app/components/print";
 import PrintBox from "app/components/print_box";
 import PrintReport from "app/components/print_report";
-export default function printRoutes() {
+import { connect } from "react-redux";
+import { mapDispatchToProps } from "./mapping";
+function PrintRoutes() {
   return (
     <div>
       <Routes>
@@ -182,3 +184,4 @@ export default function printRoutes() {
     </div>
   );
 }
+export default connect(null, mapDispatchToProps)(PrintRoutes);

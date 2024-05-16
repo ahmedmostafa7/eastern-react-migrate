@@ -11,7 +11,7 @@ export const create_investmentsites = {
   name: "create_investmentsites",
   module_id: 96,
   steps: {
-    investType: { ...invest_workflow_select },
+    // investType: { ...invest_workflow_select },
     landData: { ...landData_farz_simple_invest },
     approvalSubmissionNotes: { ...notes },
     summery: {

@@ -10,7 +10,7 @@ import * as contents from "./contents";
 import * as Modals from "app/components/modals";
 import { withTranslation } from "react-i18next";
 import Media from "react-media";
-// import { workFlowUrl, filesHost } from "../../../imports/config";
+import { workFlowUrl, filesHost } from "imports/config";
 import {
   localizeNumber,
   convertToEnglish,
