@@ -205,7 +205,7 @@ class MapComponent extends Component {
           }
         );
 
-        // debugger;
+        // ;
         // var baseLayer = new (CreateCustomTileLayer())(
         //   "https://mt1.google.com/vt/lyrs=s&hl=en&z={z}&x={x}&y={y}",
         //   {
@@ -216,7 +216,7 @@ class MapComponent extends Component {
         //   }
         // );
         // this.map.addLayer(baseLayer);
-        // debugger;
+        // ;
 
         if (this.props.isStatlliteMap) {
           window.stalliteLayer = new ArcGISDynamicMapServiceLayer(

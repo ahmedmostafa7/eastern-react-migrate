@@ -244,7 +244,7 @@ export class selectComponent extends mainInput {
                 ux_pattern == "infiniteScrolling" && this.onScroll.bind(this)
               }
               // showArrow={showArrow}
-              dropdownMatchSelectWidth={false}
+              popupMatchSelectWidth={false}
               showSearch={showSearch}
               allowClear
               autoClearSearchValue

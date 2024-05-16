@@ -10,7 +10,6 @@ export default {
   preSubmit(values, currentStep, props) {
     const { t } = props;
     return new Promise(function (resolve, reject) {
-      debugger;
       if (
         values.efada_plan_statements.efada__suggested_activity == "2" &&
         !values?.efada_plan_statements?.site_activities?.length
@@ -28,7 +27,6 @@ export default {
   sections: {
     efada_plan_statements: {
       init_data: (values, props, fields) => {
-        debugger;
         let defaultSiteActivities =
           props.mainObject.landData.landData.lands.parcels
             .map((land) => land.attributes.SITE_ACTIVITY)
@@ -47,7 +45,6 @@ export default {
               )) ||
             [];
 
-          debugger;
           setTimeout(() => {
             if (values.efada_plan_statements.efada__suggested_activity == "1") {
               props.change("efada_plan_statements.activities_list", [
@@ -85,7 +82,6 @@ export default {
             },
           },
           onClick: (evt, props) => {
-            debugger;
             let defaultSiteActivities =
               props.mainObject.landData.landData.lands.parcels
                 .map((land) => land.attributes.SITE_ACTIVITY)
@@ -100,8 +96,6 @@ export default {
               key: "FormValues",
               form: "stepForm",
             });
-            debugger;
-
             formValues.efada_plan_statements.activities_list =
               (formValues?.efada_plan_statements?.activities_list?.length &&
                 formValues?.efada_plan_statements?.activities_list.filter(
@@ -140,7 +134,6 @@ export default {
           field: "multiSelect",
           init: (props) => {
             esriRequest(investMapUrl + "/" + 13).then((response) => {
-              debugger;
               props.setSelector("site_activities", {
                 data: response.fields[45].domain.codedValues,
               });
@@ -149,7 +142,6 @@ export default {
           label_key: "name",
           value_key: "name",
           onSelect: (results, props) => {
-            debugger;
             let defaultSiteActivities =
               props.mainObject.landData.landData.lands.parcels
                 .map((land) => land.attributes.SITE_ACTIVITY)
@@ -164,8 +156,6 @@ export default {
               key: "FormValues",
               form: "stepForm",
             });
-            debugger;
-
             let list = formValues.efada_plan_statements.activities_list
               .filter(
                 (r) => defaultSiteActivities.indexOf(r.SITE_ACTIVITY) == -1

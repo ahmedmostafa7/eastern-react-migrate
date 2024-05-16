@@ -28,6 +28,11 @@ export class Wizard extends Component {
   constructor(props) {
     super(props);
     this.reUpdateSteps();
+    // console.log(props);
+    if (!this.props) {
+      let { history } = this.props;
+      history.goback();
+    }
   }
 
   UNSAFE_componentWillUpdate(nextProps, nextState) {

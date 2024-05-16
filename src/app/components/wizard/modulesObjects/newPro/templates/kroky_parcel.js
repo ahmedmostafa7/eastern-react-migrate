@@ -14,7 +14,7 @@ export default class LangnaFaneh extends Component {
   componentDidMount() {
     let self = this;
     axios
-      .get(workFlowUrl + "/api/Submission/" + this.props.match.params.id)
+      .get(workFlowUrl + "/api/Submission/" + this.props.params.id)
       .then(({ data }) => {
         console.log("s", data);
         let commite_date = data["committee_date"];
@@ -78,7 +78,7 @@ export default class LangnaFaneh extends Component {
                     (+b.shtfa_southweast || 0))
                 );
               }, 0) || 0;
-            
+
             // let allArea = mainObject["suggestParcel"]["suggestParcel"]["suggestParcels"][
             //   "polygons"
             // ].reduce(function (acc, obj) { return acc + (+obj.area); }, 0);
@@ -231,7 +231,8 @@ export default class LangnaFaneh extends Component {
                   <img
                     src={
                       filesHost +
-                      mainObject?.suggestParcel.suggestParcel.submission_data?.suggestionUrl
+                      mainObject?.suggestParcel.suggestParcel.submission_data
+                        ?.suggestionUrl
                     }
                     style={{ width: "100%" }}
                   />

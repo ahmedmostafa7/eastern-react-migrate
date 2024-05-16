@@ -1,7 +1,6 @@
 import { workFlowUrl } from "imports/config";
 import { get } from "lodash";
 const checkTabFieldsByAppId = (appId) => {
-  debugger;
   return appId == 29
     ? [
         {
@@ -141,5 +140,5 @@ export const SCALATION = ({ id: appId }) => ({
     actions: "common",
     fields: [...checkTabFieldsByAppId(appId)],
   },
-  icon: "../images/late.svg",
+  icon: "/images/late.svg",
 });

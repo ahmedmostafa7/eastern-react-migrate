@@ -23,7 +23,6 @@ export const onSearch = async (scope, filterValue) => {
     if (scope.searchTimeOut) clearTimeout(scope.searchTimeOut);
     //if (!scope.state.parcelNum?.length) return;
     scope.searchTimeOut = setTimeout(async () => {
-      debugger;
       let filterQuery = [];
       filterQuery.push(scope.parcelFilterWhere);
       filterQuery.push("PARCEL_PLAN_NO like '%" + filterValue + "%'");
@@ -211,7 +210,6 @@ export const onMunChange = (scope, e, callback) => {
     }
     scope.getServiceParcels(e, null, null, null);
   } else {
-    debugger;
     scope.pol = scope.state.MunicipalityNames.filter((m) => m.code == e)?.[0];
     // queryTask({
     //   url:
@@ -317,7 +315,6 @@ export const onPlaneChange = (scope, f, callback) => {
       item.subNameval?.code == undefined &&
       item.blockval?.code == undefined
   );
-  debugger;
   if (
     (!callback || (callback && typeof callback == "object")) &&
     !scope.loadLists

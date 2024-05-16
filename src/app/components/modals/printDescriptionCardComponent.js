@@ -46,7 +46,7 @@ class PrintDescriptionCardComponent extends Component {
         //this.getFeatures(data.info.mapInfo.layers);
       });
     } else {
-      initializeSubmissionData(this.props.match.params.id).then((response) => {
+      initializeSubmissionData(this.props.params.id).then((response) => {
         getMapInfo(mapUrl).then((data) => {
           this.layers = data.info.mapInfo.layers;
           this.table = data.info.mapInfo.tables;

@@ -438,28 +438,22 @@ class wizardSummerySide extends Component {
     const { setCurrentTreeNode } = this.props;
     let firstNode;
     let nodeProps;
-    if (e.node.isLeaf()) {
+    if (e.node.isLeaf) {
       setCurrentTreeNode({ path: k[0], option: e.node.props.section });
     } else if (e.node) {
-      nodeProps = get(
-        e?.node?.props?.children?.find((r) => typeof r == "object")[0],
-        "props",
-        {}
-      );
-      firstNode = get(e.node, "props.children.0.props.id", nodeProps?.id);
+      nodeProps = e?.node?.props?.data.children[0];
+      firstNode = e?.node?.props?.data.id;
       // firstNode &&
       setCurrentTreeNode({
         path: `${k[0]}.${firstNode}`,
-        option:
-          e?.node?.props?.children?.[0]?.props?.section || nodeProps?.section,
+        option: nodeProps?.section,
       });
     }
 
-    this.selectedTreeNode =
-      (e?.node?.isLeaf() && k[0]) || `${k[0]}.${firstNode}`;
+    this.selectedTreeNode = (e?.node?.isLeaf && k[0]) || `${k[0]}.${firstNode}`;
     this.selectedTreeOption =
-      (e?.node?.isLeaf() && e?.node?.props?.section) ||
-      e?.node?.props?.children[0]?.props?.section ||
+      (e?.node?.isLeaf && e?.node?.props?.section) ||
+      e?.node?.props?.data.children[0] ||
       nodeProps?.section;
   }
 

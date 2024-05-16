@@ -113,7 +113,7 @@ class tabsTableComponent extends Component {
     if (this.state.columns !== columns) {
       this.setState({ columns });
     }
-    console.log("mounted");
+    // console.log("mounted");
     this.fetchTableData();
   }
 

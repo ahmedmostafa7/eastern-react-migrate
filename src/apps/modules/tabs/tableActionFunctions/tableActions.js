@@ -13,6 +13,7 @@ import {
   pick,
   isEmpty,
 } from "lodash";
+import { useNavigate } from "react-router-dom";
 // import { goToInboxScreen } from "../../../../app/components/wizard/components/stepContent/actions/actionFunctions/apiActions";
 import axios from "axios";
 // import { workFlowUrl, host, backEndUrlforMap, printHost } from "imports/config";
@@ -270,7 +271,6 @@ export async function sakUpdate(
   showPopup = true,
   props = this.props
 ) {
-  debugger;
   const { submission_file_path, CurrentStep, id, is_delayed } = record;
   fetchData(backEndUrlforMap + submission_file_path + "mainObject.json").then(
     (data) => {
@@ -278,7 +278,6 @@ export async function sakUpdate(
         (typeof data == "string" &&
           JSON.parse(window.lzString.decompressFromBase64(data))) ||
         data;
-      debugger;
       //return data;
       let deedsObjects = [];
       data.waseka.waseka.table_waseka.forEach((waseka) => {
@@ -316,8 +315,6 @@ export async function sakUpdate(
           }
         }
       });
-      debugger;
-
       axios
         .post(
           `${workFlowUrl}/submission/GenerateElectronicDeed`,
@@ -329,7 +326,6 @@ export async function sakUpdate(
           }
         )
         .then((res) => {
-          debugger;
           if (!res.data.sucsess) {
             window.notifySystem("error", res.data.error, 10);
           } else {
@@ -436,13 +432,14 @@ function failure(t) {
 }
 
 export function view(record, index, action) {
+  // const navigate = useNavigate();
   if (
     window.newTabShowWizardApps.find(
       (x) => localStorage.appname.toLowerCase().indexOf(x) > -1
     )
   ) {
     window.open(
-      window.location.pathname +
+      window.location.origin +
         "/wizardById/" +
         record.id +
         "?tk=" +

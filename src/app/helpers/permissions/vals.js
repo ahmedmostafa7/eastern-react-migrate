@@ -54,7 +54,6 @@ export const show_match_value = (values, params = {}, props) => {
 };
 
 export const show_match_value_props = (values, params = [], props) => {
-  debugger;
   return match_value_props(props, params);
 };
 

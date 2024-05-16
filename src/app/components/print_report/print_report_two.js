@@ -47,7 +47,7 @@ export default class Report extends Component {
   componentDidMount() {
     let self = this;
     axios
-      .get(workFlowUrl + "/api/Submission/" + this.props.match.params.id)
+      .get(workFlowUrl + "/api/Submission/" + this.props.params.id)
       .then(({ data }) => {
         let submission = data;
         /*if(!submission.committee_report_no){

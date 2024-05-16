@@ -58,5 +58,5 @@ export const PROBLEM_REAL_ESTATE = ({ id: appId }) => ({
       },
     ]),
   },
-  icon: "../images/realEstate.svg",
+  icon: "/images/realEstate.svg",
 });

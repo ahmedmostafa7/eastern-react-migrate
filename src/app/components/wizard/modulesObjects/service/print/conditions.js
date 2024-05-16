@@ -10,7 +10,7 @@ export default class Conditions extends Component {
     data: [],
   };
   componentDidMount() {
-    initializeSubmissionData(this.props.match.params.id).then((res) => {
+    initializeSubmissionData(this.props.params.id).then((res) => {
       let mainObject = res.mainObject;
       let submissionData = res.submission;
       // mainObject.printTextEdited.title1,
@@ -21,7 +21,7 @@ export default class Conditions extends Component {
         committee_report_no,
         mainObject: mainObject,
         zoomProps: mainObject?.printTextEdited?.serviceSubmissionType.zoomLevel,
-        id: this.props.match.params.id,
+        id: this.props.params.id,
 
         // path:"",
       });

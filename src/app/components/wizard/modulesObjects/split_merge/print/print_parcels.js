@@ -52,7 +52,7 @@ export default class printParcel extends Component {
           );
           this.setPrintValues(this.props.mo3aynaObject);
         } else {
-          initializeSubmissionData(this.props.match.params.id).then((res) => {
+          initializeSubmissionData(this.props.params.id).then((res) => {
             let mainObject = res.mainObject;
             this.msa7yData =
               switchBetweenTadkekMsa7yAndOriginalMsa7y(mainObject);

@@ -120,7 +120,7 @@ export default class Takdeer extends Component {
   }
   componentDidMount() {
     axios
-      .get(workFlowUrl + "/api/Submission/" + this.props.match.params.id)
+      .get(workFlowUrl + "/api/Submission/" + this.props.params.id)
       .then(({ data }) => {
         let submission = data;
         axios
@@ -173,7 +173,6 @@ export default class Takdeer extends Component {
               mainObject["landData"]["landData"]["lands"]["parcels"][0][
                 "attributes"
               ]["PARCEL_AREA"];
-            debugger;
             let coordinates =
               mainObject["landData"] &&
               (await projectWithPromise(
@@ -188,7 +187,6 @@ export default class Takdeer extends Component {
                 null,
                 false
               ));
-            debugger;
             coordinates = new esri.geometry.Polygon(
               coordinates[0]
             ).getCentroid();
@@ -798,7 +796,7 @@ export default class Takdeer extends Component {
                 >
                   <div>
                     <p>اسم المساح</p>
-                     {/* <p style={{ textAlign: "center" }}>
+                    {/* <p style={{ textAlign: "center" }}>
                       {mainObject?.survey_user?.survUser?.id && province_id && (
                         <img
                           src={`${filesHost}/users/${mainObject?.survey_user?.survUser?.id}/sign.png`}

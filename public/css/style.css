@@ -571,7 +571,7 @@ body {
 }
 
 .ant-form-item-label {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .ant-tabs-bar {
@@ -791,7 +791,7 @@ form .ant-cascader-picker {
 }
 
 .wizard-input {
-  display: flex;
+  /* display: flex; */
 }
 
 .ant-input-number {
@@ -1573,8 +1573,8 @@ form textarea.ant-input {
     margin-top: 5px;
     padding: 0px 8px 0px 0px !important;
     padding-bottom: 50px;
-    height: 80vh !important;
-    overflow: scroll !important;
+    height: 70vh !important;
+    overflow: auto !important;
     /* padding-bottom: 50px; */
     /* direction: ltr !important; */
   }
@@ -3327,8 +3327,8 @@ header.appNameHeader_grid i {
   margin-top: 5px;
   padding: 20px;
   margin-bottom: 5px;
-  height: 80vh !important;
-  overflow: scroll !important;
+  height: 70vh !important;
+  overflow: auto !important;
   padding-bottom: 50px;
   /* direction: ltr !important; */
 }
@@ -3706,8 +3706,8 @@ input[type="radio"]::after {
 }
 
 .ant-pagination {
-  position: absolute;
-  bottom: 13px;
+  position: fixed;
+  bottom: 10vh;
   width: 100%;
   direction: ltr;
   text-align: center;
@@ -6285,4 +6285,15 @@ svg {
 .wizard-container .ant-form-horizontal{
   height: 65vh;
   overflow: auto;
+}
+.ant-tabs-card{
+  display: grid;
+}
+.ant-tabs-nav-operations {
+  display: none !important;
+}
+.prev,
+.next{
+  top: 0!important;
+  font-size: inherit!important;
 }

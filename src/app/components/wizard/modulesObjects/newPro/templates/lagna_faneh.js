@@ -17,7 +17,7 @@ export default class LangnaFaneh extends Component {
   state = { name: "" };
   componentDidMount() {
     let self = this;
-    initializeSubmissionData(this.props.match.params.id).then((response) => {
+    initializeSubmissionData(this.props.params.id).then((response) => {
       var mainObject = response.mainObject;
       let ceator_user_name = response.ceator_user_name;
       let submission = response.submission;
@@ -63,7 +63,11 @@ export default class LangnaFaneh extends Component {
           "MUNICIPALITY_NAME"
         ];
       let sakObj = get(mainObject["sakData"], "sakData.saks", []);
-      sakObj = !Array.isArray(sakObj) && typeof sakObj == 'object' && Object.values(sakObj) || sakObj
+      sakObj =
+        (!Array.isArray(sakObj) &&
+          typeof sakObj == "object" &&
+          Object.values(sakObj)) ||
+        sakObj;
       // let sak = get(Object.values(sakObj)[0], "number");
       // let sak_date = get(Object.values(sakObj)[0], "date");
       // let Ketab_3adl = get(Object.values(sakObj)[0], "issuer");

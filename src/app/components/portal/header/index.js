@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "./mapping";
 import { withTranslation } from "react-i18next";
@@ -19,14 +20,12 @@ import ticketGroupIcon from "app/components/tickets/ticketIcon.svg";
 import ticketsInboxIcon from "app/components/tickets/ticketsInboxIcon.svg";
 import addTicketIcon from "app/components/tickets/addTicketIcon.svg";
 
-import { useEffect, useState } from "react";
-
 function handleMenuClick(e) {
   console.log("click", e);
 }
 function navigate(url) {
-  const { history } = this.props;
-  history(url);
+  // const { history } = this.props;
+  // history(url);
 }
 function signOut(removeUser) {
   removeUser();
@@ -39,52 +38,19 @@ export function Header({
   countTabsCount,
   setCountTab,
   removeUser,
+  headerData,
 }) {
-  const [arabicName, setAraName] = useState("");
+  const [request_no, setReqNo] = useState("");
+  const [CurrentStep, setCurrentStep] = useState("");
   const [color, setColor] = useState("");
-  const [appsArabicNames, , setAllAppsAraName] = useState("");
-  let request_no = localStorage.getItem("req_no");
-  let home = "";
-  // let isAdminPage = englishName?.toLowerCase()?.includes("admin");
-  let CurrentStep = localStorage.getItem("CurrentStep");
-  let workflowName = localStorage.getItem("workFlowName");
-
+  const [arabicName, setAraName] = useState("");
+  const [workflowName, setWorkflowName] = useState("");
+  const [home, setHome] = useState("");
+  // console.log("user", props);
   useEffect(() => {
-    // console.log("popp", this.props);
-    // const { location } = this.props;
-    let localAppName = localStorage.getItem("appname");
-    let appName;
-    appName = localAppName.replace("splitandmerge.", "");
-    // let appName = location?.pathname
-    //   .replace("/submissions/", "")
-    //   .replace("/", "");
-
-    console.log("appn", appName);
-    let SplitappName = "splitandmerge." + appName;
-    let userApplications = [
-      ...JSON.parse(localStorage.getItem("user")).groups.map((x) =>
-        x.groups_permissions.map((f) => f.applications)
-      ),
-    ];
-    console.log("up", userApplications);
-    let AlluserApps = userApplications?.reduce((a, b) => {
-      return [...a, ...b];
-    }, []);
-    // if (!/\d/.test(appName)) {
-    let arabicName = AlluserApps?.find(
-      (x) => x.name.toLowerCase() == SplitappName.toLowerCase()
-    )?.translate_ar_caption;
-
-    let englishName = AlluserApps?.find(
-      (x) => x.name.toLowerCase() == SplitappName.toLowerCase()
-    )?.name;
-    let AppColor = AlluserApps?.find(
-      (x) => x.name.toLowerCase() == SplitappName.toLowerCase()
-    )?.color;
-
-    setColor(AppColor);
-    setAraName(arabicName);
-
+    setReqNo(localStorage.getItem("req_no"));
+    setCurrentStep(localStorage.getItem("CurrentStep"));
+    setWorkflowName(localStorage.getItem("workFlowName"));
     // const request = new Request(
     //   workFlowUrl + "/applications/allApplications?pageSize=100",
     //   {
@@ -105,34 +71,15 @@ export function Header({
     //     }
     //   })
     //   .catch((err) => console.log(err));
-
-    if (appName.toLowerCase() == "addedparcels") {
-      window.isPlusApp = true;
-      window.isAkarApp = false;
-    } else if (appName.toLowerCase() == "tamlikakar") {
-      window.isAkarApp = true;
-
-      window.isPlusApp = false;
-    } else if (
-      // window.location.href.indexOf("admin") > -1 ||
-      window.location.href.indexOf("steps") > -1
-    ) {
-      window.isPlusApp = false;
-      window.isAkarApp = false;
-      setAraName(" إدارة النظام" + window.appversion);
-      setColor("");
-    } else {
-      window.isAkarApp = false;
-
-      window.isPlusApp = false;
-    }
   }, []);
-  console.log(arabicName, color);
+
+  // console.log(arabicName, color);
+  // console.log("ddd", headerData);
   let menu = (
     <Menu>
       <Menu.Item key="1">
         <a
-          href={`${window.hostUpload + "/home/UserProfile"}`}
+          href={`${hostUpload + "/home/UserProfile"}`}
           className="portalnavitem"
         >
           الصفحة الشخصية
@@ -144,7 +91,7 @@ export function Header({
           {(matches) =>
             matches ? (
               <a
-                href={`${window.hostUpload + "/home/Apps"}`}
+                href={`${hostUpload + "/home/Apps"}`}
                 className="portalnavitem "
               >
                 تطبيقاتي
@@ -242,7 +189,7 @@ export function Header({
                 </li>
                 <span className="navitemBorder "></span>
                 <a
-                  href={`${window.hostUpload + "/home/ContactUs"}`}
+                  href={`${hostUpload + "/home/ContactUs"}`}
                   className="portalnavitem "
                 >
                   تواصـل معنا
@@ -279,7 +226,7 @@ export function Header({
                     <Menu.Item>
                       {user ? (
                         <a
-                          href={`${window.hostURL + "/mahamy/tickets/add"}`}
+                          href={`${hostURL + "/mahamy/tickets/add"}`}
                           target="_blank"
                         >
                           <img
@@ -291,7 +238,7 @@ export function Header({
                           <span>تذكرة جديدة</span>
                         </a>
                       ) : (
-                        <a href={`${window.hostURL + "/home/Login"}`}>
+                        <a href={`${hostURL + "/home/Login"}`}>
                           <img
                             className=""
                             alt="ticketIcon"
@@ -303,10 +250,7 @@ export function Header({
                     </Menu.Item>
                     <hr />
                     <Menu.Item>
-                      <a
-                        href={`${window.hostURL}/mahamy/tickets`}
-                        target="_blank"
-                      >
+                      <a href={`${hostURL}/mahamy/tickets`} target="_blank">
                         <img
                           className=""
                           alt="ticketIcon"
@@ -349,7 +293,7 @@ export function Header({
                   matches ? null : (
                     <>
                       <a
-                        href={`${window.hostUpload + "/home/Apps"}`}
+                        href={`${hostUpload + "/home/Apps"}`}
                         className="portalnavitem mr-4 noMobile"
                       >
                         تطبيقاتي

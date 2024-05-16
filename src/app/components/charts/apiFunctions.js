@@ -636,7 +636,6 @@ export function checkTeamPerformance(
             extendedDelayedData =
               (Array.isArray(extendedDelayedData) && extendedDelayedData) ||
               extendedDelayedData.stats;
-            debugger;
             data = finishedData.reduce((arr, e) => {
               arr.push(
                 Object.assign(
@@ -647,7 +646,6 @@ export function checkTeamPerformance(
               );
               return arr;
             }, []);
-            debugger;
             data = data.reduce((arr, e) => {
               let index = extendedData.findIndex((a) => a.name == e.name);
               if (index != -1) {
@@ -681,7 +679,6 @@ export function checkTeamPerformance(
                 (r) => !data.find((e) => e.name == r.name)
               )
             );
-            debugger;
             const recievedData = {
               data: {
                 labels: map(data, (v, k) => t(v.name)),

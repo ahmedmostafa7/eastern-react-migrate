@@ -113,7 +113,6 @@ class ServiceIdentifyComponent extends Component {
           required: true,
           field: "inputNumber",
           onClick: (props, val) => {
-            debugger;
             props.change(
               "north_length_text",
               reformatNumLetters(toArabicWord(val), "متر")
@@ -137,7 +136,6 @@ class ServiceIdentifyComponent extends Component {
           required: true,
           field: "inputNumber",
           onClick: (props, val) => {
-            debugger;
             props.change(
               "south_length_text",
               reformatNumLetters(toArabicWord(val), "متر")
@@ -161,7 +159,6 @@ class ServiceIdentifyComponent extends Component {
           required: true,
           field: "inputNumber",
           onClick: (props, val) => {
-            debugger;
             props.change(
               "east_length_text",
               reformatNumLetters(toArabicWord(val), "متر")
@@ -185,7 +182,6 @@ class ServiceIdentifyComponent extends Component {
           required: true,
           field: "inputNumber",
           onClick: (props, val) => {
-            debugger;
             props.change(
               "west_length_text",
               reformatNumLetters(toArabicWord(val), "متر")
@@ -445,7 +441,6 @@ class ServiceIdentifyComponent extends Component {
       ]).then((features) => {
         getFeatureDomainName(features, this.LayerID.Landbase_Parcel).then(
           (features) => {
-            debugger;
             let fcs = features
               .filter((r) => r.attributes.MUNICIPALITY_NAME)
               // .reduce((a, b) => {
@@ -1083,7 +1078,6 @@ class ServiceIdentifyComponent extends Component {
         callbackResult: (res) => {
           getFeatureDomainName(res.features, this.LayerID.Landbase_Parcel).then(
             (r) => {
-              debugger;
               res.features = res.features
                 .filter((r) => r.attributes.PARCEL_SPATIAL_ID)
                 .map((e, i) => {
@@ -1092,7 +1086,6 @@ class ServiceIdentifyComponent extends Component {
                     i: e.attributes.PARCEL_SPATIAL_ID?.toString(),
                   };
                 });
-              debugger;
               serviceDataItem.selectedLandsT.push(res);
               this.DrawGraph();
             }
@@ -1635,7 +1628,6 @@ class ServiceIdentifyComponent extends Component {
   };
 
   resetFilters = () => {
-    debugger;
     this.loadLists = true;
     if (this.state.munval) {
       onMunChange(this, this.state.munval, () => {
@@ -1712,7 +1704,6 @@ class ServiceIdentifyComponent extends Component {
         //   isHiglightSymbol: true,
         //   highlighColor: [0, 0, 0, 0.25],
         // });
-        debugger;
         this.getServiceParcels(
           this.state.munval,
           this.state.planeval,

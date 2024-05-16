@@ -134,7 +134,6 @@ export const decoder = (base64url) => {
 };
 
 export const CreateCustomTileLayer = () => {
-  debugger;
   return window.WebTiledLayer.createSubclass({
     properties: {
       urlTemplate: null,
@@ -147,7 +146,6 @@ export const CreateCustomTileLayer = () => {
 
     // generate the tile url for a given level, row and column
     getTileUrl: function (level, row, col) {
-      // debugger;
       return this.urlTemplate
         .replace("{z}", level)
         .replace("{x}", col)
@@ -1482,7 +1480,6 @@ export const reformatWasekaData = (props, table_waseka) => {
   return resArr;
 };
 export const switchBetweenTadkekMsa7yAndOriginalMsa7y = (mainObject) => {
-  debugger;
   let imported_mainObject = checkImportedMainObject({ mainObject });
   return (
     (imported_mainObject && mainObject?.tadkek_data_Msa7y?.tadkek_msa7yData) ||

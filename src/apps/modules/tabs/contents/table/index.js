@@ -106,7 +106,6 @@ class tabsTableComponent extends Component {
         };
       });
 
-    debugger;
     const actions = content.actions
       ? {
           title: "",
@@ -339,7 +338,7 @@ class tabsTableComponent extends Component {
 
     const { DataCount, FilterVal, requests, current } = this.state;
     const { tableHeight } = this;
-    console.log("mounted", this.props);
+    // console.log("mounted", this.props);
     const all_cols = this.getFilterData(results);
     // const all_cols = union(filters, columns);
     const locale = {
@@ -390,40 +389,42 @@ class tabsTableComponent extends Component {
               // scroll={{ y: "80vh" }}
               pagination={false}
             />
-            <Pagination
-              defaultCurrent={1}
-              onChange={this.onChange}
-              hideOnSinglePage={true}
-              defaultPageSize={this.state.pageSize || 1}
-              pageSize={this.state.pageSize || 1}
-              current={current}
-              // pageSize={
-              //   (this.props.app_id == 29 &&
-              //     ["inbox", "returned"].indexOf(this.props.name) != -1 &&
-              //     18) ||
-              //   12
-              // }
-              // defaultPageSize={
-              //   (this.props.app_id == 29 &&
-              //     ["inbox", "returned"].indexOf(this.props.name) != -1 &&
-              //     18) ||
-              //   12
-              // }
-              total={
-                // (this.props.content.main_filters &&
-                //   Object.values(this.props.content.main_filters).filter(
-                //     (filter) => get(FilterVal, filter.name, []).length > 0
-                //   ).length > 0 &&
-                //   results.filter((r) =>
-                //     this.filterResults(
-                //       r,
-                //       this.props.content.main_filters,
-                //       FilterVal
-                //     )
-                //   ).length) ||
-                count
-              }
-            />
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Pagination
+                defaultCurrent={1}
+                onChange={this.onChange}
+                hideOnSinglePage={true}
+                defaultPageSize={this.state.pageSize || 1}
+                pageSize={this.state.pageSize || 1}
+                current={current}
+                // pageSize={
+                //   (this.props.app_id == 29 &&
+                //     ["inbox", "returned"].indexOf(this.props.name) != -1 &&
+                //     18) ||
+                //   12
+                // }
+                // defaultPageSize={
+                //   (this.props.app_id == 29 &&
+                //     ["inbox", "returned"].indexOf(this.props.name) != -1 &&
+                //     18) ||
+                //   12
+                // }
+                total={
+                  // (this.props.content.main_filters &&
+                  //   Object.values(this.props.content.main_filters).filter(
+                  //     (filter) => get(FilterVal, filter.name, []).length > 0
+                  //   ).length > 0 &&
+                  //   results.filter((r) =>
+                  //     this.filterResults(
+                  //       r,
+                  //       this.props.content.main_filters,
+                  //       FilterVal
+                  //     )
+                  //   ).length) ||
+                  count
+                }
+              />
+            </div>
           </div>
         ) : (
           <Table

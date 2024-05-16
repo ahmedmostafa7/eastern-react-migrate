@@ -13,7 +13,7 @@ import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 export default class Farz extends Component {
   state = { data: [] };
   componentDidMount() {
-    console.log("match_id", this.props.match.params.id);
+    console.log("match_id", this.props.params.id);
   }
 
   render() {

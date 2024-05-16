@@ -58,5 +58,5 @@ export const PROBLEM_SAK_REQUESTS = ({ id: appId }) => ({
       },
     ]),
   },
-  icon: "../images/realEstate.svg",
+  icon: "/images/realEstate.svg",
 });

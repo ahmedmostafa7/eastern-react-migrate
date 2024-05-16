@@ -45,7 +45,7 @@ export default class Ma7dar extends Component {
     // let self = this;
 
     axios
-      .get(workFlowUrl + "/api/Submission/" + this.props.match.params.id)
+      .get(workFlowUrl + "/api/Submission/" + this.props.params.id)
       //.get("http://localhost:8080/www/submission?.json")
       .then(({ data }) => {
         let submission = data;
@@ -228,7 +228,7 @@ export default class Ma7dar extends Component {
               ownerdesc: ownerdesc,
               mainObject: mainObject,
               // printObj: printObj,
-              id: this.props.match.params.id,
+              id: this.props.params.id,
               submission: submission,
               parcelDesc: parcelDesc,
             });

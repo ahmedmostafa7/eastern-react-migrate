@@ -54,7 +54,7 @@ export default class BuyZayda extends Component {
     }
   }
   componentDidMount() {
-    initializeSubmissionData(this.props.match.params.id).then((response) => {
+    initializeSubmissionData(this.props.params.id).then((response) => {
       var mainObject = response.mainObject;
       let dataZayda =
         mainObject["buy_zayda"]["zayda_data"] || mainObject["buy_zayda"];
@@ -100,7 +100,7 @@ export default class BuyZayda extends Component {
       // zayda_area = zayda_area.toFixed(2);
       // console.log("شطفات", shatfa_lengths);
       /*نهاية الشطفات*/
-      
+
       let sakk = Object.values(mainObject?.sakData?.sakData?.saks);
       // let sakRandomNum = sakk && Object.keys(sakk);
       // let mun_opinion = get(

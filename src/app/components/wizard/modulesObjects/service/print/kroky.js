@@ -9,7 +9,7 @@ import { get, map } from "lodash";
 export default class Kroky extends Component {
   state = { data: [] };
   componentDidMount() {
-    initializeSubmissionData(this.props.match.params.id).then((res) => {
+    initializeSubmissionData(this.props.params.id).then((res) => {
       let mainObject = res.mainObject;
       let submissionData = res.submission;
       let committee_report_no = get(submissionData, "committee_report_no");

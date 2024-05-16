@@ -53,8 +53,8 @@ class landsallotment_adle extends Component {
   };
   componentDidMount() {
     const { t } = this.props;
-    console.log("match_id", this.props.match.params.id);
-    initializeSubmissionData(this.props.match.params.id).then((response) => {
+    console.log("match_id", this.props.params.id);
+    initializeSubmissionData(this.props.params.id).then((response) => {
       getSubmissionHistory(response.submission.workflow_id, this.props).then(
         (result) => {
           var mainObject = response.mainObject;
@@ -62,7 +62,7 @@ class landsallotment_adle extends Component {
           let submission = response.submission;
           this.state["steps_history"] = result.steps_history;
           this.state["historydata"] = response.historyData;
-          this.setState({ id: this.props.match.params.id });
+          this.setState({ id: this.props.params.id });
           let printObj = response?.printObj;
           let title1 = response?.printObj?.printTextEdited?.adle?.title1;
           let title2 = response?.printObj?.printTextEdited?.adle?.title2;

@@ -237,7 +237,6 @@ class SuggestParcelFiled extends Component {
         );
       });
 
-    debugger;
     let { boundsFields, boundsOnly } = this.props;
     if (boundsOnly && this.props.input?.value?.polygons) {
       this.props.input.value.polygons.forEach((e) => {

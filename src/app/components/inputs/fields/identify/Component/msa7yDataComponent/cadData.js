@@ -1781,7 +1781,6 @@ class cadDataComponent extends Component {
                           Query.SPATIAL_REL_INTERSECTS;
                       },
                       callbackResult: (res) => {
-                        debugger;
                         if (res.features.length) {
                           this.state.isUnPlannedParcelIntersect =
                             " ( " +
@@ -1796,9 +1795,7 @@ class cadDataComponent extends Component {
                           });
                         }
                       },
-                      errorCallbackResult: (res) => {
-                        debugger;
-                      },
+                      errorCallbackResult: (res) => {},
                     });
                   });
                 }

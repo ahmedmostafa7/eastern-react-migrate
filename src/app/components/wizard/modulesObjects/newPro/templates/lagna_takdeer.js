@@ -16,7 +16,7 @@ export default class Takdeer extends Component {
   componentDidMount() {
     console.log("ss", this.props);
     let self = this;
-    initializeSubmissionData(this.props.match.params.id).then((response) => {
+    initializeSubmissionData(this.props.params.id).then((response) => {
       var mainObject = response.mainObject;
       let ceator_user_name = response.ceator_user_name;
       let submission = response.submission;
@@ -540,8 +540,12 @@ export default class Takdeer extends Component {
                         {convertToArabic(commite_num)} وتاريخ{" "}
                         {convertToArabic(commite_date)}هـ بمبلغ إجمالي مقداره{" "}
                         {convertToArabic(total_price)} ( {total_price_letters} )
-                        {(total_price_letters?.indexOf("ريال") == -1 && "ريال") || ""} بواقع مبلغ {convertToArabic(meter_price)} (
-                        {meter_text}) {(meter_text?.indexOf("ريال") == -1 && "ريال") || ""} للمتر المربع.
+                        {(total_price_letters?.indexOf("ريال") == -1 &&
+                          "ريال") ||
+                          ""}{" "}
+                        بواقع مبلغ {convertToArabic(meter_price)} ({meter_text}){" "}
+                        {(meter_text?.indexOf("ريال") == -1 && "ريال") || ""}{" "}
+                        للمتر المربع.
                       </p>
                     )}
                   {isZaedaLgnah &&
@@ -551,9 +555,13 @@ export default class Takdeer extends Component {
                         {convertToArabic(commite_num)} وتاريخ{" "}
                         {convertToArabic(commite_date)}هـ بمبلغ إجمالي مقداره{" "}
                         {this.convertEnglishToArabic(total_price)} ({" "}
-                        {total_price_letters} ) {(total_price_letters?.indexOf("ريال") == -1 && "ريال") || ""} بواقع مبلغ{" "}
-                        {convertToArabic(meter_price)} ({meter_text}) {(meter_text?.indexOf("ريال") == -1 && "ريال") || ""} للمتر
-                        المربع.
+                        {total_price_letters} ){" "}
+                        {(total_price_letters?.indexOf("ريال") == -1 &&
+                          "ريال") ||
+                          ""}{" "}
+                        بواقع مبلغ {convertToArabic(meter_price)} ({meter_text}){" "}
+                        {(meter_text?.indexOf("ريال") == -1 && "ريال") || ""}{" "}
+                        للمتر المربع.
                       </p>
                     )}
 
@@ -562,8 +570,12 @@ export default class Takdeer extends Component {
                       <p style={{ lineHeight: "1.5" }}>
                         {debaghText} &nbsp;بمبلغ إجمالي مقداره{" "}
                         {convertToArabic(total_price)} ( {total_price_letters} )
-                        {(total_price_letters?.indexOf("ريال") == -1 && "ريال") || ""} بواقع مبلغ {convertToArabic(meter_price)} (
-                        {meter_text}) {(meter_text?.indexOf("ريال") == -1 && "ريال") || ""} للمتر المربع.
+                        {(total_price_letters?.indexOf("ريال") == -1 &&
+                          "ريال") ||
+                          ""}{" "}
+                        بواقع مبلغ {convertToArabic(meter_price)} ({meter_text}){" "}
+                        {(meter_text?.indexOf("ريال") == -1 && "ريال") || ""}{" "}
+                        للمتر المربع.
                       </p>
                     )}
                   {!isZaedaLgnah &&
@@ -571,8 +583,10 @@ export default class Takdeer extends Component {
                       <p style={{ lineHeight: "1.5" }}>
                         {debaghText} &nbsp;بمبلغ إجمالي مقداره{" "}
                         {convertToArabic(total_price)} ( {total_price_letters} )
-                        {(total_price_letters?.indexOf("ريال") == -1 && "ريال") || ""} بواقع مبلغ {convertToArabic(meter_price)} (
-                        {meter_text}){" "}
+                        {(total_price_letters?.indexOf("ريال") == -1 &&
+                          "ريال") ||
+                          ""}{" "}
+                        بواقع مبلغ {convertToArabic(meter_price)} ({meter_text}){" "}
                         {(meter_text?.indexOf("ريال") == -1 && "ريال") || ""}{" "}
                         للمتر المربع.
                       </p>

@@ -18,8 +18,8 @@ import SignPics from "../../../../editPrint/signPics";
 export default class Lagna extends Component {
   state = { data: [] };
   componentDidMount() {
-    console.log("match_id", this.props.match.params.id);
-    initializeSubmissionData(this.props.match.params.id).then((response) => {
+    console.log("match_id", this.props.params.id);
+    initializeSubmissionData(this.props.params.id).then((response) => {
       var mainObject = response.mainObject;
       let ceator_user_name = response.ceator_user_name;
       let submission = response.submission;
@@ -43,20 +43,20 @@ export default class Lagna extends Component {
       );
 
       var ownerNames = "";
-    var owners = get(
-      mainObject,
-      "ownerData.ownerData.owners",
-      get(mainObject, "ownerData.ownerData", [])
-    );
-    Object.keys(owners).map((key) => {
-      ownerNames +=
-        (!isEmpty(ownerNames) ? ", " + owners[key].name : owners[key].name) ||
-        "";
-    });
+      var owners = get(
+        mainObject,
+        "ownerData.ownerData.owners",
+        get(mainObject, "ownerData.ownerData", [])
+      );
+      Object.keys(owners).map((key) => {
+        ownerNames +=
+          (!isEmpty(ownerNames) ? ", " + owners[key].name : owners[key].name) ||
+          "";
+      });
 
-    let owners_name =
-      ownerNames ||
-      get(mainObject, "destinationData.destinationData.entity.name", "");
+      let owners_name =
+        ownerNames ||
+        get(mainObject, "destinationData.destinationData.entity.name", "");
       let plan_no = get(mainObject, "lagna_karar.lagna_karar.plan_number", "");
       let plan_name = get(mainObject, "lagna_karar.lagna_karar.plan_name", "");
       let city = get(

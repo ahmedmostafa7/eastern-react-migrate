@@ -181,7 +181,6 @@ class fileUploaderComponent extends Component {
   };
 
   onChangeFile(event) {
-    debugger;
     const {
       preRequest = (props) => {
         return new Promise((resolve, reject) => {

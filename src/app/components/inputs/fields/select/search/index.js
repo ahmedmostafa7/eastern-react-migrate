@@ -73,7 +73,6 @@ class SearchComponent extends Component {
   // }
   handleChange = (name, ev) => {
     const { postRequest, method } = this.props;
-    debugger;
     this.setState({
       [name]:
         (method != "esri" &&
@@ -118,7 +117,6 @@ class SearchComponent extends Component {
     if (this.timer) {
       clearTimeout(this.timer);
     }
-    debugger;
     if (
       (value && value?.length > min) ||
       value == null ||

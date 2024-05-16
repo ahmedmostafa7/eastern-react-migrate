@@ -24,8 +24,8 @@ import { queryTask_updated } from "../../../../inputs/fields/identify/Component/
 export default class addstreets extends Component {
   state = { data: [] };
   componentDidMount() {
-    console.log("match_id", this.props.match.params.id);
-    initializeSubmissionData(this.props.match.params.id).then((response) => {
+    console.log("match_id", this.props.params.id);
+    initializeSubmissionData(this.props.params.id).then((response) => {
       var mainObject = response.mainObject;
       let ceator_user_name = response.ceator_user_name;
       let submission = response.submission;
@@ -61,13 +61,12 @@ export default class addstreets extends Component {
       let committeeactors3_id = actors?.find((r) => r.index == 2)?.id;
       let committeeactors4_id = actors?.find((r) => r.index == 3)?.id;
       let committeeactors5_id = actors?.find((r) => r.index == 4)?.id;
-      
+
       let scope = this;
       getUsingSymbols().then((res) => {
         esriRequest(window.planMapEditing + "MapServer/layers").then(function (
           maplayers
         ) {
-          
           if (window.planMapEditing) {
             var layer = _.find(maplayers.tables, function (d) {
               return d.name == "Tbl_Parcel_Conditions";
@@ -80,7 +79,6 @@ export default class addstreets extends Component {
                   "'",
                 ["*"],
                 function (result) {
-                  
                   scope.setState({
                     using_symbol: res?.find(
                       (r) =>
@@ -133,20 +131,20 @@ export default class addstreets extends Component {
       });
 
       var ownerNames = "";
-    var owners = get(
-      mainObject,
-      "ownerData.ownerData.owners",
-      get(mainObject, "ownerData.ownerData", [])
-    );
-    Object.keys(owners).map((key) => {
-      ownerNames +=
-        (!isEmpty(ownerNames) ? ", " + owners[key].name : owners[key].name) ||
-        "";
-    });
+      var owners = get(
+        mainObject,
+        "ownerData.ownerData.owners",
+        get(mainObject, "ownerData.ownerData", [])
+      );
+      Object.keys(owners).map((key) => {
+        ownerNames +=
+          (!isEmpty(ownerNames) ? ", " + owners[key].name : owners[key].name) ||
+          "";
+      });
 
-    let owners_name =
-      ownerNames ||
-      get(mainObject, "destinationData.destinationData.entity.name", "");
+      let owners_name =
+        ownerNames ||
+        get(mainObject, "destinationData.destinationData.entity.name", "");
       let request_type = get(
         mainObject,
         "data_msa7y.msa7yData.submissionType",
@@ -162,7 +160,7 @@ export default class addstreets extends Component {
         "data_msa7y.msa7yData.benefitsType",
         ""
       );
-      
+
       let plan_no = get(mainObject, "landData.landData.PLAN_NO", "");
       let district = get(
         mainObject,

@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { Component, useEffect, useState } from "react";
 import {
   // HashRouter as Router,
   Route,
@@ -46,61 +46,123 @@ import axios from "axios";
 import AdminMainPage from "../../app/components/adminComponents/AdminMainPage";
 import NotFoundPage from "./errorFile";
 import { workFlowUrl } from "imports/config";
+// console.log(window.location.href);
 
+function getAppDetails() {
+  let url = window.location.pathname;
+  let appName;
+  if (url.includes("wizardById")) {
+    appName = localStorage.getItem("appname");
+  } else {
+    appName = url.split("submissions/")[1].toLocaleLowerCase().replace("", "");
+  }
+  // console.log("appn", appName);
+  let SplitappName = "splitandmerge." + appName;
+  let userApplications = [
+    ...JSON.parse(localStorage.getItem("user")).groups.map((x) =>
+      x.groups_permissions.map((f) => f.applications)
+    ),
+  ];
+  // console.log("up", userApplications);
+  let AlluserApps = userApplications?.reduce((a, b) => {
+    return [...a, ...b];
+  }, []);
+  // if (!/\d/.test(appName)) {
+  let arabicName = AlluserApps?.find(
+    (x) => x.name.toLowerCase() == SplitappName.toLowerCase()
+  )?.translate_ar_caption;
+
+  let englishName = AlluserApps?.find(
+    (x) => x.name.toLowerCase() == SplitappName.toLowerCase()
+  )?.name;
+  let AppColor = AlluserApps?.find(
+    (x) => x.name.toLowerCase() == SplitappName.toLowerCase()
+  )?.color;
+  if (appName.toLowerCase() == "addedparcels") {
+    window.isPlusApp = true;
+    window.isAkarApp = false;
+  } else if (appName.toLowerCase() == "tamlikakar") {
+    window.isAkarApp = true;
+
+    window.isPlusApp = false;
+  } else if (
+    // window.location.href.indexOf("admin") > -1 ||
+    window.location.href.indexOf("steps") > -1
+  ) {
+    window.isPlusApp = false;
+    window.isAkarApp = false;
+    // setAraName(" إدارة النظام" + window.appversion);
+    // setColor("");
+  } else {
+    window.isAkarApp = false;
+
+    window.isPlusApp = false;
+  }
+
+  return {
+    arabicName,
+    AppColor,
+  };
+}
+function userDetails(params, addUser, setSuperAdmin) {
+  const Token = get(params, "tk");
+  if (Token) {
+    localStorage.setItem("token", Token);
+    const url = workFlowUrl + "/authenticate";
+    let urlCheck = workFlowUrl + "/checkEngCompCirculars";
+    postItem(url)
+      .then((res) => {
+        addUser(res);
+        // setSuperAdmin(res.is_super_admin);
+        let noTokenUser = Object.assign({}, res);
+        noTokenUser["token"] = null;
+        noTokenUser["esri_token"] = null;
+        noTokenUser["esriToken"] = null;
+        localStorage.setItem("user", JSON.stringify(noTokenUser));
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("esri_token", res.esriToken);
+        axios.get(urlCheck).then((res) => {
+          if (res.data) {
+            Modal.error({
+              title: "تنبيه",
+              content:
+                "عذرا، يرجي قراءة وإنهاء التعميمات المرسلة لديكم حتي يتثني لكم التعامل على التطبيق",
+            });
+            Modal.closable = false;
+            Modal.footer = null;
+            Modal.okText = "تم";
+            Modal.wrapClassName = "ss";
+            Modal.onOk = () => {};
+          }
+        });
+      })
+      .catch((err = {}) => {
+        console.log(err);
+        if (get(err.response, "status") == 403) {
+          message.error(err.response.data);
+        } else {
+          message.error("حدث خطأ");
+        }
+      });
+  } else {
+    const user = localStorage.getItem("user");
+    if (user) {
+      addUser(JSON.parse(user));
+      // this.setState({ superAdmin: JSON.parse(user).is_super_admin });
+    }
+  }
+}
 function Routing({ addUser }) {
-  const { app } = useParams();
-
-  console.log(app);
+  const [appDetails, setAppDetails] = useState({});
+  const [appsArabicNames, , setAllAppsAraName] = useState("");
+  const [superAdmin, , setSuperAdmin] = useState({});
+  // console.log(app);
   useEffect(() => {
     const urlParams = get(window.location.href.split("?"), "1");
     const params = qs.parse(urlParams, { ignoreQueryPrefix: true });
 
-    const Token = get(params, "tk");
-    if (Token) {
-      localStorage.setItem("token", Token);
-      const url = workFlowUrl + "/authenticate";
-      let urlCheck = workFlowUrl + "/checkEngCompCirculars";
-      postItem(url)
-        .then((res) => {
-          addUser(res);
-          // this.setState({ superAdmin: res.is_super_admin });
-          let noTokenUser = Object.assign({}, res);
-          noTokenUser["token"] = null;
-          noTokenUser["esri_token"] = null;
-          noTokenUser["esriToken"] = null;
-          localStorage.setItem("user", JSON.stringify(noTokenUser));
-          localStorage.setItem("token", res.token);
-          localStorage.setItem("esri_token", res.esriToken);
-          axios.get(urlCheck).then((res) => {
-            if (res.data) {
-              Modal.error({
-                title: "تنبيه",
-                content:
-                  "عذرا، يرجي قراءة وإنهاء التعميمات المرسلة لديكم حتي يتثني لكم التعامل على التطبيق",
-              });
-              Modal.closable = false;
-              Modal.footer = null;
-              Modal.okText = "تم";
-              Modal.wrapClassName = "ss";
-              Modal.onOk = () => {};
-            }
-          });
-        })
-        .catch((err = {}) => {
-          console.log(err);
-          if (get(err.response, "status") == 403) {
-            message.error(err.response.data);
-          } else {
-            message.error("حدث خطأ");
-          }
-        });
-    } else {
-      const user = localStorage.getItem("user");
-      if (user) {
-        addUser(JSON.parse(user));
-        // this.setState({ superAdmin: JSON.parse(user).is_super_admin });
-      }
-    }
+    userDetails(params, addUser, setSuperAdmin);
+    setAppDetails(getAppDetails());
   }, []);
 
   const router = createBrowserRouter(
@@ -121,7 +183,7 @@ function Routing({ addUser }) {
       </Route>
     )
   );
-
+  // console.log(appDetails);
   return (
     <div>
       <RouterProvider router={router} />;

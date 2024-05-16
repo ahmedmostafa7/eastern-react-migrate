@@ -47,7 +47,7 @@ class landsallotment_print extends Component {
             let submission = response.submission;
             this.state["steps_history"] = result.steps_history;
             this.state["historydata"] = response.historyData;
-            this.setState({ id: this.props.match.params.id });
+            this.setState({ id: this.props.params.id });
             let printObj = response?.printObj;
             let title1 = response?.printObj?.printTextEdited?.landsroll?.title1;
             let title2 = response?.printObj?.printTextEdited?.landsroll?.title2;

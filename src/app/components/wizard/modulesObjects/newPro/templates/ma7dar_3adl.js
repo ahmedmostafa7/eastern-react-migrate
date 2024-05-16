@@ -19,8 +19,8 @@ import { initializeSubmissionData } from "main_helpers/functions/prints";
 export default class Khetab extends Component {
   state = { name: "" };
   componentDidMount() {
-    if (this.props.match.params.id) {
-      initializeSubmissionData(this.props.match.params.id).then((response) => {
+    if (this.props.params.id) {
+      initializeSubmissionData(this.props.params.id).then((response) => {
         var mainObject = response.mainObject;
         let ceator_user_name = response.ceator_user_name;
         let submission = response.submission;
@@ -731,10 +731,10 @@ export default class Khetab extends Component {
                           >
                             {sakObj.map((sak) => (
                               <div
-                                // style={{
-                                //   display: "grid",
-                                //   justifyItems: "flex-end",
-                                // }}
+                              // style={{
+                              //   display: "grid",
+                              //   justifyItems: "flex-end",
+                              // }}
                               >
                                 <span
                                   style={{
@@ -767,10 +767,10 @@ export default class Khetab extends Component {
                             {(sakObj?.filter((r) => r?.lands?.length)?.length &&
                               sakObj?.map((sak) => (
                                 <div
-                                  // style={{
-                                  //   display: "grid",
-                                  //   justifyItems: "flex-end",
-                                  // }}
+                                // style={{
+                                //   display: "grid",
+                                //   justifyItems: "flex-end",
+                                // }}
                                 >
                                   <span
                                     style={{
@@ -963,25 +963,32 @@ export default class Khetab extends Component {
                       <div>
                         {boundsOfPolygons.map((polygon) => (
                           <>
-                            <p>&nbsp; &nbsp; &nbsp; حدود وأبعاد ومساحة القطعة رقم {convertToArabic(polygon.parcel_name)} كالتالي :</p>
                             <p>
-                              شمالا : بطول {convertToArabic(polygon.data[0].totalLength)} متر ({" "}
-                              {polygon.north} ) ويحدها{" "}
+                              &nbsp; &nbsp; &nbsp; حدود وأبعاد ومساحة القطعة رقم{" "}
+                              {convertToArabic(polygon.parcel_name)} كالتالي :
+                            </p>
+                            <p>
+                              شمالا : بطول{" "}
+                              {convertToArabic(polygon.data[0].totalLength)} متر
+                              ( {polygon.north} ) ويحدها{" "}
                               {convertToArabic(polygon.north_Desc)} .
                             </p>
                             <p>
-                              جنوبا : بطول {convertToArabic(polygon.data[4].totalLength)} متر ({" "}
-                              {polygon.south} ) ويحدها{" "}
+                              جنوبا : بطول{" "}
+                              {convertToArabic(polygon.data[4].totalLength)} متر
+                              ( {polygon.south} ) ويحدها{" "}
                               {convertToArabic(polygon.south_Desc)} .
                             </p>
                             <p>
-                              شرقا : بطول {convertToArabic(polygon.data[1].totalLength)} متر ({" "}
-                              {polygon.east} ) ويحدها{" "}
+                              شرقا : بطول{" "}
+                              {convertToArabic(polygon.data[1].totalLength)} متر
+                              ( {polygon.east} ) ويحدها{" "}
                               {convertToArabic(polygon.east_Desc)} .
                             </p>
                             <p>
-                              غربا : بطول {convertToArabic(polygon.data[3].totalLength)} متر ({" "}
-                              {polygon.west} ) ويحدها{" "}
+                              غربا : بطول{" "}
+                              {convertToArabic(polygon.data[3].totalLength)} متر
+                              ( {polygon.west} ) ويحدها{" "}
                               {convertToArabic(polygon.weast_Desc)} .
                             </p>
                             <p>
@@ -1269,25 +1276,32 @@ export default class Khetab extends Component {
                       <div>
                         {boundsOfPolygons.map((polygon) => (
                           <>
-                            <p>&nbsp; &nbsp; &nbsp; حدود وأبعاد ومساحة القطعة رقم {convertToArabic(polygon.parcel_name)} كالتالي :</p>
                             <p>
-                              شمالا : بطول {convertToArabic(polygon.data[0].totalLength)} متر ({" "}
-                              {polygon.north} ) ويحدها{" "}
+                              &nbsp; &nbsp; &nbsp; حدود وأبعاد ومساحة القطعة رقم{" "}
+                              {convertToArabic(polygon.parcel_name)} كالتالي :
+                            </p>
+                            <p>
+                              شمالا : بطول{" "}
+                              {convertToArabic(polygon.data[0].totalLength)} متر
+                              ( {polygon.north} ) ويحدها{" "}
                               {convertToArabic(polygon.north_Desc)} .
                             </p>
                             <p>
-                              جنوبا : بطول {convertToArabic(polygon.data[4].totalLength)} متر ({" "}
-                              {polygon.south} ) ويحدها{" "}
+                              جنوبا : بطول{" "}
+                              {convertToArabic(polygon.data[4].totalLength)} متر
+                              ( {polygon.south} ) ويحدها{" "}
                               {convertToArabic(polygon.south_Desc)} .
                             </p>
                             <p>
-                              شرقا : بطول {convertToArabic(polygon.data[1].totalLength)} متر ({" "}
-                              {polygon.east} ) ويحدها{" "}
+                              شرقا : بطول{" "}
+                              {convertToArabic(polygon.data[1].totalLength)} متر
+                              ( {polygon.east} ) ويحدها{" "}
                               {convertToArabic(polygon.east_Desc)} .
                             </p>
                             <p>
-                              غربا : بطول {convertToArabic(polygon.data[3].totalLength)} متر ({" "}
-                              {polygon.west} ) ويحدها{" "}
+                              غربا : بطول{" "}
+                              {convertToArabic(polygon.data[3].totalLength)} متر
+                              ( {polygon.west} ) ويحدها{" "}
                               {convertToArabic(polygon.weast_Desc)} .
                             </p>
                             <p>

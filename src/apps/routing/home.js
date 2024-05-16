@@ -4,6 +4,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 
 export default function home() {
+  // console.log("ff", props);
   return (
     <div>
       <Header />
@@ -12,3 +13,4 @@ export default function home() {
     </div>
   );
 }
+// render={(props) => <Dashboard {...props} authed={true} />}

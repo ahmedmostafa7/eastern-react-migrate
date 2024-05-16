@@ -21,7 +21,6 @@ import "antd/dist/reset.css";
 // import "imports/configT";
 // import "./imports/config-link";
 import "imports/config";
-console.log(window.__config);
 // import "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css";
 // import "antd/dist/antd.css";
 interceptor();
@@ -29,7 +28,6 @@ if (!localStorage.esri_token && localStorage.user) {
   window.esriToken = JSON.parse(localStorage.getItem("user")).esriToken;
 } else {
   window.esriToken = localStorage.esri_token;
-  console.log(i18n);
 }
 
 const root = createRoot(document.getElementById("app"));

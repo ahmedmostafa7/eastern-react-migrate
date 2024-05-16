@@ -62,7 +62,6 @@ class textComp extends mainInput {
               {...{ style }}
               title={title}
               onChange={(evt) => {
-                debugger;
                 if (onChangeInput) {
                   onChangeInput(this.props, evt);
                 }
@@ -85,7 +84,6 @@ class textComp extends mainInput {
             {...{ style }}
             title={title}
             onChange={(evt) => {
-              debugger;
               if (onChangeInput) {
                 onChangeInput(this.props, evt);
               }

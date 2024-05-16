@@ -35,13 +35,13 @@ class sakPropertycheck_letter extends Component {
   };
   componentDidMount() {
     const { t } = this.props;
-    console.log("match_id", this.props.match.params.id);
-    initializeSubmissionData(this.props.match.params.id).then((response) => {
+    console.log("match_id", this.props.params.id);
+    initializeSubmissionData(this.props.params.id).then((response) => {
       var mainObject = response.mainObject;
       let ceator_user_name = response.ceator_user_name;
       let submission = response.submission;
       this.state["historydata"] = response.historyData;
-      this.setState({ id: this.props.match.params.id });
+      this.setState({ id: this.props.params.id });
       let printObj = response?.printObj;
       let title1 = response?.printObj?.printTextEdited?.propertyroll?.title1;
       let title2 = response?.printObj?.printTextEdited?.propertyroll?.title2;

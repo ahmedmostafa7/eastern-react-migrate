@@ -209,7 +209,6 @@ class propertyRemoval_compensationShakeComponent extends Component {
   myChangeHandler = (url, name, i, e) => {
     // this["edit_" + name + i] =
     //   (typeof event != "object" && event) || event.target.value;
-    debugger;
     if (e.attributes) {
       e.attributes[name] = url;
     } else {
@@ -429,7 +428,7 @@ class propertyRemoval_compensationShakeComponent extends Component {
                                                 //           ]
                                                 //         }
                                                 //         postRequest={(url) => {
-                                                //           debugger;
+                                                //           ;
                                                 //           this.myChangeHandler(
                                                 //             url,
                                                 //             field.name,
@@ -526,7 +525,6 @@ class propertyRemoval_compensationShakeComponent extends Component {
                                                     e.attributes[field.name]
                                                   }
                                                   postRequest={(url) => {
-                                                    debugger;
                                                     this.myChangeHandler(
                                                       url,
                                                       field.name,

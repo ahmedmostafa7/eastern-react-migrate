@@ -343,7 +343,6 @@ export const Tafqeet = (n) => {
   NbrAsText_GOutPut = "";
   AllOut = "";
   n.split(".").forEach((num) => {
-    debugger;
     var arr = n.match(
       new RegExp(`\\d{1,${num.length}}(?=(\d{${num.length}})*$)`, "g")
     );

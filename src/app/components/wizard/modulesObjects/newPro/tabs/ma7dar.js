@@ -24,7 +24,6 @@ export default {
           maxLength: 15,
           required: true,
           onChangeInput: (props, evt) => {
-            debugger;
             let val = evt.target.value;
             if (val) {
               if (val?.match(/[+-]?\d+(\.\d+)?/g)) {
@@ -95,7 +94,6 @@ export default {
           deps: ["values"],
           values: "meter_price",
           totalChange: (props, val) => {
-            debugger;
             if (val) {
               if (val?.match(/[+-]?\d+(\.\d+)?/g)) {
                 props.change(
