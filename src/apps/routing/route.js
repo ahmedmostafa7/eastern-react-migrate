@@ -175,7 +175,7 @@ function Routing({ addUser }) {
         <Route path="/wizard" element={<WizardWorkFlow />} />
         <Route path="/steps" element={<WorkflowSteps />} />
         <Route path="*" element={<NotFoundPage />} />
-        {/* <Route path="/prints/*" element={<PrintRoutes />} /> */}
+        <Route path="/prints/*" element={<PrintRoutes />} />
         {/* {isSuperAdmin?.is_super_admin && (
 //           <Route path="/admin"element={<AdminMainPage/>} />
 //         )} */}
